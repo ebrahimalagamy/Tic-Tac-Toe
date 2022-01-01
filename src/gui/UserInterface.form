@@ -562,6 +562,7 @@
                   <AbsoluteConstraints x="530" y="180" width="154" height="47"/>
                 </Constraint>
               </Constraints>
+
             </Component>
             <Component class="javax.swing.JButton" name="multiBtn">
               <Properties>
