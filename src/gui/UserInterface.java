@@ -313,7 +313,6 @@ public class UserInterface extends javax.swing.JFrame {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
 
-        
         String dataSignIn = new String();
         dataSignIn=Authentication.signIn(usernameField.getText(),passwordField.getText());
         playerOne.sendSignInData(dataSignIn);
@@ -331,7 +330,6 @@ public class UserInterface extends javax.swing.JFrame {
             playerOne.sendSignUpData(dataSignUp);
             JOptionPane.showMessageDialog(null,"Saved data","Congratulations",1);
             crd.show(cards,"card3");
-            
         }
         else
         JOptionPane.showMessageDialog(null,"Don't match passwords","Error",1);
@@ -448,9 +446,4 @@ public class UserInterface extends javax.swing.JFrame {
    public void inValidSignIn(){
     JOptionPane.showMessageDialog(null,"Error in username or password.","Error",1);
    }
-    
-
-
-
-
 }

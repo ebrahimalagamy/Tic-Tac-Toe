@@ -1,18 +1,18 @@
-package levels;
+package single;
 
 import java.awt.Color;
 import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class EasyMode {
+public class EasyClass {
     JLabel[] arrayOfLabals;
      JPanel parentPanal;
      JLabel firstPlayerScore, secondPlayerScore;
      JLabel pressedLabel;
      int XOCounter ;
 
-    public EasyMode(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter) {
+    public EasyClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter) {
         this.arrayOfLabals = arrayOfLabals;
         this.parentPanal = parentPanal;
         this.firstPlayerScore = firstPlayerScore;
