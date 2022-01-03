@@ -1,16 +1,21 @@
-package tic.tac.toe;
+package gui;
 
 import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 public class UserInterface extends javax.swing.JFrame {
 
     
     GamePlayer playerOne;
+    CardLayout crd;
 
     public UserInterface() {
         playerOne = new GamePlayer(this);
         initComponents();
+      
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -141,12 +146,12 @@ public class UserInterface extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(186, 79, 84));
         jLabel3.setText("Sign up for new account");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 260, 32));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 260, 32));
 
         jLabel5.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(186, 79, 84));
         jLabel5.setText("Username");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(186, 79, 84));
@@ -157,53 +162,53 @@ public class UserInterface extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(186, 79, 84));
         jLabel7.setText("Password");
         jLabel7.setToolTipText("");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         jTextField1.setForeground(new java.awt.Color(153, 153, 153));
         jTextField1.setText("Username");
         jTextField1.setToolTipText("");
-        jTextField1.setBorder(null);
+        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField1MouseClicked(evt);
             }
         });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 172, 20));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 172, 20));
 
         jTextField2.setForeground(new java.awt.Color(153, 153, 153));
         jTextField2.setText("E-mail");
-        jTextField2.setBorder(null);
+        jTextField2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField2MouseClicked(evt);
             }
         });
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 172, 20));
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 172, 20));
 
         jPasswordField1.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordField1.setText("Password");
-        jPasswordField1.setBorder(null);
+        jPasswordField1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordField1MouseClicked(evt);
             }
         });
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 171, 20));
+        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 171, 20));
 
         jLabel8.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(186, 79, 84));
         jLabel8.setText("Confirm Password");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
 
         jPasswordField2.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordField2.setText("Password");
-        jPasswordField2.setBorder(null);
+        jPasswordField2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
         jPasswordField2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordField2MouseClicked(evt);
             }
         });
-        jPanel2.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 171, 20));
+        jPanel2.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 171, 20));
 
         confirmBtn.setBackground(new java.awt.Color(204, 204, 204));
         confirmBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -228,16 +233,16 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel2.add(cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 110, -1));
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 170, 10));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 170, 10));
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 170, 10));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 170, 10));
 
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 170, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 170, 10));
 
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 170, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 170, 10));
 
         cards.add(jPanel2, "card2");
 
@@ -248,7 +253,6 @@ public class UserInterface extends javax.swing.JFrame {
         singleBtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         singleBtn.setForeground(new java.awt.Color(186, 79, 84));
         singleBtn.setText("Single PLayer");
-
         singleBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
         jPanel3.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 154, 47));
 
@@ -295,7 +299,8 @@ public class UserInterface extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ 
+ 
     private void signupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBtnActionPerformed
         crd = (CardLayout) cards.getLayout(); 
         crd.show(cards,"card2");
@@ -317,7 +322,7 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
-        CardLayout crd = (CardLayout) cards.getLayout();
+        crd = (CardLayout) cards.getLayout();
         String dataSignUp = new String();
         if (jPasswordField1.getText().equals(jPasswordField2.getText()))
         {
@@ -337,7 +342,7 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1MouseClicked
 
     private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
-        if( jTextField2.getText().equals("Email"))
+        if( jTextField2.getText().equals("E-mail"))
         jTextField2.setText("");
     }//GEN-LAST:event_jTextField2MouseClicked
 
@@ -435,7 +440,7 @@ public class UserInterface extends javax.swing.JFrame {
 
     
     public void validSignIn(){
-    CardLayout crd = (CardLayout) cards.getLayout();
+    crd = (CardLayout) cards.getLayout();
      crd.show(cards,"card3");
    }
     
