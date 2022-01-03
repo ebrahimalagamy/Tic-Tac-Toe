@@ -323,6 +323,7 @@ public class UserInterface extends javax.swing.JFrame {
 
     private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
         crd = (CardLayout) cards.getLayout();
+        
         String dataSignUp = new String();
         if (jPasswordField1.getText().equals(jPasswordField2.getText()))
         {
