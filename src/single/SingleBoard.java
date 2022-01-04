@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javafx.application.Application;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import tic.tac.toe.TicTacToe;
+import video.VideoGame;
 
 public class SingleBoard extends JFrame {
 
@@ -88,8 +90,8 @@ public class SingleBoard extends JFrame {
 
         for (int i = 0; i < arrayOfLabals.length; i++) {
             arrayOfLabals[i] = new JLabel("", JLabel.CENTER);
-            arrayOfLabals[i].setFont(new Font("Arial", Font.BOLD, 40));
-            arrayOfLabals[i].setBackground(new Color(215, 127, 161));
+            arrayOfLabals[i].setFont(new Font("Verdana", Font.BOLD, 50));
+            arrayOfLabals[i].setBackground(Color.cyan);
             gamePanal.add(arrayOfLabals[i]);
         }
 
@@ -105,7 +107,7 @@ public class SingleBoard extends JFrame {
         gamePanal.setBackground(null);
         gameParentPanal.add(selectMode);
         selectMode.setBounds(200, 10, 50, 50);
-        selectMode.setForeground(new Color(215, 127, 161));
+        selectMode.setForeground(new Color(255, 249, 249));
         selectMode.setFont(new Font("Arial", Font.BOLD, 20));
 
         gameParentPanal.add(backImage);
@@ -170,24 +172,41 @@ public class SingleBoard extends JFrame {
         l2.setOpaque(true);
         l3.setOpaque(true);
         isGameEnds = true;
+        
+       
     }
 
     private boolean isOnePlayerGameEnds(JLabel pressedLabel) {
-        boolean check = false;
-
-        EasyClass e = new EasyClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter);
-        check = e.isOnePlayerGameEnds();
-        XOCounter += 2;
-        if (check) {
-            removeXOListener();
-            repaint();
-            return true;
-        } else {
-            return false;
-        }
-
+        
+        if(selectMode.getText()=="Easy"){
+            
+            boolean check = false;
+            EasyClass e = new EasyClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter);
+            check = e.isOnePlayerGameEnds();
+            XOCounter += 2;
+            if (check) {
+                removeXOListener();
+                repaint();
+                return true;
+            } else {
+                return false;
+            }
+        }else{
+           
+            System.out.println("from hard");
+            boolean check = false;
+            EasyClass e = new EasyClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter);
+            check = e.isOnePlayerGameEnds();
+            XOCounter += 2;
+            if (check) {
+                removeXOListener();
+                repaint();
+                return true;
+            } else {
+                return false;
+            }
+        } 
     }
-
     private void removeXOListener() {
         for (JLabel gamePage_boardLabel : arrayOfLabals) {
             gamePage_boardLabel.removeMouseListener(XOListener);
@@ -279,6 +298,8 @@ public class SingleBoard extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 XOCounter = 0;
                 startNewGame();
+                
+                Application.launch(VideoGame.class);
 
             }
         });
@@ -288,6 +309,19 @@ public class SingleBoard extends JFrame {
                 setVisible(false);
             }
         });
+
+        btnHard.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+               selectMode.setText("Hard");
+            }
+        });
+        
+          btnEasy.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+               selectMode.setText("Easy");
+            }
+        });
+
 
         setTitle("Tic Tac Toe");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

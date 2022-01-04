@@ -1,16 +1,20 @@
 package single;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Random;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class EasyClass {
+public class EasyClass extends JFrame{
     JLabel[] arrayOfLabals;
      JPanel parentPanal;
      JLabel firstPlayerScore, secondPlayerScore;
      JLabel pressedLabel;
      int XOCounter ;
+     ImageIcon xIcon;
 
     public EasyClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter) {
         this.arrayOfLabals = arrayOfLabals;
@@ -25,6 +29,13 @@ public class EasyClass {
     boolean isGameEnds = false;
     int randomNumber;
     Random random = new Random();
+   
+    private void createGamePage() {
+    
+        
+    xIcon =new ImageIcon("images/vs.png");
+    
+    }
     
      private void colorBackgroundWinnerLabels(JLabel l1, JLabel l2, JLabel l3) {
         l1.setOpaque(true);
@@ -127,7 +138,10 @@ public class EasyClass {
         if (XOCounter < 9 && pressedLabel.getText().equals("")) {
 
             pressedLabel.setText("X");
-            pressedLabel.setForeground(Color.blue);
+            pressedLabel.setVisible(true);
+          
+            
+            pressedLabel.setForeground(Color.ORANGE);
             
             XOCounter++;
             System.out.println(XOCounter);
@@ -139,7 +153,7 @@ public class EasyClass {
                     if (arrayOfLabals[randomNumber].getText().equals("")) {
 
                         arrayOfLabals[randomNumber].setText("O");
-                        arrayOfLabals[randomNumber].setForeground(Color.red);
+                        arrayOfLabals[randomNumber].setForeground(Color.blue);
                         parentPanal.repaint();
 
                         XOCounter++;
