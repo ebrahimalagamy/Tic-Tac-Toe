@@ -187,7 +187,8 @@ public class UserInterface extends javax.swing.JFrame {
         jTextField1.setForeground(new java.awt.Color(153, 153, 153));
         jTextField1.setText("Username");
         jTextField1.setToolTipText("");
-        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+
+        jTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null, null, new java.awt.Color(204, 204, 204)));
         jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField1MouseClicked(evt);
@@ -197,7 +198,9 @@ public class UserInterface extends javax.swing.JFrame {
 
         jTextField2.setForeground(new java.awt.Color(153, 153, 153));
         jTextField2.setText("E-mail");
-        jTextField2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+
+        jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null, null, new java.awt.Color(204, 204, 204)));
+
         jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField2MouseClicked(evt);
@@ -207,7 +210,9 @@ public class UserInterface extends javax.swing.JFrame {
 
         jPasswordField1.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordField1.setText("Password");
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+
+        jPasswordField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null, null, new java.awt.Color(204, 204, 204)));
+
         jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordField1MouseClicked(evt);
@@ -222,7 +227,9 @@ public class UserInterface extends javax.swing.JFrame {
 
         jPasswordField2.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordField2.setText("Password");
-        jPasswordField2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+
+        jPasswordField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), null, null, new java.awt.Color(204, 204, 204)));
+
         jPasswordField2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordField2MouseClicked(evt);
@@ -296,6 +303,10 @@ public class UserInterface extends javax.swing.JFrame {
         jLabel9.setText("SELECT YOUR GAME");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 339, 60));
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 350, 350));
+
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Documents\\NetBeansProjects\\Tic-Tac-Toe\\src\\gui\\img\\XOImage.png")); // NOI18N
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 350, 370));
 
         btnPlayerProfile.setFont(new java.awt.Font("Tempus Sans ITC", 3, 14)); // NOI18N
         btnPlayerProfile.setForeground(new java.awt.Color(186, 79, 84));
