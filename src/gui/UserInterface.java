@@ -314,7 +314,7 @@ public class UserInterface extends javax.swing.JFrame {
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
 
         String dataSignIn = new String();
-        dataSignIn=Authentication.signIn(usernameField.getText(),passwordField.getText());
+        dataSignIn=Controler.signIn(usernameField.getText(),passwordField.getText());
         playerOne.sendSignInData(dataSignIn);
         
                
@@ -325,7 +325,7 @@ public class UserInterface extends javax.swing.JFrame {
         String dataSignUp = new String();
         if (jPasswordField1.getText().equals(jPasswordField2.getText()))
         {
-            dataSignUp=Authentication.signUp(jTextField1.getText(),jPasswordField1.getText(),jTextField2.getText());
+            dataSignUp=Controler.signUp(jTextField1.getText(),jPasswordField1.getText(),jTextField2.getText());
             playerOne.sendSignUpData(dataSignUp);
             JOptionPane.showMessageDialog(null,"Saved data","Congratulations",1);
             crd.show(cards,"card3");
