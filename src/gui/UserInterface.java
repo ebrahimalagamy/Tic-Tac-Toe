@@ -8,11 +8,11 @@ import javax.swing.JOptionPane;
 public class UserInterface extends javax.swing.JFrame {
 
     
-    GamePlayer playerOne;
+    GamePlayer player;
     CardLayout crd;
 
     public UserInterface() {
-        playerOne = new GamePlayer(this);
+        player = new GamePlayer(this);
         initComponents();
       
         
@@ -26,7 +26,7 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         usernameField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
-        loginBtn = new javax.swing.JButton();
+        signInBtn = new javax.swing.JButton();
         signupBtn = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -34,6 +34,7 @@ public class UserInterface extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        btnGuest = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -44,7 +45,7 @@ public class UserInterface extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jPasswordField2 = new javax.swing.JPasswordField();
-        confirmBtn = new javax.swing.JButton();
+        createaccountBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -56,6 +57,23 @@ public class UserInterface extends javax.swing.JFrame {
         onlineBtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnPlayerProfile = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        label1 = new java.awt.Label();
+        label2 = new java.awt.Label();
+        label3 = new java.awt.Label();
+        label4 = new java.awt.Label();
+        label5 = new java.awt.Label();
+        label6 = new java.awt.Label();
+        tName = new java.awt.TextField();
+        tLoses = new java.awt.TextField();
+        tEmail = new java.awt.TextField();
+        tTie = new java.awt.TextField();
+        tWins = new java.awt.TextField();
+        tGamesPLAYED = new java.awt.TextField();
+        label7 = new java.awt.Label();
+        tID = new java.awt.TextField();
+        btnHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tic Tac Toe");
@@ -89,17 +107,17 @@ public class UserInterface extends javax.swing.JFrame {
         });
         jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 180, 20));
 
-        loginBtn.setBackground(new java.awt.Color(204, 204, 204));
-        loginBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        loginBtn.setForeground(new java.awt.Color(186, 79, 84));
-        loginBtn.setText("Sign In");
-        loginBtn.setBorder(null);
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+        signInBtn.setBackground(new java.awt.Color(204, 204, 204));
+        signInBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        signInBtn.setForeground(new java.awt.Color(186, 79, 84));
+        signInBtn.setText("Sign In");
+        signInBtn.setBorder(null);
+        signInBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
+                signInBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 80, 30));
+        jPanel1.add(signInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 80, 30));
 
         signupBtn.setBackground(new java.awt.Color(204, 204, 204));
         signupBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -125,15 +143,17 @@ public class UserInterface extends javax.swing.JFrame {
         jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 180, 10));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Documents\\NetBeansProjects\\Tic-Tac-Toe\\src\\gui\\img\\icons8_lock_20px_5.png")); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Documents\\NetBeansProjects\\Tic-Tac-Toe\\src\\gui\\img\\68747470733a2f2f696d6167652e666c617469636f6e2e636f6d2f69636f6e732f706e672f3531322f3536362f3536363239342e706e67-modified.png")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 240, 240));
-
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Documents\\NetBeansProjects\\Tic-Tac-Toe\\src\\gui\\img\\icons8_user_20px_3.png")); // NOI18N
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 160, -1, -1));
+
+        btnGuest.setText("Play As A guest");
+        btnGuest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuestActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnGuest, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 180, -1));
 
         cards.add(jPanel1, "card1");
 
@@ -210,16 +230,16 @@ public class UserInterface extends javax.swing.JFrame {
         });
         jPanel2.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 171, 20));
 
-        confirmBtn.setBackground(new java.awt.Color(204, 204, 204));
-        confirmBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        confirmBtn.setForeground(new java.awt.Color(186, 79, 84));
-        confirmBtn.setText("Create Account");
-        confirmBtn.addActionListener(new java.awt.event.ActionListener() {
+        createaccountBtn.setBackground(new java.awt.Color(204, 204, 204));
+        createaccountBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        createaccountBtn.setForeground(new java.awt.Color(186, 79, 84));
+        createaccountBtn.setText("Create Account");
+        createaccountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmBtnActionPerformed(evt);
+                createaccountBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(confirmBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 120, -1));
+        jPanel2.add(createaccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 120, -1));
 
         cancelBtn.setBackground(new java.awt.Color(204, 204, 204));
         cancelBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -274,27 +294,143 @@ public class UserInterface extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("SELECT YOUR GAME");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 339, 60));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 339, 60));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 350, 350));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Documents\\NetBeansProjects\\Tic-Tac-Toe\\src\\gui\\img\\png-clipart-tictactoe-tic-tac-toe-oxo-tac-tic-toe-computer-icons-games-buttons-game-logo-modified-modified.png")); // NOI18N
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 350, 370));
+        btnPlayerProfile.setFont(new java.awt.Font("Tempus Sans ITC", 3, 14)); // NOI18N
+        btnPlayerProfile.setForeground(new java.awt.Color(186, 79, 84));
+        btnPlayerProfile.setText("PLAYER PROFILE");
+        btnPlayerProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayerProfileActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnPlayerProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 150, 40));
 
         cards.add(jPanel3, "card3");
+
+        jPanel4.setBackground(new java.awt.Color(244, 91, 105));
+
+        label1.setText("PLAYER NAME");
+
+        label2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        label2.setText("PLAYER EMAIL");
+
+        label3.setText("Games PLAYED");
+
+        label4.setText("WIN");
+
+        label5.setText("LOSE");
+
+        label6.setText("TIE");
+
+        tLoses.setText("0");
+
+        tTie.setText("0");
+
+        tWins.setText("0");
+
+        tGamesPLAYED.setText("0");
+
+        label7.setText("PLAYER ID");
+
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(85, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tName, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(label7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tID, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(tWins, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(tLoses, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)
+                                .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(tTie, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tGamesPLAYED, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tGamesPLAYED, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tLoses, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tWins, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(tTie, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        label1.getAccessibleContext().setAccessibleDescription("");
+
+        cards.add(jPanel4, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(cards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(cards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(cards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(cards, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -311,16 +447,16 @@ public class UserInterface extends javax.swing.JFrame {
         crd.show(cards,"card1");
     }//GEN-LAST:event_cancelBtnActionPerformed
 
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+    private void signInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInBtnActionPerformed
 
         String dataSignIn = new String();
         dataSignIn=Controler.signIn(usernameField.getText(),passwordField.getText());
-        playerOne.sendSignInData(dataSignIn);
+        player.sendSignInData(dataSignIn);
         
                
-    }//GEN-LAST:event_loginBtnActionPerformed
+    }//GEN-LAST:event_signInBtnActionPerformed
 
-    private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
+    private void createaccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createaccountBtnActionPerformed
         crd = (CardLayout) cards.getLayout();
         String dataSignUp = new String();
         if(jTextField1.getText().equals("")||jPasswordField1.getText().equals("")||jTextField2.getText().equals("")){
@@ -330,7 +466,7 @@ public class UserInterface extends javax.swing.JFrame {
             if (jPasswordField1.getText().equals(jPasswordField2.getText()))
             {
                 dataSignUp=Controler.signUp(jTextField1.getText(),jPasswordField1.getText(),jTextField2.getText());
-                playerOne.sendSignUpData(dataSignUp);
+                player.sendSignUpData(dataSignUp);
                 JOptionPane.showMessageDialog(null,"Saved data","Congratulations",1);
                 crd.show(cards,"card3");
             }
@@ -338,7 +474,7 @@ public class UserInterface extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Don't match passwords","Error",1);
         }
         
-    }//GEN-LAST:event_confirmBtnActionPerformed
+    }//GEN-LAST:event_createaccountBtnActionPerformed
 
     private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
         if( jTextField1.getText().equals("Username"))
@@ -369,6 +505,28 @@ public class UserInterface extends javax.swing.JFrame {
         if( passwordField.getText().equals("Password"))
         passwordField.setText("");
     }//GEN-LAST:event_passwordFieldMouseClicked
+
+    private void btnGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestActionPerformed
+        crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card3");
+        onlineBtn.setVisible(false);
+        btnPlayerProfile.setVisible(false);
+   
+    }//GEN-LAST:event_btnGuestActionPerformed
+
+    private void btnPlayerProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerProfileActionPerformed
+        crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card4");
+        String getData = new String();
+        getData=Controler.getData();
+        player.SendGetData(getData);
+       
+    }//GEN-LAST:event_btnPlayerProfileActionPerformed
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+         crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card3");
+    }//GEN-LAST:event_btnHomeActionPerformed
 
     
     public static void main(String args[]) {
@@ -406,9 +564,12 @@ public class UserInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuest;
+    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnPlayerProfile;
     private javax.swing.JButton cancelBtn;
     private javax.swing.JPanel cards;
-    private javax.swing.JButton confirmBtn;
+    private javax.swing.JButton createaccountBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -423,6 +584,7 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JSeparator jSeparator1;
@@ -433,12 +595,26 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JButton loginBtn;
+    private java.awt.Label label1;
+    private java.awt.Label label2;
+    private java.awt.Label label3;
+    private java.awt.Label label4;
+    private java.awt.Label label5;
+    private java.awt.Label label6;
+    private java.awt.Label label7;
     private javax.swing.JButton multiBtn;
     private javax.swing.JButton onlineBtn;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JButton signInBtn;
     private javax.swing.JButton signupBtn;
     private javax.swing.JButton singleBtn;
+    private java.awt.TextField tEmail;
+    private java.awt.TextField tGamesPLAYED;
+    private java.awt.TextField tID;
+    private java.awt.TextField tLoses;
+    private java.awt.TextField tName;
+    private java.awt.TextField tTie;
+    private java.awt.TextField tWins;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 

@@ -12,8 +12,9 @@ public class Controler {
     return (requestTypes.register.name()+"+"+name+"+"+password+"+"+email);
     }
     
-    public static String getData(String name,  String password , String email){
+    public static String getData(){
     return (requestTypes.getData.name());
     }
 
+   
 }
