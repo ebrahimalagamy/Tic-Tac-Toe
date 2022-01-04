@@ -323,15 +323,21 @@ public class UserInterface extends javax.swing.JFrame {
     private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
         crd = (CardLayout) cards.getLayout();
         String dataSignUp = new String();
-        if (jPasswordField1.getText().equals(jPasswordField2.getText()))
-        {
-            dataSignUp=Controler.signUp(jTextField1.getText(),jPasswordField1.getText(),jTextField2.getText());
-            playerOne.sendSignUpData(dataSignUp);
-            JOptionPane.showMessageDialog(null,"Saved data","Congratulations",1);
-            crd.show(cards,"card3");
+        if(jTextField1.getText().equals("")||jPasswordField1.getText().equals("")||jTextField2.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Must input NAME AND EMAIL AND PASSWORD","Error",1);
         }
-        else
-        JOptionPane.showMessageDialog(null,"Don't match passwords","Error",1);
+        else{
+            if (jPasswordField1.getText().equals(jPasswordField2.getText()))
+            {
+                dataSignUp=Controler.signUp(jTextField1.getText(),jPasswordField1.getText(),jTextField2.getText());
+                playerOne.sendSignUpData(dataSignUp);
+                JOptionPane.showMessageDialog(null,"Saved data","Congratulations",1);
+                crd.show(cards,"card3");
+            }
+            else
+            JOptionPane.showMessageDialog(null,"Don't match passwords","Error",1);
+        }
+        
     }//GEN-LAST:event_confirmBtnActionPerformed
 
     private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked

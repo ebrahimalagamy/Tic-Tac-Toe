@@ -1,4 +1,3 @@
-
 package gui;
 
 import java.io.DataInputStream;
@@ -12,7 +11,7 @@ import java.util.logging.Logger;
  
  */
 public class GamePlayer {
-    gui.UserInterface mygui;
+    UserInterface mygui;
      Socket mySocket;
      DataInputStream dataIn;
      DataOutputStream dataOut;
@@ -21,8 +20,8 @@ public class GamePlayer {
      public static enum requestTypes{
          register,login,getData,setData,setMove
     }
-    
-    public GamePlayer(gui.UserInterface gui){
+   
+    public GamePlayer(UserInterface gui){
        this.mygui=gui;
         try {
             mySocket = new Socket("127.0.0.1",6060);
