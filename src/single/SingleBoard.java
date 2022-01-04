@@ -301,10 +301,6 @@ public class SingleBoard extends JFrame {
                 
                 Application.launch(VideoGame.class);
 
-          
-
-            
-
             }
         });
         backImage.addMouseListener(new MouseAdapter() {
@@ -313,6 +309,7 @@ public class SingleBoard extends JFrame {
                 setVisible(false);
             }
         });
+
         btnHard.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                selectMode.setText("Hard");
@@ -324,6 +321,7 @@ public class SingleBoard extends JFrame {
                selectMode.setText("Easy");
             }
         });
+
 
         setTitle("Tic Tac Toe");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
