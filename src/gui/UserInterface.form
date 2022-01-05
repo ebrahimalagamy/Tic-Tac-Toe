@@ -223,7 +223,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnGuest">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Play As A guest"/>
+                <Property name="text" type="java.lang.String" value="Play As A Guest"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuestActionPerformed"/>
