@@ -1,4 +1,5 @@
-package gui;
+
+package guiGame;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -17,13 +18,13 @@ public class GamePlayer {
      DataOutputStream dataOut;
      Thread t;
      
-      public static enum requestTypes{
-         register,login,getData,setData,setMove}
-   
-    public GamePlayer(UserInterface gui){
-       this.mygui=gui;
+     public static enum requestTypes{
+         register,login,getData,setData,setMove
+    }
+    
+    public GamePlayer(UserInterface mygui){
+       this.mygui=mygui;
         try {
-            //127.0.0.1  -   192.168.1.227
             mySocket = new Socket("127.0.0.1",6060);
             dataIn = new DataInputStream(mySocket.getInputStream());
             dataOut = new DataOutputStream(mySocket.getOutputStream());
@@ -48,16 +49,9 @@ public class GamePlayer {
              }
          catch (IOException ex) { Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
     } 
-    public void SendGetData(String getData){
-         try {
-             dataOut.writeUTF(getData);
-             }
-         catch (IOException ex) { Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
-    } 
     
     public void sendSignUpData(String dataSignUp){
          try {
-            // dataIn.readUTF();
              dataOut.writeUTF(dataSignUp);
          }
          catch (IOException ex) {Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
@@ -70,16 +64,10 @@ public class GamePlayer {
           case "validsignin":
               mygui.validSignIn();
               break;
+          
           case "invalidsignin":
               mygui.inValidSignIn();
               break;
-        case "Duplicated":
-              mygui.Duplicated();
-              break;
-       case "SignUp":
-              mygui.SignUp();
-              break;
-              
                
        }
     }
