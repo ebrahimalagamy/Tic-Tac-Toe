@@ -55,9 +55,10 @@ public class UserInterface extends javax.swing.JFrame {
         singleBtn = new javax.swing.JButton();
         multiBtn = new javax.swing.JButton();
         onlineBtn = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnPlayerProfile = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        LName = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
@@ -274,38 +275,46 @@ public class UserInterface extends javax.swing.JFrame {
         singleBtn.setForeground(new java.awt.Color(186, 79, 84));
         singleBtn.setText("Single PLayer");
         singleBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
-        jPanel3.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 154, 47));
+        jPanel3.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 154, 47));
 
         multiBtn.setBackground(new java.awt.Color(204, 204, 204));
         multiBtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         multiBtn.setForeground(new java.awt.Color(186, 79, 84));
         multiBtn.setText("Multi Player");
         multiBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
-        jPanel3.add(multiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 154, 47));
+        jPanel3.add(multiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 154, 47));
 
         onlineBtn.setBackground(new java.awt.Color(204, 204, 204));
         onlineBtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         onlineBtn.setForeground(new java.awt.Color(186, 79, 84));
         onlineBtn.setText("ONLINE");
         onlineBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
-        jPanel3.add(onlineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 154, 47));
+        jPanel3.add(onlineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 154, 47));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 350, 330));
 
-        jLabel9.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel9.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("SELECT YOUR GAME");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 339, 60));
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 350, 350));
-
-        btnPlayerProfile.setFont(new java.awt.Font("Tempus Sans ITC", 3, 14)); // NOI18N
-        btnPlayerProfile.setForeground(new java.awt.Color(186, 79, 84));
-        btnPlayerProfile.setText("PLAYER PROFILE");
+        btnPlayerProfile.setBackground(new java.awt.Color(204, 0, 0));
+        btnPlayerProfile.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        btnPlayerProfile.setForeground(new java.awt.Color(255, 153, 51));
+        btnPlayerProfile.setIcon(new javax.swing.ImageIcon("E:\\iti\\LEC\\java\\project\\github\\Tic-Tac-Toe\\src\\gui\\img\\icons8_user_20px_3.png")); // NOI18N
+        btnPlayerProfile.setToolTipText("");
         btnPlayerProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPlayerProfileActionPerformed(evt);
             }
         });
-        jPanel3.add(btnPlayerProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 150, 40));
+        jPanel3.add(btnPlayerProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 50, 30));
+
+        jLabel10.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel10.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("SELECT YOUR GAME");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 339, 60));
+
+        LName.setBackground(new java.awt.Color(102, 102, 102));
+        LName.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        LName.setForeground(new java.awt.Color(51, 51, 51));
+        LName.setText("Guest");
+        jPanel3.add(LName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 130, 30));
 
         cards.add(jPanel3, "card3");
 
@@ -418,8 +427,6 @@ public class UserInterface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        label1.getAccessibleContext().setAccessibleDescription("");
-
         cards.add(jPanel4, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -448,7 +455,6 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void signInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInBtnActionPerformed
-
         String dataSignIn = new String();
         dataSignIn=Controler.signIn(usernameField.getText(),passwordField.getText());
         player.sendSignInData(dataSignIn);
@@ -459,20 +465,16 @@ public class UserInterface extends javax.swing.JFrame {
     private void createaccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createaccountBtnActionPerformed
         crd = (CardLayout) cards.getLayout();
         String dataSignUp = new String();
+        
         if(jTextField1.getText().equals("")||jPasswordField1.getText().equals("")||jTextField2.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Must input NAME AND EMAIL AND PASSWORD","Error",1);
-        }
+            JOptionPane.showMessageDialog(null,"Must input NAME AND EMAIL AND PASSWORD","Error",1);}
         else{
-            if (jPasswordField1.getText().equals(jPasswordField2.getText()))
-            {
-                dataSignUp=Controler.signUp(jTextField1.getText(),jPasswordField1.getText(),jTextField2.getText());
+            if (jPasswordField1.getText().equals(jPasswordField2.getText())){
+                dataSignUp=Controler.signUp(jTextField1.getText(),jPasswordField1.getText(),jTextField2.getText());   
                 player.sendSignUpData(dataSignUp);
-                JOptionPane.showMessageDialog(null,"Saved data","Congratulations",1);
-                crd.show(cards,"card3");
-            }
+               }
             else
-            JOptionPane.showMessageDialog(null,"Don't match passwords","Error",1);
-        }
+            JOptionPane.showMessageDialog(null,"Don't match passwords","Error",1);}
         
     }//GEN-LAST:event_createaccountBtnActionPerformed
 
@@ -510,23 +512,23 @@ public class UserInterface extends javax.swing.JFrame {
         crd = (CardLayout) cards.getLayout();
         crd.show(cards,"card3");
         onlineBtn.setVisible(false);
-        btnPlayerProfile.setVisible(false);
+        btnPlayerProfile.setEnabled(false);
    
     }//GEN-LAST:event_btnGuestActionPerformed
 
-    private void btnPlayerProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerProfileActionPerformed
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card3");
+    }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void btnPlayerProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerProfileActionPerformed
+      crd = (CardLayout) cards.getLayout();
         crd.show(cards,"card4");
         String getData = new String();
         getData=Controler.getData();
         player.SendGetData(getData);
-       
-    }//GEN-LAST:event_btnPlayerProfileActionPerformed
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-         crd = (CardLayout) cards.getLayout();
-        crd.show(cards,"card3");
-    }//GEN-LAST:event_btnHomeActionPerformed
+    }//GEN-LAST:event_btnPlayerProfileActionPerformed
 
     
     public static void main(String args[]) {
@@ -564,6 +566,7 @@ public class UserInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LName;
     private javax.swing.JButton btnGuest;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnPlayerProfile;
@@ -571,6 +574,7 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JPanel cards;
     private javax.swing.JButton createaccountBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
@@ -580,7 +584,6 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -619,12 +622,27 @@ public class UserInterface extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
-    public void validSignIn(){
+  public void validSignIn(){
     crd = (CardLayout) cards.getLayout();
      crd.show(cards,"card3");
-   }
+      LName.setText(usernameField.getText());
+      tName.setText(usernameField.getText());
+      tName.setEditable(false);}
     
    public void inValidSignIn(){
-    JOptionPane.showMessageDialog(null,"Error in username or password.","Error",1);
-   }
+    JOptionPane.showMessageDialog(null,"Error in username or password.","Error",1);}
+   
+   public void Duplicated(){
+    JOptionPane.showMessageDialog(null,"Duplicated username","Error",1);
+    crd = (CardLayout) cards.getLayout();
+    crd.show(cards,"card2");}
+   
+   public void SignUp(){
+    JOptionPane.showMessageDialog(null,"Saved data","Congratulations",1);
+                crd.show(cards,"card3");
+                LName.setText(jTextField1.getText());
+                tName.setText(jTextField1.getText());
+                tName.setEditable(false);}
+   
+    
 }
