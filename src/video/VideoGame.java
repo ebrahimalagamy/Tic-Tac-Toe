@@ -1,6 +1,4 @@
-
 package video;
-
 
 import java.net.URL;
 import javafx.application.Application;
@@ -31,9 +29,8 @@ public class VideoGame extends Application {
     @Override
     public void start(Stage stage) {
         // Locate the media content in the CLASSPATH
-        
-        
-        URL mediaUrl = getClass().getClassLoader().getResource("images/kk.mp4");
+
+        URL mediaUrl = getClass().getClassLoader().getResource("images/loser.mp4");
         String mediaStringUrl = mediaUrl.toExternalForm();
 
         // Create a Media
@@ -47,16 +44,16 @@ public class VideoGame extends Application {
         // Create a 400X300 MediaView
         MediaView mediaView = new MediaView(player);
 
-        mediaView.setFitWidth(400);
-        mediaView.setFitHeight(300);
+        mediaView.setFitWidth(600);
+        mediaView.setFitHeight(400);
         mediaView.setSmooth(true);
-        mediaView.setLayoutX(200);
-        mediaView.setLayoutY(200);
+        mediaView.setLayoutX(5);
+        mediaView.setLayoutY(5);
         // Create the DropShadow effect
         DropShadow dropshadow = new DropShadow();
         dropshadow.setOffsetY(5.0);
         dropshadow.setOffsetX(5.0);
-        dropshadow.setColor(Color.RED);
+        dropshadow.setColor(Color.ORANGE);
 
         mediaView.setEffect(dropshadow);
 
@@ -89,7 +86,7 @@ public class VideoGame extends Application {
         // Add the scene to the Stage
         stage.setScene(scene);
         // Set the title of the Stage
-        stage.setTitle("A simple Media Example");
+        stage.setTitle("Loser Video");
         // Display the Stage
         stage.show();
     }

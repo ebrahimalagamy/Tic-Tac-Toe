@@ -3,10 +3,12 @@ package single;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
+import javafx.application.Application;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import video.VideoGame;
 
 public class EasyClass extends JFrame{
     JLabel[] arrayOfLabals;
@@ -15,6 +17,7 @@ public class EasyClass extends JFrame{
      JLabel pressedLabel;
      int XOCounter ;
      ImageIcon xIcon;
+     
 
     public EasyClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter) {
         this.arrayOfLabals = arrayOfLabals;
@@ -37,15 +40,18 @@ public class EasyClass extends JFrame{
     
     }
     
-     private void colorBackgroundWinnerLabels(JLabel l1, JLabel l2, JLabel l3) {
+     private void colorBackgroundWinnerLabels(JLabel l1, JLabel l2, JLabel l3) {  
         l1.setOpaque(true);
         l2.setOpaque(true);
         l3.setOpaque(true);
         isGameEnds = true;
+        Application.launch(VideoGame.class);
+       
     }
      
      private void checkIfThereIsAWinner() {
 
+         
         String c0 = arrayOfLabals[0].getText();
         String c1 = arrayOfLabals[1].getText();
         String c2 = arrayOfLabals[2].getText();
@@ -65,6 +71,7 @@ public class EasyClass extends JFrame{
             } else {
                 this.secondPlayerScore.setText((secondPlayerScore + 1) + "");
             }
+            
             colorBackgroundWinnerLabels(arrayOfLabals[0], arrayOfLabals[1], arrayOfLabals[2]);
         }
 
@@ -154,6 +161,7 @@ public class EasyClass extends JFrame{
 
                         arrayOfLabals[randomNumber].setText("O");
                         arrayOfLabals[randomNumber].setForeground(Color.blue);
+                         arrayOfLabals[randomNumber].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
                         parentPanal.repaint();
 
                         XOCounter++;
@@ -163,6 +171,14 @@ public class EasyClass extends JFrame{
                 }
             }
 
+        }
+        
+        if(pressedLabel.getText() == "X")
+        {
+        pressedLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
+        }
+        else{
+            pressedLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
         }
 
        if (XOCounter >= 9 || isGameEnds == true) {

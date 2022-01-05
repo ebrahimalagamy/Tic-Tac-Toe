@@ -24,7 +24,7 @@ public class MultipleBoard extends JFrame {
     JPanel parentPanal, gamePanal, gameParentPanal, gameInfoPanal;
     JLabel[] arrayOfLabals;
     JLabel boardBackground, firstPlayerName, secondPlayerName, imageRecording,
-            firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage;
+            firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage,selectMode;
     JButton btnRestart;
     int XOCounter = 0;
     boolean isFirstPlayerTurn = true;
@@ -46,6 +46,7 @@ public class MultipleBoard extends JFrame {
         boardBackground = new JLabel();
         imageRecording = new JLabel();
         backImage = new JLabel();
+        selectMode = new JLabel("Multiple");
        
         playerImage = new JLabel();
         computerImage = new JLabel();
@@ -63,7 +64,7 @@ public class MultipleBoard extends JFrame {
         ImageIcon imageIconComputer = new ImageIcon(getClass().getClassLoader().getResource("images/computer_image.png"));
         computerImage.setIcon(imageIconComputer);
 
-        ImageIcon imageIconBack = new ImageIcon(getClass().getClassLoader().getResource("images/back.png"));
+        ImageIcon imageIconBack = new ImageIcon(getClass().getClassLoader().getResource("images/back_2.png"));
         backImage.setIcon(imageIconBack);
 
         ImageIcon imageIconRecording = new ImageIcon(getClass().getClassLoader().getResource("images/record.png"));
@@ -76,7 +77,7 @@ public class MultipleBoard extends JFrame {
 
         for (int i = 0; i < arrayOfLabals.length; i++) {
             arrayOfLabals[i] = new JLabel("", JLabel.CENTER);
-            arrayOfLabals[i].setFont(new Font("Verdana", Font.BOLD, 50));
+            arrayOfLabals[i].setFont(new Font("Verdana", Font.BOLD, 0));
             arrayOfLabals[i].setBackground(Color.cyan);
             gamePanal.add(arrayOfLabals[i]);
         }
@@ -91,6 +92,11 @@ public class MultipleBoard extends JFrame {
         gameParentPanal.add(gamePanal);
         gamePanal.setBounds(75, 120, 300, 300);
         gamePanal.setBackground(null);
+        
+        gameParentPanal.add(selectMode);
+        selectMode.setBounds(200, 10, 100, 100);
+        selectMode.setForeground(new Color(255, 128, 134));
+        selectMode.setFont(new Font("Arial", Font.BOLD, 20));
        
 
         gameParentPanal.add(backImage);
@@ -108,34 +114,31 @@ public class MultipleBoard extends JFrame {
 
         gameInfoPanal.add(btnRestart);
         btnRestart.setBounds(80, 450, 250, 30);
-        
-        
-
-        
+   
         gameInfoPanal.add(playerImage);
-        playerImage.setBounds(70, 200, 50, 50);
+        playerImage.setBounds(70, 50, 50, 50);
 
         gameInfoPanal.add(computerImage);
-        computerImage.setBounds(270, 200, 50, 50);
+        computerImage.setBounds(270, 50, 50, 50);
         
         gameInfoPanal.add(vsImage);
-        vsImage.setBounds(180, 170, 64, 64);
+        vsImage.setBounds(180, 20, 64, 64);
         
         gameInfoPanal.add(firstPlayerName);
-        firstPlayerName.setBounds(75, 230, 64, 64);
+        firstPlayerName.setBounds(75, 80, 64, 64);
         
         gameInfoPanal.add(secondPlayerName);
-        secondPlayerName.setBounds(290, 230, 50, 50);
+        secondPlayerName.setBounds(275, 80, 64, 64);
         
         gameInfoPanal.add(firstPlayerScore);
         firstPlayerScore.setForeground(Color.ORANGE);
         firstPlayerScore.setFont(new Font("Arial", Font.BOLD, 20));
-        firstPlayerScore.setBounds(75, 260, 50, 50);
+        firstPlayerScore.setBounds(75, 110, 50, 50);
 
         gameInfoPanal.add(secondPlayerScore);
         secondPlayerScore.setForeground(Color.ORANGE);
         secondPlayerScore.setFont(new Font("Arial", Font.BOLD, 20));
-        secondPlayerScore.setBounds(274, 260, 50, 50);
+        secondPlayerScore.setBounds(274, 110, 50, 50);
 
     }
 
@@ -201,38 +204,17 @@ public class MultipleBoard extends JFrame {
     private void startNewGame() {
 
         isGameEnds = false;
-
-        arrayOfLabals[0].setOpaque(false);
-        arrayOfLabals[1].setOpaque(false);
-        arrayOfLabals[2].setOpaque(false);
-        arrayOfLabals[3].setOpaque(false);
-        arrayOfLabals[4].setOpaque(false);
-        arrayOfLabals[5].setOpaque(false);
-        arrayOfLabals[6].setOpaque(false);
-        arrayOfLabals[7].setOpaque(false);
-        arrayOfLabals[8].setOpaque(false);
-
-        arrayOfLabals[0].setText("");
-        arrayOfLabals[1].setText("");
-        arrayOfLabals[2].setText("");
-        arrayOfLabals[3].setText("");
-        arrayOfLabals[4].setText("");
-        arrayOfLabals[5].setText("");
-        arrayOfLabals[6].setText("");
-        arrayOfLabals[7].setText("");
-        arrayOfLabals[8].setText("");
-
+        for (int i =0 ; i<9 ; i++){
+            
+        arrayOfLabals[i].setOpaque(false);
+        arrayOfLabals[i].setText("");
+        arrayOfLabals[i].addMouseListener(XOListener);
+        arrayOfLabals[i].setIcon(null);
+        
+        }
         repaint();
 
-        arrayOfLabals[0].addMouseListener(XOListener);
-        arrayOfLabals[1].addMouseListener(XOListener);
-        arrayOfLabals[2].addMouseListener(XOListener);
-        arrayOfLabals[3].addMouseListener(XOListener);
-        arrayOfLabals[4].addMouseListener(XOListener);
-        arrayOfLabals[5].addMouseListener(XOListener);
-        arrayOfLabals[6].addMouseListener(XOListener);
-        arrayOfLabals[7].addMouseListener(XOListener);
-        arrayOfLabals[8].addMouseListener(XOListener);
+     
 
     }
 

@@ -73,7 +73,7 @@ public class SingleBoard extends JFrame {
         ImageIcon imageIconComputer = new ImageIcon(getClass().getClassLoader().getResource("images/computer_image.png"));
         computerImage.setIcon(imageIconComputer);
 
-        ImageIcon imageIconBack = new ImageIcon(getClass().getClassLoader().getResource("images/back.png"));
+        ImageIcon imageIconBack = new ImageIcon(getClass().getClassLoader().getResource("images/back_2.png"));
         backImage.setIcon(imageIconBack);
 
         ImageIcon imageIconRecording = new ImageIcon(getClass().getClassLoader().getResource("images/record.png"));
@@ -90,7 +90,7 @@ public class SingleBoard extends JFrame {
 
         for (int i = 0; i < arrayOfLabals.length; i++) {
             arrayOfLabals[i] = new JLabel("", JLabel.CENTER);
-            arrayOfLabals[i].setFont(new Font("Verdana", Font.BOLD, 50));
+            arrayOfLabals[i].setFont(new Font("Verdana", Font.BOLD, 0));
             arrayOfLabals[i].setBackground(Color.cyan);
             gamePanal.add(arrayOfLabals[i]);
         }
@@ -105,13 +105,14 @@ public class SingleBoard extends JFrame {
         gameParentPanal.add(gamePanal);
         gamePanal.setBounds(75, 120, 300, 300);
         gamePanal.setBackground(null);
+        
         gameParentPanal.add(selectMode);
-        selectMode.setBounds(200, 10, 50, 50);
-        selectMode.setForeground(new Color(255, 249, 249));
-        selectMode.setFont(new Font("Arial", Font.BOLD, 20));
+        selectMode.setBounds(200, 10, 64, 64);
+        selectMode.setForeground(new Color(255, 128, 134));
+        selectMode.setFont(new Font("Arial", Font.BOLD, 25));
 
         gameParentPanal.add(backImage);
-        backImage.setBounds(20, 20, 32, 32);
+        backImage.setBounds(20, 20, 64, 64);
 
         gameParentPanal.add(imageRecording);
         imageRecording.setBounds(380, 20, 64, 64);
@@ -173,6 +174,7 @@ public class SingleBoard extends JFrame {
         l3.setOpaque(true);
         isGameEnds = true;
         
+        
        
     }
 
@@ -195,7 +197,7 @@ public class SingleBoard extends JFrame {
            
             System.out.println("from hard");
             boolean check = false;
-            EasyClass e = new EasyClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter);
+            HardClass e = new HardClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter);
             check = e.isOnePlayerGameEnds();
             XOCounter += 2;
             if (check) {
@@ -245,38 +247,17 @@ public class SingleBoard extends JFrame {
     private void startNewGame() {
 
         isGameEnds = false;
-
-        arrayOfLabals[0].setOpaque(false);
-        arrayOfLabals[1].setOpaque(false);
-        arrayOfLabals[2].setOpaque(false);
-        arrayOfLabals[3].setOpaque(false);
-        arrayOfLabals[4].setOpaque(false);
-        arrayOfLabals[5].setOpaque(false);
-        arrayOfLabals[6].setOpaque(false);
-        arrayOfLabals[7].setOpaque(false);
-        arrayOfLabals[8].setOpaque(false);
-
-        arrayOfLabals[0].setText("");
-        arrayOfLabals[1].setText("");
-        arrayOfLabals[2].setText("");
-        arrayOfLabals[3].setText("");
-        arrayOfLabals[4].setText("");
-        arrayOfLabals[5].setText("");
-        arrayOfLabals[6].setText("");
-        arrayOfLabals[7].setText("");
-        arrayOfLabals[8].setText("");
+        
+        for (int i =0 ; i<9 ; i++){
+            
+        arrayOfLabals[i].setOpaque(false);
+        arrayOfLabals[i].setText("");
+        arrayOfLabals[i].addMouseListener(XOListener);
+        arrayOfLabals[i].setIcon(null);
+        
+        }
 
         repaint();
-
-        arrayOfLabals[0].addMouseListener(XOListener);
-        arrayOfLabals[1].addMouseListener(XOListener);
-        arrayOfLabals[2].addMouseListener(XOListener);
-        arrayOfLabals[3].addMouseListener(XOListener);
-        arrayOfLabals[4].addMouseListener(XOListener);
-        arrayOfLabals[5].addMouseListener(XOListener);
-        arrayOfLabals[6].addMouseListener(XOListener);
-        arrayOfLabals[7].addMouseListener(XOListener);
-        arrayOfLabals[8].addMouseListener(XOListener);
 
     }
 
@@ -299,7 +280,7 @@ public class SingleBoard extends JFrame {
                 XOCounter = 0;
                 startNewGame();
                 
-                Application.launch(VideoGame.class);
+           //     Application.launch(VideoGame.class);
 
             }
         });

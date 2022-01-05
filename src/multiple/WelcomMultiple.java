@@ -21,7 +21,7 @@ public class WelcomMultiple  extends JFrame {
     JPanel parentPanal;
     JButton btnStart;
     JLabel backImage;
-   public static TextField textFiledName;
+    public static TextField textFiledName;
     
     private void createGamePage() {
         

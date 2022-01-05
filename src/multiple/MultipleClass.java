@@ -145,10 +145,15 @@ public class MultipleClass extends JFrame{
             if (isFirstPlayerTurn == true) {
                 pressedLabel.setText("X");
                 pressedLabel.setForeground(Color.ORANGE);
+                pressedLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
+                parentPanal.repaint();
+
                 isFirstPlayerTurn = false;
             } else {
                 pressedLabel.setText("O");
                 pressedLabel.setForeground(Color.blue);
+                pressedLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
+                parentPanal.repaint();
                 isFirstPlayerTurn = true;
             }
 
