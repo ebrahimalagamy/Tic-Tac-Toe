@@ -55,7 +55,7 @@ public class SplashScreen extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 500, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\PC\\Downloads\\rsz_12.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/img/rsz_12.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 220));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
