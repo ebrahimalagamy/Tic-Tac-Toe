@@ -643,5 +643,6 @@ public class UserInterface extends javax.swing.JFrame {
                 LName.setText(jTextField1.getText());
                 tName.setText(jTextField1.getText());
                 tName.setEditable(false);}
+   
     
 }
