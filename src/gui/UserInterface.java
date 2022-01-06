@@ -15,8 +15,6 @@ public class UserInterface extends javax.swing.JFrame {
     public UserInterface() {
         player = new GamePlayer(this);
         initComponents();
-      
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -52,32 +50,45 @@ public class UserInterface extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
-        jPanel4 = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
-        label3 = new java.awt.Label();
-        label4 = new java.awt.Label();
-        label5 = new java.awt.Label();
-        label6 = new java.awt.Label();
-        tName = new java.awt.TextField();
-        tLoses = new java.awt.TextField();
-        tEmail = new java.awt.TextField();
-        tTie = new java.awt.TextField();
-        tWins = new java.awt.TextField();
-        tGamesPLAYED = new java.awt.TextField();
-        label7 = new java.awt.Label();
-        tID = new java.awt.TextField();
-        btnHome = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        playerTie = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        playerID = new javax.swing.JLabel();
+        playerUsername = new javax.swing.JLabel();
+        playerEmail = new javax.swing.JLabel();
+        playerGames = new javax.swing.JLabel();
+        playerLoss = new javax.swing.JLabel();
+        playerWin = new javax.swing.JLabel();
+        profileBack = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tic Tac Toe");
-        setSize(new java.awt.Dimension(724, 400));
+        setPreferredSize(new java.awt.Dimension(850, 550));
+        setResizable(false);
+        setSize(new java.awt.Dimension(850, 550));
 
         cards.setLayout(new java.awt.CardLayout());
 
-        jPanel1.setBackground(new java.awt.Color(214, 229, 250));
-        jPanel1.setMinimumSize(new java.awt.Dimension(724, 400));
-        jPanel1.setPreferredSize(new java.awt.Dimension(724, 400));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(850, 550));
+        jPanel1.setPreferredSize(new java.awt.Dimension(850, 550));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         usernameField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -89,12 +100,7 @@ public class UserInterface extends javax.swing.JFrame {
                 usernameFieldMouseClicked(evt);
             }
         });
-        usernameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameFieldActionPerformed(evt);
-            }
-        });
-        jPanel1.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 180, 20));
+        jPanel1.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 180, 20));
 
         passwordField.setForeground(new java.awt.Color(153, 153, 153));
         passwordField.setText("Password");
@@ -104,7 +110,7 @@ public class UserInterface extends javax.swing.JFrame {
                 passwordFieldMouseClicked(evt);
             }
         });
-        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 180, 20));
+        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 180, 20));
 
         signInBtn.setBackground(new java.awt.Color(204, 204, 204));
         signInBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -116,7 +122,7 @@ public class UserInterface extends javax.swing.JFrame {
                 signInBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(signInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 80, 30));
+        jPanel1.add(signInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, 80, 30));
 
         signupBtn.setBackground(new java.awt.Color(204, 204, 204));
         signupBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -128,109 +134,118 @@ public class UserInterface extends javax.swing.JFrame {
                 signupBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(signupBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 80, 30));
+        jPanel1.add(signupBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 80, 30));
 
         jLabel11.setFont(new java.awt.Font("Viner Hand ITC", 1, 50)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(186, 79, 84));
         jLabel11.setText("Tic Tac Toe");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, 54));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, 54));
 
         jSeparator1.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 180, 10));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 180, 10));
 
         jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 180, 10));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, -1, -1));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 240, 240));
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 160, -1, -1));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 180, 10));
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/icons8_lock_20px_5.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/68747470733a2f2f696d6167652e666c617469636f6e2e636f6d2f69636f6e732f706e672f3531322f3536362f3536363239342e706e67-modified.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 240, 270));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/icons8_user_20px_3.png"))); // NOI18N
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
+
+        btnGuest.setBackground(new java.awt.Color(204, 204, 204));
+        btnGuest.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btnGuest.setForeground(new java.awt.Color(186, 79, 84));
         btnGuest.setText("Play As A Guest");
         btnGuest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuestActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuest, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 180, -1));
+        jPanel1.add(btnGuest, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 180, 30));
 
         cards.add(jPanel1, "card1");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setMinimumSize(new java.awt.Dimension(724, 400));
-        jPanel2.setPreferredSize(new java.awt.Dimension(724, 400));
+        jPanel2.setPreferredSize(new java.awt.Dimension(850, 550));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(186, 79, 84));
         jLabel3.setText("Sign up for new account");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 260, 32));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 260, 32));
 
         jLabel5.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(186, 79, 84));
         jLabel5.setText("Username");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(186, 79, 84));
         jLabel6.setText("E-mail");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(186, 79, 84));
         jLabel7.setText("Password");
         jLabel7.setToolTipText("");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
 
         jTextField1.setForeground(new java.awt.Color(153, 153, 153));
         jTextField1.setText("Username");
         jTextField1.setToolTipText("");
-        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+        jTextField1.setBorder(null);
         jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField1MouseClicked(evt);
             }
         });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 172, 20));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 172, 20));
 
         jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setText("E-mail");
-        jTextField2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+        jTextField2.setText("example@gmail.com");
+        jTextField2.setBorder(null);
         jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField2MouseClicked(evt);
             }
         });
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 172, 20));
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 172, 20));
 
         jPasswordField1.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordField1.setText("Password");
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+        jPasswordField1.setBorder(null);
         jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordField1MouseClicked(evt);
             }
         });
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 171, 20));
+        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 171, 20));
 
         jLabel8.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(186, 79, 84));
         jLabel8.setText("Confirm Password");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
 
         jPasswordField2.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordField2.setText("Password");
-        jPasswordField2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+        jPasswordField2.setBorder(null);
         jPasswordField2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordField2MouseClicked(evt);
             }
         });
-        jPanel2.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 171, 20));
+        jPanel2.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 171, 20));
 
         createaccountBtn.setBackground(new java.awt.Color(204, 204, 204));
-        createaccountBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        createaccountBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         createaccountBtn.setForeground(new java.awt.Color(186, 79, 84));
         createaccountBtn.setText("Create Account");
         createaccountBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -238,10 +253,10 @@ public class UserInterface extends javax.swing.JFrame {
                 createaccountBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(createaccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 120, -1));
+        jPanel2.add(createaccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, 150, 40));
 
         cancelBtn.setBackground(new java.awt.Color(204, 204, 204));
-        cancelBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cancelBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         cancelBtn.setForeground(new java.awt.Color(153, 153, 153));
         cancelBtn.setText("Cancel");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -249,132 +264,144 @@ public class UserInterface extends javax.swing.JFrame {
                 cancelBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 110, -1));
+        jPanel2.add(cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 150, 40));
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 170, 10));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 170, 10));
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 170, 10));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 170, 10));
 
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 170, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 170, 10));
 
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 170, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 170, 10));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/XOImage.png"))); // NOI18N
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, -1, -1));
 
         cards.add(jPanel2, "card2");
 
-        jPanel4.setBackground(new java.awt.Color(244, 91, 105));
+        jPanel3.setBackground(new java.awt.Color(186, 79, 84));
+        jPanel3.setPreferredSize(new java.awt.Dimension(850, 550));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        label1.setText("PLAYER NAME");
+        jLabel2.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 204));
+        jLabel2.setText("Player Profile");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
 
-        label2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label2.setText("PLAYER EMAIL");
+        jLabel15.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/icons8_winner_80px.png"))); // NOI18N
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        label3.setText("Games PLAYED");
+        jLabel17.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText(":");
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 30, -1));
 
-        label4.setText("WIN");
+        jLabel18.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Username");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
-        label5.setText("LOSE");
+        jLabel19.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("E-mail");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
-        label6.setText("TIE");
+        jLabel20.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Games");
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
-        tLoses.setText("0");
+        jLabel21.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("WIN");
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
-        tTie.setText("0");
+        jLabel23.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("TIE");
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
 
-        tWins.setText("0");
+        jLabel24.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("LOSS");
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
-        tGamesPLAYED.setText("0");
+        jLabel22.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("ID");
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
-        label7.setText("PLAYER ID");
+        jLabel25.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText(":");
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 30, -1));
 
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
+        jLabel27.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText(":");
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 30, -1));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tName, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(label7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tID, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(tWins, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(tLoses, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(tTie, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tGamesPLAYED, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(61, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tGamesPLAYED, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tLoses, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tWins, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(tTie, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel26.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText(":");
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 30, -1));
 
-        cards.add(jPanel4, "card4");
+        jLabel28.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText(":");
+        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 30, -1));
+
+        jLabel29.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText(":");
+        jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 30, -1));
+
+        playerTie.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        playerTie.setForeground(new java.awt.Color(255, 255, 204));
+        jPanel3.add(playerTie, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText(":");
+        jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 30, -1));
+
+        playerID.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        playerID.setForeground(new java.awt.Color(255, 255, 204));
+        jPanel3.add(playerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+
+        playerUsername.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        playerUsername.setForeground(new java.awt.Color(255, 255, 204));
+        jPanel3.add(playerUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, -1, -1));
+
+        playerEmail.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        playerEmail.setForeground(new java.awt.Color(255, 255, 204));
+        jPanel3.add(playerEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
+
+        playerGames.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        playerGames.setForeground(new java.awt.Color(255, 255, 204));
+        jPanel3.add(playerGames, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, -1, -1));
+
+        playerLoss.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        playerLoss.setForeground(new java.awt.Color(255, 255, 204));
+        jPanel3.add(playerLoss, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, -1, -1));
+
+        playerWin.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        playerWin.setForeground(new java.awt.Color(255, 255, 204));
+        jPanel3.add(playerWin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, -1, -1));
+
+        profileBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back_2.png"))); // NOI18N
+        jPanel3.add(profileBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/android-ios-tic-tac-toe (1).png"))); // NOI18N
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-110, -70, 970, 690));
+
+        cards.add(jPanel3, "card3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -405,8 +432,6 @@ public class UserInterface extends javax.swing.JFrame {
         String dataSignIn = new String();
         dataSignIn=Controler.signIn(usernameField.getText(),passwordField.getText());
         player.sendSignInData(dataSignIn);
-        
-               
     }//GEN-LAST:event_signInBtnActionPerformed
 
     private void createaccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createaccountBtnActionPerformed
@@ -431,7 +456,7 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1MouseClicked
 
     private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
-        if( jTextField2.getText().equals("E-mail"))
+        if( jTextField2.getText().equals("example@gmail.com"))
         jTextField2.setText("");
     }//GEN-LAST:event_jTextField2MouseClicked
 
@@ -457,23 +482,11 @@ public class UserInterface extends javax.swing.JFrame {
 
     private void btnGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestActionPerformed
 
-            new TicTacToe().setVisible(true);
+        new TicTacToe().setVisible(true);
         setVisible(false);
         TicTacToe.btnOnline.setVisible(false);
-
-       // onlineBtn.setVisible(false);
-        TicTacToe.btnPlayerProfile.setEnabled(false);
-   
+        TicTacToe.btnPlayerProfile.setVisible(false);
     }//GEN-LAST:event_btnGuestActionPerformed
-
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        crd = (CardLayout) cards.getLayout();
-        crd.show(cards,"card3");
-    }//GEN-LAST:event_btnHomeActionPerformed
-
-    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usernameFieldActionPerformed
 
     
     public static void main(String args[]) {
@@ -505,29 +518,49 @@ public class UserInterface extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserInterface().setVisible(true);
+                UserInterface user = new UserInterface();
+                user.setLocationRelativeTo(null);
+                user.setVisible(true);
+               
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuest;
-    private javax.swing.JButton btnHome;
     private javax.swing.JButton cancelBtn;
     private javax.swing.JPanel cards;
     private javax.swing.JButton createaccountBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JSeparator jSeparator1;
@@ -538,23 +571,17 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private java.awt.Label label1;
-    private java.awt.Label label2;
-    private java.awt.Label label3;
-    private java.awt.Label label4;
-    private java.awt.Label label5;
-    private java.awt.Label label6;
-    private java.awt.Label label7;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JLabel playerEmail;
+    private javax.swing.JLabel playerGames;
+    private javax.swing.JLabel playerID;
+    private javax.swing.JLabel playerLoss;
+    private javax.swing.JLabel playerTie;
+    private javax.swing.JLabel playerUsername;
+    private javax.swing.JLabel playerWin;
+    private javax.swing.JLabel profileBack;
     private javax.swing.JButton signInBtn;
     private javax.swing.JButton signupBtn;
-    private java.awt.TextField tEmail;
-    private java.awt.TextField tGamesPLAYED;
-    private java.awt.TextField tID;
-    private java.awt.TextField tLoses;
-    private java.awt.TextField tName;
-    private java.awt.TextField tTie;
-    private java.awt.TextField tWins;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 
@@ -562,9 +589,7 @@ public class UserInterface extends javax.swing.JFrame {
   public void validSignIn(){
         new TicTacToe().setVisible(true);
         setVisible(false);
-      //LName.setText(usernameField.getText());
-      tName.setText(usernameField.getText());
-      tName.setEditable(false);}
+  }
     
    public void inValidSignIn(){
     JOptionPane.showMessageDialog(null,"Error in username or password.","Error",1);}
@@ -577,10 +602,6 @@ public class UserInterface extends javax.swing.JFrame {
    public void SignUp(){
     JOptionPane.showMessageDialog(null,"Saved data","Congratulations",1);
                 new TicTacToe().setVisible(true);
-                setVisible(false);
-            //    LName.setText(jTextField1.getText());
-                tName.setText(jTextField1.getText());
-                tName.setEditable(false);}
-   
-    
+                setVisible(false);    
+}
 }

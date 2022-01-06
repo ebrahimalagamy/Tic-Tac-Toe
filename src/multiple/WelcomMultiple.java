@@ -33,13 +33,14 @@ public class WelcomMultiple  extends JFrame {
         btnStart.setText("Start");
         parentPanal.add(btnStart);
         btnStart.setBounds(325, 300, 200,35);
-        
-        backImage = new JLabel();
-        ImageIcon imageIconBack = new ImageIcon(getClass().getClassLoader().getResource("images/back_2.png"));
+      
+        backImage = new JLabel();      
+        ImageIcon imageIconBack = new ImageIcon(getClass().getResource("/images/back_2.png"));
+     
         backImage.setIcon(imageIconBack);
         parentPanal.add(backImage);
         backImage.setBounds(20, 20, 32, 32);
-        
+       
         textFiledName = new TextField();
         parentPanal.add(textFiledName);
         textFiledName.setBounds(325, 250, 200,30);
