@@ -16,7 +16,7 @@ public class EasyClass extends JFrame{
      JLabel firstPlayerScore, secondPlayerScore;
      JLabel pressedLabel;
      int XOCounter ;
-     ImageIcon xIcon;
+
      
 
     public EasyClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter) {
@@ -34,9 +34,7 @@ public class EasyClass extends JFrame{
     Random random = new Random();
    
     private void createGamePage() {
-    
-        
-    xIcon =new ImageIcon("images/vs.png");
+
     
     }
     

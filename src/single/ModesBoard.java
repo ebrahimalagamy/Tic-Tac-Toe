@@ -19,8 +19,8 @@ import javax.swing.SwingUtilities;
 import tic.tac.toe.TicTacToe;
 import video.VideoGame;
 
-public class SingleBoard extends JFrame {
-
+public class ModesBoard extends JFrame {
+    HardClass hard;
     JPanel parentPanal, gamePanal, gameParentPanal, gameInfoPanal;
     JLabel[] arrayOfLabals;
     JLabel boardBackground, firstPlayerName, secondPlayerName, imageRecording,
@@ -30,6 +30,7 @@ public class SingleBoard extends JFrame {
     int XOCounter = 0;
     boolean isFirstPlayerTurn = true;
     boolean isGameEnds = false;
+    static JLabel pressedLabel;
 
     private void createGamePage() {
 
@@ -197,8 +198,8 @@ public class SingleBoard extends JFrame {
            
             System.out.println("from hard");
             boolean check = false;
-            HardClass e = new HardClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter);
-            check = e.isOnePlayerGameEnds();
+           
+            check = hard.isOnePlayerGameEnds();
             XOCounter += 2;
             if (check) {
                 removeXOListener();
@@ -218,7 +219,7 @@ public class SingleBoard extends JFrame {
     MouseListener XOListener = new MouseListener() {
         @Override
         public void mousePressed(MouseEvent e) {
-            JLabel pressedLabel = (JLabel) e.getSource();
+             pressedLabel = (JLabel) e.getSource();
             if (isGameEnds == false) {
                 if (!pressedLabel.getText().toString().equals("O") && !pressedLabel.getText().toString().equals("X")) {
                     System.out.println("done");
@@ -261,7 +262,7 @@ public class SingleBoard extends JFrame {
 
     }
 
-    public SingleBoard() {
+    public ModesBoard() {
         createAndShowGUI();
     }
 
@@ -290,17 +291,23 @@ public class SingleBoard extends JFrame {
                 setVisible(false);
             }
         });
+        
 
         btnHard.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                selectMode.setText("Hard");
+              hard = new HardClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, XOCounter);
             }
         });
         
           btnEasy.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                selectMode.setText("Easy");
-            }
+               if (isGameEnds == false) {
+                if (!pressedLabel.getText().toString().equals("O") && !pressedLabel.getText().toString().equals("X")) {
+                    System.out.println("done");
+                    isOnePlayerGameEnds(pressedLabel);
+            }}}
         });
 
 
@@ -317,7 +324,7 @@ public class SingleBoard extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new SingleBoard();
+                new ModesBoard();
             }
         });
     }

@@ -1,6 +1,8 @@
 package multiple;
 
+import design.ButtonDesign;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
@@ -13,7 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import single.SingleBoard;
+import single.ModesBoard;
 import tic.tac.toe.TicTacToe;
 
 public class WelcomMultiple  extends JFrame {
@@ -26,19 +28,25 @@ public class WelcomMultiple  extends JFrame {
     private void createGamePage() {
         
         parentPanal = new JPanel(null);
-        btnStart = new JButton("Start");
+        parentPanal.setBackground(new Color(214, 229, 250));
+        btnStart = new ButtonDesign();
+        btnStart.setText("Start");
         parentPanal.add(btnStart);
-        btnStart.setBounds(325, 300, 200,40);
+        btnStart.setBounds(325, 300, 200,35);
         
         backImage = new JLabel();
-        ImageIcon imageIconBack = new ImageIcon(getClass().getClassLoader().getResource("images/back.png"));
+        ImageIcon imageIconBack = new ImageIcon(getClass().getClassLoader().getResource("images/back_2.png"));
         backImage.setIcon(imageIconBack);
         parentPanal.add(backImage);
         backImage.setBounds(20, 20, 32, 32);
         
         textFiledName = new TextField();
         parentPanal.add(textFiledName);
-        textFiledName.setBounds(325, 250, 200,25);
+        textFiledName.setBounds(325, 250, 200,30);
+        textFiledName.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        textFiledName.setForeground(new java.awt.Color(153, 153, 153));
+        textFiledName.setText("Player Name");
+        
     }
     
     public WelcomMultiple() {
@@ -67,6 +75,11 @@ public class WelcomMultiple  extends JFrame {
                 }
                
                 
+            }
+        });
+        textFiledName.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                textFiledName.setText("");
             }
         });
         

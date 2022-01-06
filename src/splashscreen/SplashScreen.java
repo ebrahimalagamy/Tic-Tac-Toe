@@ -36,33 +36,33 @@ public class SplashScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(214, 229, 250));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(214, 229, 250));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         loading.setBackground(new java.awt.Color(0, 0, 0));
         loading.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         loading.setForeground(new java.awt.Color(153, 153, 153));
         loading.setText("Loading...");
-        jPanel2.add(loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 14, -1, -1));
+        jPanel2.add(loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, -1, -1));
 
         load.setBackground(new java.awt.Color(255, 255, 255));
         load.setForeground(new java.awt.Color(153, 153, 153));
         load.setBorderPainted(false);
-        jPanel2.add(load, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 46, 480, -1));
+        jPanel2.add(load, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 540, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 500, 80));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 560, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/img/rsz_12.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 220));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/img/image.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 340, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -13,17 +13,38 @@ public class HardClass extends JFrame{
     JLabel[] arrayOfLabals;
      JPanel parentPanal;
      JLabel firstPlayerScore, secondPlayerScore;
-     JLabel pressedLabel;
+  //   JLabel pressedLabel;
      int XOCounter ;
      ImageIcon xIcon;
 
-    public HardClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter) {
+    public HardClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, int XOCounter) {
         this.arrayOfLabals = arrayOfLabals;
         this.parentPanal = parentPanal;
         this.firstPlayerScore = firstPlayerScore;
         this.secondPlayerScore = secondPlayerScore;
-        this.pressedLabel = pressedLabel;
+       
         this.XOCounter = XOCounter;
+        
+         char[][] board = {{'_','_','_'}
+                            ,{'_','_','_'}
+                            ,{'_','_','_'}};
+
+        
+                 arr2d(board);
+                 printArray(board);
+                 Move move = findBestMove(board);
+                 System.out.println( " X: "
+                         +move.row+ " Y: "+move.col);
+                
+
+                        arrayOfLabals[move.row+(move.col*3)].setText("X");
+                        arrayOfLabals[move.row+(move.col*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
+                        arrayOfLabals[move.row+(move.col*3)].setForeground(Color.blue);
+                        parentPanal.repaint();
+                        printArray(board);
+                        XOCounter++;
+           
+           
     }
 
     boolean isFirstPlayerTurn = true;
@@ -32,9 +53,7 @@ public class HardClass extends JFrame{
     Random random = new Random();
    
     private void createGamePage() {
-    
-        
-    xIcon =new ImageIcon("images/vs.png");
+  
     
     }
 
@@ -364,38 +383,41 @@ static Move findBestMove(char board[][])
                             ,{'_','_','_'}
                             ,{'_','_','_'}};
 
-        if (XOCounter < 9 && pressedLabel.getText().equals("")) {
+        if (XOCounter < 9 && ModesBoard.pressedLabel.getText().equals("")) {
 
-            pressedLabel.setText("X");
-            pressedLabel.setVisible(true);
+            ModesBoard.pressedLabel.setText("O");
+            ModesBoard.pressedLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
+            parentPanal.repaint();
           
             
-            pressedLabel.setForeground(Color.ORANGE);
+            ModesBoard.pressedLabel.setForeground(Color.ORANGE);
             
             XOCounter++;
-            System.out.println(XOCounter);
+           
             checkIfThereIsAWinner();
             
 
             if (XOCounter < 9 && isGameEnds == false) {
                  arr2d(board);
-                 printArray(board);
+                 System.out.println("chances");
+                  printArray(board);
                  Move move = findBestMove(board);
                  System.out.println( " X: "
                          +move.row+ " Y: "+move.col);
-                for (;;) {
-                    randomNumber = random.nextInt(9);
-                    if (arrayOfLabals[randomNumber].getText().equals("")) {
-
-                        arrayOfLabals[move.row+(move.col*3)].setText("O");
-                        arrayOfLabals[move.row+(move.col*3)].setForeground(Color.blue);
+          
+                        arrayOfLabals[move.col+(move.row*3)].setText("X");
+                        arrayOfLabals[move.col+(move.row*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
+                        arrayOfLabals[move.col+(move.row*3)].setForeground(Color.blue);
+                         arrayOfLabals[move.col+(move.row*3)].setVisible(true);
+                        board[move.row][move.col] = 'X';
                         parentPanal.repaint();
 
                         XOCounter++;
                         checkIfThereIsAWinner();
-                        break;
-                    }
-                }
+                        System.out.println("aftel calc");
+                        printArray(board);
+                         System.out.println(XOCounter);
+               
             }
 
         }

@@ -1,6 +1,4 @@
-
 package multiple;
-
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -11,12 +9,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MultipleClass extends JFrame{
-    JLabel[] arrayOfLabals;
+     JLabel[] arrayOfLabals;
      JPanel parentPanal;
      JLabel firstPlayerScore, secondPlayerScore;
      JLabel pressedLabel;
      int XOCounter ;
-     ImageIcon xIcon;
      static boolean isFirstPlayerTurn =true;
 
     public MultipleClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter) {
@@ -27,19 +24,8 @@ public class MultipleClass extends JFrame{
         this.pressedLabel = pressedLabel;
         this.XOCounter = XOCounter;
     }
-
-   
     boolean isGameEnds = false;
     int randomNumber;
-   // Random random = new Random();
-   
-    private void createGamePage() {
-    
-        
-    xIcon =new ImageIcon("images/vs.png");
-    
-    }
-    
     
     
      private void colorBackgroundWinnerLabels(JLabel l1, JLabel l2, JLabel l3) {
@@ -50,7 +36,7 @@ public class MultipleClass extends JFrame{
     }
      
      private void checkIfThereIsAWinner() {
-
+     
         String c0 = arrayOfLabals[0].getText();
         String c1 = arrayOfLabals[1].getText();
         String c2 = arrayOfLabals[2].getText();

@@ -1,5 +1,6 @@
 package tic.tac.toe;
 
+import design.ButtonDesign;
 import multiple.WelcomMultiple;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -11,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import single.SingleBoard;  
+import single.ModesBoard;  
 
 /**
  *
@@ -20,8 +21,11 @@ import single.SingleBoard;
 public class TicTacToe extends JFrame {
 
     JPanel parentPanal,buttonPanal,gifPanal;
-    JButton btnSingle,btnMultiple,btnOnline;
-    JLabel boardBackground;
+    JButton btnSingle,btnMultiple;
+    public  static JButton btnPlayerProfile;
+    public static JButton btnOnline;
+    JLabel boardBackground,LabelName;
+    
           
     private void createGamePage() {
         
@@ -29,11 +33,21 @@ public class TicTacToe extends JFrame {
         
         buttonPanal = new JPanel(null);
         gifPanal = new JPanel(null);
- 
+
+        btnPlayerProfile = new JButton("PP");
         
-        btnSingle = new JButton("Single");
-        btnMultiple = new JButton("Multiple");
-        btnOnline = new JButton("Online");
+        btnSingle = new ButtonDesign();
+        btnSingle.setText("One Player");
+        
+        LabelName = new JLabel("Gust");
+        
+        
+        
+        btnMultiple = new ButtonDesign();
+        btnMultiple.setText("Two Players");
+        
+        btnOnline = new ButtonDesign();
+        btnOnline.setText("Online");
         boardBackground = new JLabel();
         
         ImageIcon fillingIcon = new ImageIcon(getClass().getClassLoader().getResource("images/image.png"));
@@ -56,10 +70,14 @@ public class TicTacToe extends JFrame {
         btnOnline.setBounds(100, 280, 200,40);
         boardBackground.setBounds(60,0,450,500);
         
+        gifPanal.add(btnPlayerProfile);
+        btnPlayerProfile.setBounds(30,30, 50, 50);
         
+       gifPanal.add(LabelName);
+        LabelName.setBounds(85,30, 50, 50);
         
-        buttonPanal.setBackground(new Color(44, 7, 53));
-        gifPanal.setBackground(Color.WHITE);
+        gifPanal.setBackground(new Color(214, 229, 250));
+        buttonPanal.setBackground(new Color(214, 229, 250));
         
        
     }
@@ -80,7 +98,7 @@ public class TicTacToe extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-               new SingleBoard().setVisible(true);
+               new ModesBoard().setVisible(true);
                 setVisible(false);
                 
             }
