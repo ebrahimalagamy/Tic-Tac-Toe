@@ -13,9 +13,9 @@ import gui.UserInterface;
  */
 public class Splash {
     public static void main (String args[]) throws InterruptedException{
-        SplashScreen splash = new SplashScreen();
+        SplashScreengui splash = new SplashScreengui();
         for(int i =0;i<=100;i++){
-            Thread.sleep(60);
+            Thread.sleep(40);
             splash.setLocationRelativeTo(null);
             splash.setVisible(true);
             splash.loading.setText("Loading.."+i+"%");

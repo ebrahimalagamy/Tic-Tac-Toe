@@ -74,7 +74,6 @@ public class ModesBoard extends JFrame {
 
         ImageIcon imageIconBack = new ImageIcon(getClass().getClassLoader().getResource("images/back_2.png"));
         backImage.setIcon(imageIconBack);
-
         ImageIcon imageIconRecording = new ImageIcon(getClass().getClassLoader().getResource("images/record.png"));
         imageRecording.setIcon(imageIconRecording);
         
