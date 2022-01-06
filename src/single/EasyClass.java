@@ -43,7 +43,7 @@ public class EasyClass extends JFrame{
         l2.setOpaque(true);
         l3.setOpaque(true);
         isGameEnds = true;
-        Application.launch(VideoGame.class);
+       Application.launch(VideoGame.class);
        
     }
      

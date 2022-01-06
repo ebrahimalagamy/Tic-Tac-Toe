@@ -457,7 +457,7 @@ public class UserInterface extends javax.swing.JFrame {
 
     private void btnGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestActionPerformed
 
-        new TicTacToe().setVisible(true);
+            new TicTacToe().setVisible(true);
         setVisible(false);
         TicTacToe.btnOnline.setVisible(false);
 
