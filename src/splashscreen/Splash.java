@@ -13,13 +13,15 @@ import gui.UserInterface;
  */
 public class Splash {
     public static void main (String args[]) throws InterruptedException{
+        
         SplashScreengui splash = new SplashScreengui();
         for(int i =0;i<=100;i++){
             Thread.sleep(40);
             splash.setLocationRelativeTo(null);
             splash.setVisible(true);
-            splash.loading.setText("Loading.."+i+"%");
             splash.load.setValue(i);
+            splash.loading.setText("Loading.."+i+"%");
+           
             if (i==100){
                 UserInterface user = new UserInterface();
                 user.setLocationRelativeTo(null);

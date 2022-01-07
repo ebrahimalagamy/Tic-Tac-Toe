@@ -78,19 +78,15 @@ public class UserInterface extends javax.swing.JFrame {
         playerLoss = new javax.swing.JLabel();
         playerWin = new javax.swing.JLabel();
         profileBack = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         homePage = new javax.swing.JPanel();
         singleBtn = new javax.swing.JButton();
         multiBtn = new javax.swing.JButton();
         onlineBtn = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        btnPlayerProfile = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
         LabelName = new javax.swing.JLabel();
+        profileLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tic Tac Toe");
-        setPreferredSize(new java.awt.Dimension(850, 550));
         setResizable(false);
         setSize(new java.awt.Dimension(850, 550));
 
@@ -124,7 +120,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         signInBtn.setBackground(new java.awt.Color(204, 204, 204));
         signInBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        signInBtn.setForeground(new java.awt.Color(186, 79, 84));
+        signInBtn.setForeground(new java.awt.Color(126, 21, 168));
         signInBtn.setText("Sign In");
         signInBtn.setBorder(null);
         signInBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +132,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         signupBtn.setBackground(new java.awt.Color(204, 204, 204));
         signupBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        signupBtn.setForeground(new java.awt.Color(186, 79, 84));
+        signupBtn.setForeground(new java.awt.Color(126, 21, 168));
         signupBtn.setText("Sign Up");
         signupBtn.setBorder(null);
         signupBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +143,7 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel1.add(signupBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 80, 30));
 
         jLabel11.setFont(new java.awt.Font("Viner Hand ITC", 1, 50)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(186, 79, 84));
+        jLabel11.setForeground(new java.awt.Color(102, 78, 136));
         jLabel11.setText("Tic Tac Toe");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, 54));
 
@@ -170,7 +166,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         btnGuest.setBackground(new java.awt.Color(204, 204, 204));
         btnGuest.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btnGuest.setForeground(new java.awt.Color(186, 79, 84));
+        btnGuest.setForeground(new java.awt.Color(126, 21, 168));
         btnGuest.setText("Play As A Guest");
         btnGuest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,23 +183,23 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(186, 79, 84));
+        jLabel3.setForeground(new java.awt.Color(102, 78, 136));
         jLabel3.setText("Sign up for new account");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 260, 32));
 
         jLabel5.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(186, 79, 84));
+        jLabel5.setForeground(new java.awt.Color(102, 78, 136));
         jLabel5.setText("Username");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(186, 79, 84));
+        jLabel6.setForeground(new java.awt.Color(102, 78, 136));
         jLabel6.setText("E-mail");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(186, 79, 84));
+        jLabel7.setForeground(new java.awt.Color(102, 78, 136));
         jLabel7.setText("Password");
         jLabel7.setToolTipText("");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
@@ -240,7 +236,7 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 171, 20));
 
         jLabel8.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(186, 79, 84));
+        jLabel8.setForeground(new java.awt.Color(102, 78, 136));
         jLabel8.setText("Confirm Password");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
 
@@ -256,7 +252,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         createaccountBtn.setBackground(new java.awt.Color(204, 204, 204));
         createaccountBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        createaccountBtn.setForeground(new java.awt.Color(186, 79, 84));
+        createaccountBtn.setForeground(new java.awt.Color(126, 21, 168));
         createaccountBtn.setText("Create Account");
         createaccountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,7 +289,8 @@ public class UserInterface extends javax.swing.JFrame {
 
         cards.add(jPanel2, "card2");
 
-        jPanel3.setBackground(new java.awt.Color(186, 79, 84));
+        jPanel3.setBackground(new java.awt.Color(129, 90, 161));
+        jPanel3.setToolTipText("");
         jPanel3.setMinimumSize(new java.awt.Dimension(850, 550));
         jPanel3.setPreferredSize(new java.awt.Dimension(850, 550));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -415,68 +412,59 @@ public class UserInterface extends javax.swing.JFrame {
         });
         jPanel3.add(profileBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/android-ios-tic-tac-toe (1).png"))); // NOI18N
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, -60, 970, 690));
-
         cards.add(jPanel3, "card3");
 
-        homePage.setBackground(new java.awt.Color(186, 79, 84));
+        homePage.setBackground(new java.awt.Color(186, 171, 218));
         homePage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        singleBtn.setBackground(new java.awt.Color(204, 204, 204));
+        singleBtn.setBackground(new java.awt.Color(214, 229, 250));
         singleBtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
-        singleBtn.setForeground(new java.awt.Color(186, 79, 84));
-        singleBtn.setText("Single PLayer");
+        singleBtn.setForeground(new java.awt.Color(126, 21, 168));
+        singleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/player_image.png"))); // NOI18N
+        singleBtn.setText("   Single PLayer");
         singleBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
         singleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 singleBtnActionPerformed(evt);
             }
         });
-        homePage.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 154, 47));
+        homePage.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 150, 250, 80));
 
-        multiBtn.setBackground(new java.awt.Color(204, 204, 204));
+        multiBtn.setBackground(new java.awt.Color(214, 229, 250));
         multiBtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
-        multiBtn.setForeground(new java.awt.Color(186, 79, 84));
-        multiBtn.setText("Multi Player");
+        multiBtn.setForeground(new java.awt.Color(126, 21, 168));
+        multiBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/battle.png"))); // NOI18N
+        multiBtn.setText("   Multi Player");
         multiBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
         multiBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 multiBtnActionPerformed(evt);
             }
         });
-        homePage.add(multiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 154, 47));
+        homePage.add(multiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 250, 250, 80));
 
-        onlineBtn.setBackground(new java.awt.Color(204, 204, 204));
+        onlineBtn.setBackground(new java.awt.Color(214, 229, 250));
         onlineBtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
-        onlineBtn.setForeground(new java.awt.Color(186, 79, 84));
-        onlineBtn.setText("ONLINE");
+        onlineBtn.setForeground(new java.awt.Color(126, 21, 168));
+        onlineBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/online-game.png"))); // NOI18N
+        onlineBtn.setText("     ONLINE");
         onlineBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
-        homePage.add(onlineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 154, 47));
-        homePage.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 350, 330));
-
-        btnPlayerProfile.setBackground(new java.awt.Color(204, 0, 0));
-        btnPlayerProfile.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        btnPlayerProfile.setForeground(new java.awt.Color(255, 153, 51));
-        btnPlayerProfile.setToolTipText("");
-        btnPlayerProfile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPlayerProfileActionPerformed(evt);
-            }
-        });
-        homePage.add(btnPlayerProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 50, 30));
-
-        jLabel14.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel14.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("SELECT YOUR GAME");
-        homePage.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 339, 60));
+        homePage.add(onlineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 350, 250, 80));
 
         LabelName.setBackground(new java.awt.Color(102, 102, 102));
         LabelName.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        LabelName.setForeground(new java.awt.Color(51, 51, 51));
-        LabelName.setText("Guest");
-        homePage.add(LabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 130, 30));
+        LabelName.setForeground(new java.awt.Color(255, 253, 222));
+        homePage.add(LabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 130, 30));
+
+        profileLabel.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        profileLabel.setForeground(new java.awt.Color(255, 255, 255));
+        profileLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/icons8_winner_80px.png"))); // NOI18N
+        profileLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                profileLabelMouseClicked(evt);
+            }
+        });
+        homePage.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         cards.add(homePage, "card4");
 
@@ -558,19 +546,11 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFieldMouseClicked
 
     private void btnGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestActionPerformed
-
-       crd = (CardLayout) cards.getLayout();
+        LabelName.setText("Guest");    
+        crd = (CardLayout) cards.getLayout();
         crd.show(cards,"card4");
       
     }//GEN-LAST:event_btnGuestActionPerformed
-
-    private void btnPlayerProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerProfileActionPerformed
-        crd = (CardLayout) cards.getLayout();
-        crd.show(cards,"card3");
-        String getData = new String();
-        getData=Controler.getData(usernameField.getText());
-        player.SendGetData(getData);
-    }//GEN-LAST:event_btnPlayerProfileActionPerformed
 
     private void profileBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileBackMouseClicked
        crd = (CardLayout) cards.getLayout();
@@ -586,6 +566,14 @@ public class UserInterface extends javax.swing.JFrame {
         new WelcomMultiple().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_multiBtnActionPerformed
+
+    private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
+        crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card3");
+        String getData = new String();
+        getData=Controler.getData(usernameField.getText());
+        player.SendGetData(getData);
+    }//GEN-LAST:event_profileLabelMouseClicked
 
     
     public static void main(String args[]) {
@@ -628,7 +616,6 @@ public class UserInterface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelName;
     private javax.swing.JButton btnGuest;
-    private javax.swing.JButton btnPlayerProfile;
     private javax.swing.JButton cancelBtn;
     public javax.swing.JPanel cards;
     private javax.swing.JButton createaccountBtn;
@@ -636,9 +623,7 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -661,7 +646,6 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
@@ -686,6 +670,7 @@ public class UserInterface extends javax.swing.JFrame {
     protected javax.swing.JLabel playerUsername;
     protected javax.swing.JLabel playerWin;
     private javax.swing.JLabel profileBack;
+    private javax.swing.JLabel profileLabel;
     private javax.swing.JButton signInBtn;
     private javax.swing.JButton signupBtn;
     private javax.swing.JButton singleBtn;
