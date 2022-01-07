@@ -185,7 +185,7 @@ public class UserInterface extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(186, 79, 84));
         jLabel5.setText("Username");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(186, 79, 84));
@@ -207,7 +207,7 @@ public class UserInterface extends javax.swing.JFrame {
                 jTextField1MouseClicked(evt);
             }
         });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 172, 20));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 172, 20));
 
         jTextField2.setForeground(new java.awt.Color(153, 153, 153));
         jTextField2.setText("example@gmail.com");
@@ -253,7 +253,7 @@ public class UserInterface extends javax.swing.JFrame {
                 createaccountBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(createaccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, 150, 40));
+        jPanel2.add(createaccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 150, 40));
 
         cancelBtn.setBackground(new java.awt.Color(204, 204, 204));
         cancelBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -264,13 +264,13 @@ public class UserInterface extends javax.swing.JFrame {
                 cancelBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 150, 40));
+        jPanel2.add(cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, 150, 40));
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 170, 10));
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 170, 10));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 170, 10));
 
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 170, 10));
@@ -278,12 +278,13 @@ public class UserInterface extends javax.swing.JFrame {
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 170, 10));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/XOImage.png"))); // NOI18N
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, -1, -1));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/68747470733a2f2f696d6167652e666c617469636f6e2e636f6d2f69636f6e732f706e672f3531322f3536362f3536363239342e706e67-modified.png"))); // NOI18N
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, -1, -1));
 
         cards.add(jPanel2, "card2");
 
         jPanel3.setBackground(new java.awt.Color(186, 79, 84));
+        jPanel3.setMinimumSize(new java.awt.Dimension(850, 550));
         jPanel3.setPreferredSize(new java.awt.Dimension(850, 550));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -399,7 +400,7 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel3.add(profileBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/android-ios-tic-tac-toe (1).png"))); // NOI18N
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-110, -70, 970, 690));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, -60, 970, 690));
 
         cards.add(jPanel3, "card3");
 
