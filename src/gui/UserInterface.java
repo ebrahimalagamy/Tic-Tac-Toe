@@ -10,7 +10,7 @@ public class UserInterface extends javax.swing.JFrame {
 
     
     GamePlayer player;
-    CardLayout crd;
+    public CardLayout crd;
 
     public UserInterface() {
         player = new GamePlayer(this);
@@ -529,7 +529,7 @@ public class UserInterface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuest;
     private javax.swing.JButton cancelBtn;
-    private javax.swing.JPanel cards;
+    public javax.swing.JPanel cards;
     private javax.swing.JButton createaccountBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -560,7 +560,7 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    public javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JSeparator jSeparator1;
@@ -572,13 +572,13 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JPasswordField passwordField;
-    private javax.swing.JLabel playerEmail;
-    private javax.swing.JLabel playerGames;
-    private javax.swing.JLabel playerID;
-    private javax.swing.JLabel playerLoss;
-    private javax.swing.JLabel playerTie;
-    private javax.swing.JLabel playerUsername;
-    private javax.swing.JLabel playerWin;
+    protected javax.swing.JLabel playerEmail;
+    protected javax.swing.JLabel playerGames;
+    protected javax.swing.JLabel playerID;
+    protected javax.swing.JLabel playerLoss;
+    protected javax.swing.JLabel playerTie;
+    protected javax.swing.JLabel playerUsername;
+    protected javax.swing.JLabel playerWin;
     private javax.swing.JLabel profileBack;
     private javax.swing.JButton signInBtn;
     private javax.swing.JButton signupBtn;
