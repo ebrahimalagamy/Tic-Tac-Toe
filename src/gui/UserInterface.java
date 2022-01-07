@@ -406,6 +406,11 @@ public class UserInterface extends javax.swing.JFrame {
         jPanel3.add(playerWin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, -1, -1));
 
         profileBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back_2.png"))); // NOI18N
+        profileBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                profileBackMouseClicked(evt);
+            }
+        });
         jPanel3.add(profileBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/android-ios-tic-tac-toe (1).png"))); // NOI18N
@@ -552,9 +557,14 @@ public class UserInterface extends javax.swing.JFrame {
         crd = (CardLayout) cards.getLayout();
         crd.show(cards,"card3");
         String getData = new String();
-        getData=Controler.getData(LabelName.getText());
+        getData=Controler.getData(usernameField.getText());
         player.SendGetData(getData);
     }//GEN-LAST:event_btnPlayerProfileActionPerformed
+
+    private void profileBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileBackMouseClicked
+       crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card4");
+    }//GEN-LAST:event_profileBackMouseClicked
 
     
     public static void main(String args[]) {
@@ -665,6 +675,8 @@ public class UserInterface extends javax.swing.JFrame {
   public void validSignIn(){
      crd = (CardLayout) cards.getLayout();
         crd.show(cards,"card4");
+        LabelName.setText(usernameField.getText());
+        playerUsername.setText(usernameField.getText());
   }
     
    public void inValidSignIn(){

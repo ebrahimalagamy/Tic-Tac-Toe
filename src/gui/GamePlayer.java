@@ -55,17 +55,16 @@ public class GamePlayer {
                                     mygui.SignUp();
                                     break;
                                case "PlayerData":
-                                   //mygui.PlayerData();
+                               
                                     gui.playerID.setText(arrOfStringForMsg[1]);
                                     gui.playerUsername.setText(arrOfStringForMsg[2]);
-                                   // gui.pass.setText(arrOfStringForMsg[3]);
+                                   // gui.playerWin.setText(arrOfStringForMsg[3]);
                                     gui.playerEmail.setText(arrOfStringForMsg[4]);
                                     gui.playerGames.setText(arrOfStringForMsg[5]);
-                                    gui.playerLoss.setText(arrOfStringForMsg[6]);
-                                    gui.playerWin.setText(arrOfStringForMsg[7]);
+                                    gui.playerWin.setText(arrOfStringForMsg[6]);
+                                    gui.playerLoss.setText(arrOfStringForMsg[7]);
                                     gui.playerTie.setText(arrOfStringForMsg[8]);
-                                    System.out.println(arrOfStringForMsg[1]+"/"+
-                                   arrOfStringForMsg[2] );
+                                    
                                     break;
                                case "Roomclosed": 
                                    
