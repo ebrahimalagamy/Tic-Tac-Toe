@@ -2,6 +2,10 @@
 package multiple;
 
 import design.ButtonDesign;
+import gui.UserInterface;
+import static gui.UserInterface.cards;
+import static gui.UserInterface.crd;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -17,16 +21,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import single.EasyClass;
+import static single.ModesBoard.firstPlayerName;
 import tic.tac.toe.TicTacToe;
 
 public class MultipleBoard extends JFrame {
 
     JPanel parentPanal, gamePanal, gameParentPanal, gameInfoPanal;
     JLabel[] arrayOfLabals;
-    JLabel boardBackground, firstPlayerName, secondPlayerName, imageRecording,
+    JLabel boardBackground, secondPlayerName, imageRecording,
             firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage,selectMode,savedIcon,textHistory;
     JButton btnRestart;
     int XOCounter = 0;
+   public static JLabel firstPlayerName;
     boolean isFirstPlayerTurn = true;
     boolean isGameEnds = false;
 
@@ -58,8 +64,8 @@ public class MultipleBoard extends JFrame {
         
         textHistory = new JLabel("History");
         
-        firstPlayerName = new JLabel("Ebrahim");
-        
+        firstPlayerName = new JLabel();
+        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel();
 //        secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
 
@@ -256,8 +262,13 @@ public class MultipleBoard extends JFrame {
         });
         backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                new TicTacToe().setVisible(true);
-                setVisible(false);
+               dispose();
+                  UserInterface mm = new UserInterface();
+                  mm.setLocationRelativeTo(null);
+                  mm.setVisible(true);
+                  crd = (CardLayout) cards.getLayout();
+                  crd.show(cards,"card4");
+                 gui.UserInterface.LabelName.setText(firstPlayerName.getText());
             }
         });
 

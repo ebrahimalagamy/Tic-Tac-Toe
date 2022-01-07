@@ -1,6 +1,9 @@
 package multiple;
 
 import design.ButtonDesign;
+import gui.UserInterface;
+import static gui.UserInterface.cards;
+import static gui.UserInterface.crd;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -15,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import static multiple.MultipleBoard.firstPlayerName;
 import single.ModesBoard;
 import tic.tac.toe.TicTacToe;
 
@@ -86,8 +90,12 @@ public class WelcomMultiple  extends JFrame {
         
          backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                new TicTacToe().setVisible(true);
-                setVisible(false);
+                UserInterface mm = new UserInterface();
+                  mm.setLocationRelativeTo(null);
+                  mm.setVisible(true);
+                  crd = (CardLayout) cards.getLayout();
+                  crd.show(cards,"card4");
+                 gui.UserInterface.LabelName.setText(firstPlayerName.getText());
             }
         });
 
