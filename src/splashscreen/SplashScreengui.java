@@ -31,45 +31,44 @@ public class SplashScreengui extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         loading = new javax.swing.JLabel();
         load = new javax.swing.JProgressBar();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 102));
         jPanel1.setMinimumSize(new java.awt.Dimension(500, 300));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 300));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(51, 0, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         loading.setBackground(new java.awt.Color(0, 0, 0));
         loading.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
-        loading.setForeground(new java.awt.Color(153, 153, 153));
+        loading.setForeground(new java.awt.Color(255, 255, 255));
         loading.setText("Loading...");
-        jPanel2.add(loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+        jPanel2.add(loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, -1));
 
         load.setBackground(new java.awt.Color(255, 255, 255));
-        load.setForeground(new java.awt.Color(153, 153, 153));
+        load.setForeground(new java.awt.Color(51, 0, 102));
         load.setBorderPainted(false);
-        jPanel2.add(load, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 480, -1));
+        jPanel2.add(load, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 540, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 500, 80));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 560, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/rsz_12.jpg"))); // NOI18N
-        jLabel1.setToolTipText("");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 220));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/68747470733a2f2f696d6167652e666c617469636f6e2e636f6d2f69636f6e732f706e672f3531322f3536362f3536363239342e706e67-modified.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 240, 260));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
         );
 
         pack();
@@ -112,7 +111,7 @@ public class SplashScreengui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JProgressBar load;
