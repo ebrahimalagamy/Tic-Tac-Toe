@@ -1,6 +1,8 @@
 package single;
 
 import design.ButtonDesign;
+import gui.UserInterface;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -284,8 +286,14 @@ public class ModesBoard extends JFrame {
         });
         backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                new TicTacToe().setVisible(true);
-                setVisible(false);
+             /*   UserInterface mm = new UserInterface();
+                 mm =  (UserInterface) mm.cards.getLayout();
+                 crd.show(cards,"card4");
+                
+                
+                
+                mm.cards.getLayout();
+                mm.show(cards,"card4");*/
             }
         });
         

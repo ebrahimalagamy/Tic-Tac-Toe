@@ -2,6 +2,7 @@ package video;
 
 import java.net.URL;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -30,6 +31,7 @@ public class VideoGame extends Application {
     public void start(Stage stage) {
         // Locate the media content in the CLASSPATH
 
+        
         URL mediaUrl = getClass().getClassLoader().getResource("images/loser.mp4");
         String mediaStringUrl = mediaUrl.toExternalForm();
 
@@ -88,6 +90,7 @@ public class VideoGame extends Application {
         // Set the title of the Stage
         stage.setTitle("Loser Video");
         // Display the Stage
+        
         stage.show();
     }
     

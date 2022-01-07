@@ -4,6 +4,8 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import multiple.WelcomMultiple;
+import single.ModesBoard;
 import tic.tac.toe.TicTacToe;
 
 public class UserInterface extends javax.swing.JFrame {
@@ -77,7 +79,7 @@ public class UserInterface extends javax.swing.JFrame {
         playerWin = new javax.swing.JLabel();
         profileBack = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        homePage = new javax.swing.JPanel();
         singleBtn = new javax.swing.JButton();
         multiBtn = new javax.swing.JButton();
         onlineBtn = new javax.swing.JButton();
@@ -418,66 +420,75 @@ public class UserInterface extends javax.swing.JFrame {
 
         cards.add(jPanel3, "card3");
 
-        jPanel4.setBackground(new java.awt.Color(186, 79, 84));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        homePage.setBackground(new java.awt.Color(186, 79, 84));
+        homePage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         singleBtn.setBackground(new java.awt.Color(204, 204, 204));
         singleBtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         singleBtn.setForeground(new java.awt.Color(186, 79, 84));
         singleBtn.setText("Single PLayer");
         singleBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
-        jPanel4.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 154, 47));
+        singleBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                singleBtnActionPerformed(evt);
+            }
+        });
+        homePage.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 154, 47));
 
         multiBtn.setBackground(new java.awt.Color(204, 204, 204));
         multiBtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         multiBtn.setForeground(new java.awt.Color(186, 79, 84));
         multiBtn.setText("Multi Player");
         multiBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
-        jPanel4.add(multiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 154, 47));
+        multiBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                multiBtnActionPerformed(evt);
+            }
+        });
+        homePage.add(multiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 154, 47));
 
         onlineBtn.setBackground(new java.awt.Color(204, 204, 204));
         onlineBtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         onlineBtn.setForeground(new java.awt.Color(186, 79, 84));
         onlineBtn.setText("ONLINE");
         onlineBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
-        jPanel4.add(onlineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 154, 47));
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 350, 330));
+        homePage.add(onlineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 154, 47));
+        homePage.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 350, 330));
 
         btnPlayerProfile.setBackground(new java.awt.Color(204, 0, 0));
         btnPlayerProfile.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         btnPlayerProfile.setForeground(new java.awt.Color(255, 153, 51));
-        btnPlayerProfile.setIcon(new javax.swing.ImageIcon("E:\\iti\\LEC\\java\\project\\github\\Tic-Tac-Toe\\src\\gui\\img\\icons8_user_20px_3.png")); // NOI18N
         btnPlayerProfile.setToolTipText("");
         btnPlayerProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPlayerProfileActionPerformed(evt);
             }
         });
-        jPanel4.add(btnPlayerProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 50, 30));
+        homePage.add(btnPlayerProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 50, 30));
 
         jLabel14.setBackground(new java.awt.Color(102, 102, 102));
         jLabel14.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(51, 51, 51));
         jLabel14.setText("SELECT YOUR GAME");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 339, 60));
+        homePage.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 339, 60));
 
         LabelName.setBackground(new java.awt.Color(102, 102, 102));
         LabelName.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         LabelName.setForeground(new java.awt.Color(51, 51, 51));
         LabelName.setText("Guest");
-        jPanel4.add(LabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 130, 30));
+        homePage.add(LabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 130, 30));
 
-        cards.add(jPanel4, "card4");
+        cards.add(homePage, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cards, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+            .addComponent(cards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cards, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+            .addComponent(cards, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -566,6 +577,16 @@ public class UserInterface extends javax.swing.JFrame {
         crd.show(cards,"card4");
     }//GEN-LAST:event_profileBackMouseClicked
 
+    private void singleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singleBtnActionPerformed
+        new ModesBoard().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_singleBtnActionPerformed
+
+    private void multiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiBtnActionPerformed
+        new WelcomMultiple().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_multiBtnActionPerformed
+
     
     public static void main(String args[]) {
        
@@ -611,6 +632,7 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JButton cancelBtn;
     public javax.swing.JPanel cards;
     private javax.swing.JButton createaccountBtn;
+    public javax.swing.JPanel homePage;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -643,7 +665,6 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JSeparator jSeparator1;

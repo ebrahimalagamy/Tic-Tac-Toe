@@ -24,7 +24,7 @@ public class MultipleBoard extends JFrame {
     JPanel parentPanal, gamePanal, gameParentPanal, gameInfoPanal;
     JLabel[] arrayOfLabals;
     JLabel boardBackground, firstPlayerName, secondPlayerName, imageRecording,
-            firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage,selectMode;
+            firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage,selectMode,savedIcon,textHistory;
     JButton btnRestart;
     int XOCounter = 0;
     boolean isFirstPlayerTurn = true;
@@ -33,7 +33,7 @@ public class MultipleBoard extends JFrame {
     private void createGamePage() {
 
         parentPanal = new JPanel(null);
-        gameParentPanal = new JPanel(null);
+        gameParentPanal = new JPanel(null);     
         gameInfoPanal = new JPanel(null);
    
         firstPlayerScore = new JLabel("0", JLabel.CENTER);
@@ -49,11 +49,19 @@ public class MultipleBoard extends JFrame {
         selectMode = new JLabel("Multiple");
        
         playerImage = new JLabel();
+        
         computerImage = new JLabel();
+        
         vsImage = new JLabel();
+        
+        savedIcon = new JLabel();
+        
+        textHistory = new JLabel("History");
+        
         firstPlayerName = new JLabel("Ebrahim");
+        
         secondPlayerName = new JLabel();
-        secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
+//        secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
         boardBackground.setIcon(imageIconBoard);
@@ -72,6 +80,9 @@ public class MultipleBoard extends JFrame {
         
         ImageIcon imageIconVS = new ImageIcon(getClass().getClassLoader().getResource("images/vs.png"));
         vsImage.setIcon(imageIconVS);
+        
+        ImageIcon imageIconSaved = new ImageIcon(getClass().getClassLoader().getResource("images/save.png"));
+        savedIcon.setIcon(imageIconSaved);
         
      
 
@@ -110,7 +121,11 @@ public class MultipleBoard extends JFrame {
         gameInfoPanal.setBackground(new Color(255, 249, 249));
         gameInfoPanal.setBounds(450, 0, 850, 550);
 
-       
+        gameInfoPanal.add(savedIcon);
+        savedIcon.setBounds(270, 300, 64, 64);
+        
+        gameInfoPanal.add(textHistory);
+        textHistory.setBounds(280, 340, 64, 64);
 
         gameInfoPanal.add(btnRestart);
         btnRestart.setBounds(80, 450, 250, 30);
@@ -253,6 +268,15 @@ public class MultipleBoard extends JFrame {
         setResizable(false);
         setVisible(true);
 
+    }
+    
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new MultipleBoard();
+            }
+        });
     }
 
 
