@@ -2,6 +2,7 @@ package single;
 
 import design.ButtonDesign;
 import gui.UserInterface;
+import static gui.UserInterface.*;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -23,14 +24,16 @@ public class ModesBoard extends JFrame {
     HardClass hard;
     JPanel parentPanal, gamePanal, gameParentPanal, gameInfoPanal;
     JLabel[] arrayOfLabals;
-    JLabel boardBackground, firstPlayerName, secondPlayerName, imageRecording,
+ public  JLabel boardBackground , secondPlayerName, imageRecording,
             firstPlayerScore, secondPlayerScore, playerImage, selectMode, computerImage, backImage, choseMode,vsImage,
             hardImage,esayImage;
     JButton btnRestart, btnEasy, btnHard;
+    public static  JLabel firstPlayerName;
     int XOCounter = 0;
     boolean isFirstPlayerTurn = true;
     boolean isGameEnds = false;
     static JLabel pressedLabel;
+    
 
     private void createGamePage() {
 
@@ -62,7 +65,8 @@ public class ModesBoard extends JFrame {
         playerImage = new JLabel();
         computerImage = new JLabel();
         vsImage = new JLabel();
-        firstPlayerName = new JLabel("Ebrahim");
+        firstPlayerName = new JLabel();
+        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel("PC");
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
@@ -286,14 +290,13 @@ public class ModesBoard extends JFrame {
         });
         backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-             /*   UserInterface mm = new UserInterface();
-                 mm =  (UserInterface) mm.cards.getLayout();
-                 crd.show(cards,"card4");
-                
-                
-                
-                mm.cards.getLayout();
-                mm.show(cards,"card4");*/
+                  dispose();
+                  UserInterface mm = new UserInterface();
+                  mm.setLocationRelativeTo(null);
+                  mm.setVisible(true);
+                  crd = (CardLayout) cards.getLayout();
+                  crd.show(cards,"card4");
+                 gui.UserInterface.LabelName.setText(firstPlayerName.getText());
             }
         });
         

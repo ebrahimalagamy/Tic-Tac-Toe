@@ -1,18 +1,16 @@
 package gui;
 
 import java.awt.CardLayout;
-import java.awt.event.ActionEvent;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import multiple.WelcomMultiple;
 import single.ModesBoard;
-import tic.tac.toe.TicTacToe;
+
 
 public class UserInterface extends javax.swing.JFrame {
 
     
     GamePlayer player;
-    public CardLayout crd;
+    public static CardLayout crd;
 
     public UserInterface() {
         player = new GamePlayer(this);
@@ -552,6 +550,14 @@ public class UserInterface extends javax.swing.JFrame {
       
     }//GEN-LAST:event_btnGuestActionPerformed
 
+    private void btnPlayerProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerProfileActionPerformed
+        crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card3");
+        String getData = new String();
+        getData=Controler.getData(LabelName.getText());
+        player.SendGetData(getData);
+    }//GEN-LAST:event_btnPlayerProfileActionPerformed
+
     private void profileBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileBackMouseClicked
        crd = (CardLayout) cards.getLayout();
         crd.show(cards,"card4");
@@ -560,11 +566,14 @@ public class UserInterface extends javax.swing.JFrame {
     private void singleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singleBtnActionPerformed
         new ModesBoard().setVisible(true);
         setVisible(false);
+        //single.ModesBoard.firstPlayerName.setText(LabelName.getText());
+        
     }//GEN-LAST:event_singleBtnActionPerformed
 
     private void multiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiBtnActionPerformed
         new WelcomMultiple().setVisible(true);
         setVisible(false);
+     //multiple.WelcomMultiple.firstPlayerName.setText(LabelName.getText());
     }//GEN-LAST:event_multiBtnActionPerformed
 
     private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
@@ -614,12 +623,12 @@ public class UserInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LabelName;
+    public static javax.swing.JLabel LabelName;
     private javax.swing.JButton btnGuest;
     private javax.swing.JButton cancelBtn;
-    public javax.swing.JPanel cards;
+    public static javax.swing.JPanel cards;
     private javax.swing.JButton createaccountBtn;
-    public javax.swing.JPanel homePage;
+    public static javax.swing.JPanel homePage;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -667,14 +676,14 @@ public class UserInterface extends javax.swing.JFrame {
     protected javax.swing.JLabel playerID;
     protected javax.swing.JLabel playerLoss;
     protected javax.swing.JLabel playerTie;
-    protected javax.swing.JLabel playerUsername;
+    public static javax.swing.JLabel playerUsername;
     protected javax.swing.JLabel playerWin;
     private javax.swing.JLabel profileBack;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JButton signInBtn;
     private javax.swing.JButton signupBtn;
     private javax.swing.JButton singleBtn;
-    private javax.swing.JTextField usernameField;
+    protected javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 
     
@@ -696,6 +705,7 @@ public class UserInterface extends javax.swing.JFrame {
    public void SignUp(){
     JOptionPane.showMessageDialog(null,"Saved data","Congratulations",1);
                 crd = (CardLayout) cards.getLayout();
-              crd.show(cards,"card4");
+                crd.show(cards,"card4");
 }
+  
 }
