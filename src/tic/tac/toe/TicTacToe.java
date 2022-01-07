@@ -1,6 +1,8 @@
 package tic.tac.toe;
 
 import design.ButtonDesign;
+import gui.UserInterface;
+//import gui.UserInterface;
 import multiple.WelcomMultiple;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -25,6 +27,7 @@ public class TicTacToe extends JFrame {
     public  static JButton btnPlayerProfile;
     public static JButton btnOnline;
     JLabel boardBackground,LabelName;
+    public javax.swing.JPanel cards; 
     
           
     private void createGamePage() {
@@ -114,6 +117,12 @@ public class TicTacToe extends JFrame {
                 
             }
         });
+        
+        btnPlayerProfile.addActionListener((ActionEvent e) -> {
+             new UserInterface().crd.show(cards,"card3");
+            
+        });
+
         
         setTitle("Tic Tac Toe");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

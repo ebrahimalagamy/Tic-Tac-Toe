@@ -12,8 +12,11 @@ public class Controler {
     return (requestTypes.register.name()+"+"+name+"+"+password+"+"+email);
     }
     
-    public static String getData(){
-    return (requestTypes.getData.name());
+    public static String getData(String name){
+    return (requestTypes.getData.name()+"+"+name);
+    }
+     public static String createroom(String name){
+    return (requestTypes.createroom.name()+"+"+name);
     }
 
    
