@@ -23,7 +23,7 @@ public class GamePlayer {
     }
      
       public static enum requestTypes{
-         register,login,getData,setData,setMove}
+         register,login,getData,setData,setMove,player1,player2,createroom}
    
     public GamePlayer(UserInterface gui){
        this.mygui=gui;
@@ -64,7 +64,12 @@ public class GamePlayer {
                                     gui.playerLoss.setText(arrOfStringForMsg[6]);
                                     gui.playerWin.setText(arrOfStringForMsg[7]);
                                     gui.playerTie.setText(arrOfStringForMsg[8]);
+                                    System.out.println(arrOfStringForMsg[1]+"/"+
+                                   arrOfStringForMsg[2] );
                                     break;
+                               case "Roomclosed": 
+                                   
+                                   break;
               
                }
                      

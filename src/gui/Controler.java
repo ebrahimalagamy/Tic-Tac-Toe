@@ -15,6 +15,9 @@ public class Controler {
     public static String getData(String name){
     return (requestTypes.getData.name()+"+"+name);
     }
+     public static String createroom(String name){
+    return (requestTypes.createroom.name()+"+"+name);
+    }
 
    
 }
