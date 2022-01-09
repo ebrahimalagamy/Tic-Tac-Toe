@@ -11,10 +11,16 @@ public class UserInterface extends javax.swing.JFrame {
     
     GamePlayer player;
     public static CardLayout crd;
+     public void score(String n,String w,String L/*,String t*/){
+         String data = new String();
+        data=Controler.setData(n,w,L/*,t*/);
+        player.sendSetData(data);
+        }
 
     public UserInterface() {
         player = new GamePlayer(this);
         initComponents();
+       
     }
 
     @SuppressWarnings("unchecked")
@@ -462,7 +468,7 @@ public class UserInterface extends javax.swing.JFrame {
                 profileLabelMouseClicked(evt);
             }
         });
-        homePage.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        homePage.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 90));
 
         cards.add(homePage, "card4");
 
@@ -566,7 +572,7 @@ public class UserInterface extends javax.swing.JFrame {
     private void singleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singleBtnActionPerformed
         new ModesBoard().setVisible(true);
         setVisible(false);
-        //single.ModesBoard.firstPlayerName.setText(LabelName.getText());
+      //  single.ModesBoard.firstPlayerName.setText(LabelName.getText());
         
     }//GEN-LAST:event_singleBtnActionPerformed
 
@@ -580,7 +586,7 @@ public class UserInterface extends javax.swing.JFrame {
         crd = (CardLayout) cards.getLayout();
         crd.show(cards,"card3");
         String getData = new String();
-        getData=Controler.getData(usernameField.getText());
+        getData=Controler.getData(LabelName.getText());
         player.SendGetData(getData);
     }//GEN-LAST:event_profileLabelMouseClicked
 
@@ -691,7 +697,7 @@ public class UserInterface extends javax.swing.JFrame {
      crd = (CardLayout) cards.getLayout();
         crd.show(cards,"card4");
         LabelName.setText(usernameField.getText());
-        playerUsername.setText(usernameField.getText());
+        
   }
     
    public void inValidSignIn(){
@@ -706,6 +712,8 @@ public class UserInterface extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(null,"Saved data","Congratulations",1);
                 crd = (CardLayout) cards.getLayout();
                 crd.show(cards,"card4");
+                LabelName.setText(jTextField1.getText());
+               
 }
   
 }
