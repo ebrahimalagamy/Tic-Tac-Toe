@@ -83,6 +83,13 @@ public class GamePlayer {
              }
          catch (IOException ex) { Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
     } 
+      public void sendSetData(String data){
+         try {
+             dataOut.writeUTF(data);
+             }
+         catch (IOException ex) { Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
+    }
+    
     public void SendGetData(String getData){
          try {
              dataOut.writeUTF(getData);

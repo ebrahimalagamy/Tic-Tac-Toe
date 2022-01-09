@@ -19,8 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import static multiple.MultipleBoard.firstPlayerName;
-import single.ModesBoard;
-import tic.tac.toe.TicTacToe;
+
 
 public class WelcomMultiple  extends JFrame {
     
