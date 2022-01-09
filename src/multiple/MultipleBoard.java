@@ -20,9 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import single.EasyClass;
-import static single.ModesBoard.firstPlayerName;
-import tic.tac.toe.TicTacToe;
+
 
 public class MultipleBoard extends JFrame {
 
@@ -67,7 +65,7 @@ public class MultipleBoard extends JFrame {
         firstPlayerName = new JLabel();
         firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel();
-//        secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
+        secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
         boardBackground.setIcon(imageIconBoard);
@@ -199,7 +197,7 @@ public class MultipleBoard extends JFrame {
             
             if (isGameEnds == false) {
                 if (!pressedLabel.getText().toString().equals("O") && !pressedLabel.getText().toString().equals("X")) {
-                    System.out.println("done");
+                  //  System.out.println("done");
                     isOnePlayerGameEnds(pressedLabel);
                 }
             }
@@ -266,6 +264,7 @@ public class MultipleBoard extends JFrame {
                   UserInterface mm = new UserInterface();
                   mm.setLocationRelativeTo(null);
                   mm.setVisible(true);
+                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText()/*,tiescore.getText()*/);
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());

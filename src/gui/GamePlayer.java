@@ -8,9 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-/**
- 
- */
 public class GamePlayer {
     UserInterface mygui;
      Socket mySocket;
@@ -86,6 +83,13 @@ public class GamePlayer {
              }
          catch (IOException ex) { Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
     } 
+      public void sendSetData(String data){
+         try {
+             dataOut.writeUTF(data);
+             }
+         catch (IOException ex) { Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
+    }
+    
     public void SendGetData(String getData){
          try {
              dataOut.writeUTF(getData);
