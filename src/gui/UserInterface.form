@@ -985,7 +985,7 @@
         <Container class="javax.swing.JPanel" name="homePage">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="da" green="ab" red="ba" type="rgb"/>
+              <Color blue="a1" green="5a" red="81" type="rgb"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -1103,10 +1103,10 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="24" style="0"/>
+                  <Font name="Viner Hand ITC" size="24" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="de" green="fd" red="ff" type="rgb"/>
+                  <Color blue="cc" green="ff" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <AuxValues>
