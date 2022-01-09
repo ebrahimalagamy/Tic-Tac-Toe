@@ -8,9 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-/**
- 
- */
 public class GamePlayer {
     UserInterface mygui;
      Socket mySocket;

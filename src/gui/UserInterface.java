@@ -3,6 +3,7 @@ package gui;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import multiple.WelcomMultiple;
+import online.GameOnline;
 import single.ModesBoard;
 
 
@@ -447,6 +448,11 @@ public class UserInterface extends javax.swing.JFrame {
         onlineBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/online-game.png"))); // NOI18N
         onlineBtn.setText("     ONLINE");
         onlineBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
+        onlineBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onlineBtnActionPerformed(evt);
+            }
+        });
         homePage.add(onlineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 350, 250, 80));
 
         LabelName.setBackground(new java.awt.Color(102, 102, 102));
@@ -583,6 +589,11 @@ public class UserInterface extends javax.swing.JFrame {
         getData=Controler.getData(usernameField.getText());
         player.SendGetData(getData);
     }//GEN-LAST:event_profileLabelMouseClicked
+
+    private void onlineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineBtnActionPerformed
+       new GameOnline().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_onlineBtnActionPerformed
 
     
     public static void main(String args[]) {
