@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import video.VideoGame;
+import video.*;
 
 public class EasyClass extends JFrame{
     JLabel[] arrayOfLabals;
@@ -197,5 +197,6 @@ public class EasyClass extends JFrame{
         return false;
 
     }
+     
 
 }

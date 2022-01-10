@@ -18,7 +18,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import static multiple.MultipleBoard.firstPlayerName;
 import tic.tac.toe.TicTacToe;
+
 
 public class ModesBoard extends JFrame {
     HardClass hard;
@@ -67,7 +69,7 @@ public class ModesBoard extends JFrame {
         computerImage = new JLabel();
         vsImage = new JLabel();
         firstPlayerName = new JLabel();
-//        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
+       firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel("PC");
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
@@ -289,7 +291,7 @@ public class ModesBoard extends JFrame {
                 XOCounter = 0;
                 startNewGame();
                 
-           //     Application.launch(VideoGame.class);
+         
 
             }
         });
@@ -299,6 +301,7 @@ public class ModesBoard extends JFrame {
                   UserInterface mm = new UserInterface();
                   mm.setLocationRelativeTo(null);
                   mm.setVisible(true);
+                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());
@@ -313,7 +316,7 @@ public class ModesBoard extends JFrame {
             }
         });
         
-          btnEasy.addMouseListener(new MouseAdapter() {
+        btnEasy.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                selectMode.setText("Easy");
                if (isGameEnds == false) {

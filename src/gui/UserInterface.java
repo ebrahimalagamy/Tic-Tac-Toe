@@ -12,9 +12,9 @@ public class UserInterface extends javax.swing.JFrame {
     
     GamePlayer player;
     public static CardLayout crd;
-     public void score(String n,String w,String L/*,String t*/){
+     public void score(String n,String w,String L,String t){
          String data = new String();
-        data=Controler.setData(n,w,L/*,t*/);
+        data=Controler.setData(n,w,L,t);
         player.sendSetData(data);
         }
 
