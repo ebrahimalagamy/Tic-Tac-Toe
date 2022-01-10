@@ -1,4 +1,4 @@
-package video;
+/*package video;
 
 import java.net.URL;
 import javafx.application.Application;
@@ -96,4 +96,4 @@ public class VideoGame extends Application {
     
     
     
-}
+}*/
