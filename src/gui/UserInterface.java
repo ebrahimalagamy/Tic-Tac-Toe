@@ -578,14 +578,11 @@ public class UserInterface extends javax.swing.JFrame {
     private void singleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singleBtnActionPerformed
         new ModesBoard().setVisible(true);
         setVisible(false);
-      //  single.ModesBoard.firstPlayerName.setText(LabelName.getText());
-        
     }//GEN-LAST:event_singleBtnActionPerformed
 
     private void multiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiBtnActionPerformed
         new WelcomMultiple().setVisible(true);
         setVisible(false);
-     //multiple.WelcomMultiple.firstPlayerName.setText(LabelName.getText());
     }//GEN-LAST:event_multiBtnActionPerformed
 
     private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
