@@ -36,6 +36,7 @@ public class GamePlayer {
              while(true){
                  try {
                      String read = dataIn.readUTF();
+                     System.out.println("read "+read);
                      String[] arrOfStringForMsg = read.split("\\+");
                      String msg=arrOfStringForMsg[0];
                       switch(msg){
@@ -101,6 +102,14 @@ public class GamePlayer {
          try {
             // dataIn.readUTF();
              dataOut.writeUTF(dataSignUp);
+         }
+         catch (IOException ex) {Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
+    }
+    
+     public void createRoom(String room){
+         try {
+            // dataIn.readUTF();
+             dataOut.writeUTF(room);
          }
          catch (IOException ex) {Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
     }

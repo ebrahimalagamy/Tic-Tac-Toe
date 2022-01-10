@@ -19,8 +19,8 @@ public class Controler {
     return (requestTypes.setData.name()+"+"+name+"+"+wi+"+"+lo/*+"+"+ti*/);
     }
     
-     public static String createroom(String name){
-    return (requestTypes.createroom.name()+"+"+name);
+     public static String createroom(){
+    return (requestTypes.createroom.name());
     }
 
    

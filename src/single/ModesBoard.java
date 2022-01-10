@@ -26,7 +26,7 @@ public class ModesBoard extends JFrame {
     JLabel[] arrayOfLabals;
  public  JLabel boardBackground , secondPlayerName, imageRecording,
             firstPlayerScore, secondPlayerScore, playerImage, selectMode, computerImage, backImage, choseMode,vsImage,
-            hardImage,esayImage;
+            hardImage,esayImage,tieScore;
     JButton btnRestart, btnEasy, btnHard;
     public static  JLabel firstPlayerName;
     int XOCounter = 0;
@@ -45,6 +45,7 @@ public class ModesBoard extends JFrame {
    
         firstPlayerScore = new JLabel("0", JLabel.CENTER);
         secondPlayerScore = new JLabel("0", JLabel.CENTER);
+        tieScore = new JLabel("0", JLabel.CENTER);
         gamePanal = new JPanel(new GridLayout(3, 3, 8, 8));
         arrayOfLabals = new JLabel[9];
         btnRestart = new ButtonDesign();
@@ -66,7 +67,7 @@ public class ModesBoard extends JFrame {
         computerImage = new JLabel();
         vsImage = new JLabel();
         firstPlayerName = new JLabel();
-        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
+//        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel("PC");
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
@@ -169,6 +170,10 @@ public class ModesBoard extends JFrame {
         secondPlayerScore.setForeground(Color.ORANGE);
         secondPlayerScore.setFont(new Font("Arial", Font.BOLD, 20));
         secondPlayerScore.setBounds(274, 260, 50, 50);
+        gameInfoPanal.add(tieScore);
+        tieScore.setForeground(Color.ORANGE);
+        tieScore.setFont(new Font("Arial", Font.BOLD, 20));
+        tieScore.setBounds(175, 240, 50, 50);
 
     }
 
@@ -187,7 +192,7 @@ public class ModesBoard extends JFrame {
         if(selectMode.getText()=="Easy"){
             
             boolean check = false;
-            EasyClass e = new EasyClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter);
+            EasyClass e = new EasyClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter,tieScore);
             check = e.isOnePlayerGameEnds();
             XOCounter += 2;
             if (check) {
@@ -304,7 +309,7 @@ public class ModesBoard extends JFrame {
         btnHard.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                selectMode.setText("Hard");
-              hard = new HardClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, XOCounter);
+              hard = new HardClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, XOCounter,tieScore);
             }
         });
         

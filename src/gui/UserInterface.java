@@ -597,8 +597,15 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_profileLabelMouseClicked
 
     private void onlineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineBtnActionPerformed
-       new GameOnline().setVisible(true);
+        new GameOnline().setVisible(true);
         setVisible(false);
+        
+        String createroom = new String();
+        createroom =Controler.createroom();
+         
+        player.SendGetData(createroom);
+        
+        
     }//GEN-LAST:event_onlineBtnActionPerformed
 
     
