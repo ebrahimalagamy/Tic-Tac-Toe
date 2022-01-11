@@ -65,7 +65,8 @@ public class EasyClass extends JFrame{
 
         firstPlayer = Integer.valueOf(this.firstPlayerScore.getText());
         secondPlayer = Integer.valueOf(this.secondPlayerScore.getText());
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       // if(c0.equals(c1) && c0.equals(c2) && !c0.equals("")))
         if (c0.equals(c1) && c0.equals(c2) && !c0.equals("")) {
             if (c0.equals("X")) {
                 this.firstPlayerScore.setText((firstPlayer + 1) + "");

@@ -15,7 +15,7 @@ public class UserInterface extends javax.swing.JFrame {
      public void score(String n,String w,String L,String t){
          String data = new String();
         data=Controler.setData(n,w,L,t);
-        player.sendSetData(data);
+        player.SendMessagetoServer(data);
         }
 
     public UserInterface() {
@@ -506,7 +506,7 @@ public class UserInterface extends javax.swing.JFrame {
     private void signInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInBtnActionPerformed
         String dataSignIn = new String();
         dataSignIn=Controler.signIn(usernameField.getText(),passwordField.getText());
-        player.sendSignInData(dataSignIn);
+        player.SendMessagetoServer(dataSignIn);
     }//GEN-LAST:event_signInBtnActionPerformed
 
     private void createaccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createaccountBtnActionPerformed
@@ -518,7 +518,7 @@ public class UserInterface extends javax.swing.JFrame {
         else{
             if (jPasswordField1.getText().equals(jPasswordField2.getText())){
                 dataSignUp=Controler.signUp(jTextField1.getText(),jPasswordField1.getText(),jTextField2.getText());   
-                player.sendSignUpData(dataSignUp);
+                player.SendMessagetoServer(dataSignUp);
                }
             else
             JOptionPane.showMessageDialog(null,"Don't match passwords","Error",1);}
@@ -567,7 +567,7 @@ public class UserInterface extends javax.swing.JFrame {
         crd.show(cards,"card3");
         String getData = new String();
         getData=Controler.getData(LabelName.getText());
-        player.SendGetData(getData);
+        player.SendMessagetoServer(getData);
     }//GEN-LAST:event_btnPlayerProfileActionPerformed
 
     private void profileBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileBackMouseClicked
@@ -590,7 +590,7 @@ public class UserInterface extends javax.swing.JFrame {
         crd.show(cards,"card3");
         String getData = new String();
         getData=Controler.getData(LabelName.getText());
-        player.SendGetData(getData);
+        player.SendMessagetoServer(getData);
     }//GEN-LAST:event_profileLabelMouseClicked
 
     private void onlineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineBtnActionPerformed
@@ -600,7 +600,7 @@ public class UserInterface extends javax.swing.JFrame {
         String createroom = new String();
         createroom =Controler.createroom();
          
-        player.SendGetData(createroom);
+        player.SendMessagetoServer(createroom);
         
         
     }//GEN-LAST:event_onlineBtnActionPerformed

@@ -1,5 +1,7 @@
 package online;
 
+import gui.GamePlayer;
+import gui.UserInterface;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -10,6 +12,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,7 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 
-public class GameOnline extends JFrame implements Runnable{   
+public class GameOnline extends JFrame {   
     public static final int PLAYER1 = 1;
     public static final int PLAYER2 = 2;
     public static final int PLAYER1_WON = 1;
@@ -25,27 +29,32 @@ public class GameOnline extends JFrame implements Runnable{
     public static final int DRAW = 3;
     public static final int CONTINUE = 4;
   
-    Socket socket;
+    
     private boolean myTurn = false;
     private char myToken = ' ', otherToken = ' ';
     private Cell [][] cell = new Cell[3][3];
     private JLabel titleLabel = new JLabel();
     private JLabel statusLabel = new JLabel();
     
+     JPanel parentPanal, gamePanal, gameParentPanal;
+     JLabel[] arrayOfLabals;
+     JLabel boardBackground;
+    
     private int rowSelected;
     private int columnSelected;
-    
-    private DataInputStream fromServer;
-    private DataOutputStream toServer;
     
     private boolean continueToPlay = true;
     private boolean waiting = true;
     private boolean isStandAlone = false;
     
-    JPanel parentPanal, gamePanal, gameParentPanal;
-    JLabel[] arrayOfLabals;
-    JLabel boardBackground;
-
+   
+    
+     
+     Socket mySocket;
+     DataInputStream dataIn;
+     DataOutputStream dataOut;
+     Thread t;
+     
     int XOCounter = 0;
     public static JLabel firstPlayerName;
     boolean isFirstPlayerTurn = true;
@@ -53,28 +62,33 @@ public class GameOnline extends JFrame implements Runnable{
     
      public GameOnline() {
         createAndShowGUI();
-        connectToServer();
+       
+        try {
+            //127.0.0.1  -   192.168.1.227
+            mySocket = new Socket("127.0.0.1",6060);
+            dataIn = new DataInputStream(mySocket.getInputStream());
+            dataOut = new DataOutputStream(mySocket.getOutputStream());
+        }
+        catch (IOException ex) {Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
+        
+         t = new Thread( () -> {
+             while(true){
+                 try {
+                     String read = dataIn.readUTF();
+                     System.out.println("read "+read);
+                     String[] arrOfStringForMsg = read.split("\\+");
+                     String msg=arrOfStringForMsg[0];
+                      switch(msg){
+                          
+                          
+                      }
+                      
+                     }catch (IOException ex) {Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
+                }
+         });
+            t.start();
     }
     
-     private void connectToServer() {
-        try {
-            //if it is standalone connect to the localhost
-            if (isStandAlone)
-                socket = new Socket("localhost", 6060);
-            else
-                socket = new Socket(InetAddress.getLocalHost(), 6060);
-            
-            fromServer = new DataInputStream(socket.getInputStream());
-            toServer = new DataOutputStream(socket.getOutputStream());
-        }
-        catch (IOException ex) {
-            System.err.println(ex);
-        }
-        
-        Thread thread = new Thread(this);
-        thread.start();
-    }
-
     private void createGamePage() {
 
         parentPanal = new JPanel(null);
@@ -106,9 +120,6 @@ public class GameOnline extends JFrame implements Runnable{
         gamePanal.setBackground(null);
 
     }
-
-   
-
     private void createAndShowGUI() {
         createGamePage();
         add(parentPanal);
@@ -129,7 +140,7 @@ public class GameOnline extends JFrame implements Runnable{
             }
         });
     }
-
+/*
     @Override
     public void run() {
         try {
@@ -183,12 +194,12 @@ public class GameOnline extends JFrame implements Runnable{
         
         waiting = true;
     }
-    
+    *//*
     private void sendMove() throws IOException {
         toServer.writeInt(rowSelected);
         toServer.writeInt(columnSelected);
-    }
-    
+    }*/
+    /*
     private void recieveInfoFromServer() throws IOException {
         int status = fromServer.readInt();
         if (status == PLAYER1_WON) {
@@ -225,12 +236,12 @@ public class GameOnline extends JFrame implements Runnable{
             myTurn = true;
         }
     }
-    
+    *//*
     private void recieveMove() throws IOException {
         int row = fromServer.readInt();
         int column = fromServer.readInt();
         cell[row][column].setToken(otherToken);
-    }
+    }*/
     
      public class Cell extends JPanel {
         private int row, column;

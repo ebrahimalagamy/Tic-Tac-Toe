@@ -1,20 +1,23 @@
 package video;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.io.File;
+import static javafx.application.ConditionalFeature.FXML;
 import javafx.application.Platform;
 import static javafx.application.Platform.exit;
 import javafx.embed.swing.JFXPanel;
+import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
-public final class winVideo extends javax.swing.JFrame {
+public class winVideo extends javax.swing.JFrame {
 
-
-    
+winVideo w;
+  
     private final JFXPanel jfxpanel=new JFXPanel();
     public winVideo() {
         initComponents();
@@ -35,14 +38,15 @@ public final class winVideo extends javax.swing.JFrame {
             MediaPlayer mediaPlayer=new MediaPlayer(new Media(file.toURI().toString()));
             jfxpanel.setScene(new Scene(new Group(new MediaView(mediaPlayer))));
             mediaPlayer.setVolume(0.7);
-         //   mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+         
             mediaPlayer.play();
+    /*        
 mediaPlayer.setOnEndOfMedia(()->{
-   
-          exit();
-          dispose();
+         mediaPlayer.stop();
+         mediaPlayer.dispose();
+         
        
-    });
+    });*/
             }} );
     
     }
@@ -58,7 +62,7 @@ mediaPlayer.setOnEndOfMedia(()->{
 
         jPanel1 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusable(false);
         setResizable(false);
@@ -103,7 +107,7 @@ mediaPlayer.setOnEndOfMedia(()->{
 
     /**
      * @param args the command line arguments
-   /*  *//*
+   */
     public static void main(String args[]) {
        
 
@@ -113,7 +117,7 @@ mediaPlayer.setOnEndOfMedia(()->{
                 new winVideo().setVisible(true);
             }
         });
-    }*/
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
