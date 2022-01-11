@@ -1,3 +1,4 @@
+package video;
 
 import java.awt.BorderLayout;
 import java.io.File;
@@ -10,22 +11,19 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
-public class YouLostVideoVersion extends javax.swing.JFrame {
+public final class winVideo extends javax.swing.JFrame {
 
 
     
     private final JFXPanel jfxpanel=new JFXPanel();
-    public YouLostVideoVersion() {
+    public winVideo() {
         initComponents();
         createScene();
-        setTitle("Awww you lost!");
+        setTitle("Winner Winner Chicken Dinner");
         setResizable(false);
         setLocationRelativeTo(null);
-
         jPanel1.setLayout(new BorderLayout());
-
-        jPanel1.add(jfxpanel,BorderLayout.CENTER);
-        
+        jPanel1.add(jfxpanel,BorderLayout.CENTER);   
     }
     
     
@@ -33,16 +31,17 @@ public class YouLostVideoVersion extends javax.swing.JFrame {
     Platform.runLater(new Runnable() {
         @Override
         public void run() {
-            File file= new File("youLost.mp4");
+            File file= new File("winner.mp4");
             MediaPlayer mediaPlayer=new MediaPlayer(new Media(file.toURI().toString()));
             jfxpanel.setScene(new Scene(new Group(new MediaView(mediaPlayer))));
             mediaPlayer.setVolume(0.7);
          //   mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             mediaPlayer.play();
 mediaPlayer.setOnEndOfMedia(()->{
-            exit();
-            dispose();
-        new YouLostPage().setVisible(true);
+   
+          exit();
+          dispose();
+       
     });
             }} );
     
@@ -60,19 +59,21 @@ mediaPlayer.setOnEndOfMedia(()->{
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusable(false);
-        setPreferredSize(new java.awt.Dimension(960, 540));
         setResizable(false);
 
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setMaximumSize(new java.awt.Dimension(327676666, 327677777));
         jPanel1.setName(""); // NOI18N
         jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 621, Short.MAX_VALUE)
+            .addGap(0, 573, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,14 +86,14 @@ mediaPlayer.setOnEndOfMedia(()->{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -102,39 +103,17 @@ mediaPlayer.setOnEndOfMedia(()->{
 
     /**
      * @param args the command line arguments
-     */
+   /*  *//*
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(YouLostVideoVersion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(YouLostVideoVersion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(YouLostVideoVersion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(YouLostVideoVersion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+       
 
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new YouLostVideoVersion().setVisible(true);
+                new winVideo().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

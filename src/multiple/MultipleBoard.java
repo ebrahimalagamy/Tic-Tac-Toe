@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import video.winVideo;
 
 
 public class MultipleBoard extends JFrame {
@@ -265,7 +266,8 @@ public class MultipleBoard extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 XOCounter = 0;
-                startNewGame();
+                 startNewGame();
+               
 
             }
         });
@@ -275,7 +277,7 @@ public class MultipleBoard extends JFrame {
                   UserInterface mm = new UserInterface();
                   mm.setLocationRelativeTo(null);
                   mm.setVisible(true);
-                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText()/*,tiescore.getText()*/);
+                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());
