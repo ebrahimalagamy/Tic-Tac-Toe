@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import video.winVideo;
 
 
 public class MultipleBoard extends JFrame {
@@ -27,7 +28,7 @@ public class MultipleBoard extends JFrame {
     JPanel parentPanal, gamePanal, gameParentPanal, gameInfoPanal;
     JLabel[] arrayOfLabals;
     JLabel boardBackground, secondPlayerName, imageRecording,
-            firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage,selectMode,savedIcon,textHistory;
+            firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage,selectMode,savedIcon,textHistory,tieScore;
     JButton btnRestart;
     int XOCounter = 0;
    public static JLabel firstPlayerName;
@@ -42,6 +43,7 @@ public class MultipleBoard extends JFrame {
    
         firstPlayerScore = new JLabel("0", JLabel.CENTER);
         secondPlayerScore = new JLabel("0", JLabel.CENTER);
+        tieScore = new JLabel("0", JLabel.CENTER);
         gamePanal = new JPanel(new GridLayout(3, 3, 8, 8));
         arrayOfLabals = new JLabel[9];
         btnRestart = new ButtonDesign();
@@ -59,6 +61,8 @@ public class MultipleBoard extends JFrame {
         vsImage = new JLabel();
         
         savedIcon = new JLabel();
+        
+        
         
         textHistory = new JLabel("History");
         
@@ -158,6 +162,11 @@ public class MultipleBoard extends JFrame {
         secondPlayerScore.setForeground(Color.ORANGE);
         secondPlayerScore.setFont(new Font("Arial", Font.BOLD, 20));
         secondPlayerScore.setBounds(274, 110, 50, 50);
+        
+        gameInfoPanal.add(tieScore);
+        tieScore.setForeground(Color.ORANGE);
+        tieScore.setFont(new Font("Arial", Font.BOLD, 20));
+        tieScore.setBounds(175, 140, 50, 50);
 
     }
 
@@ -170,15 +179,18 @@ public class MultipleBoard extends JFrame {
 
     private boolean isOnePlayerGameEnds(JLabel pressedLabel) {
         boolean check = false;
-        MultipleClass e = new MultipleClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter);
+        MultipleClass e = new MultipleClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter,tieScore);
         check = e.isOnePlayerGameEnds();
         XOCounter += 1;
+        System.out.println(XOCounter);
         if (check) {
             removeXOListener();
+            
             repaint();
             
             return true;
         } else {
+        
             return false;
         }
 
@@ -197,7 +209,7 @@ public class MultipleBoard extends JFrame {
             
             if (isGameEnds == false) {
                 if (!pressedLabel.getText().toString().equals("O") && !pressedLabel.getText().toString().equals("X")) {
-                  //  System.out.println("done");
+                  System.out.println("done");
                     isOnePlayerGameEnds(pressedLabel);
                 }
             }
@@ -254,7 +266,8 @@ public class MultipleBoard extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 XOCounter = 0;
-                startNewGame();
+                 startNewGame();
+               
 
             }
         });
@@ -264,7 +277,7 @@ public class MultipleBoard extends JFrame {
                   UserInterface mm = new UserInterface();
                   mm.setLocationRelativeTo(null);
                   mm.setVisible(true);
-                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText()/*,tiescore.getText()*/);
+                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());

@@ -11,9 +11,9 @@ public class UserInterface extends javax.swing.JFrame {
     
     GamePlayer player;
     public static CardLayout crd;
-     public void score(String n,String w,String L/*,String t*/){
+     public void score(String n,String w,String L,String t){
          String data = new String();
-        data=Controler.setData(n,w,L/*,t*/);
+        data=Controler.setData(n,w,L,t);
         player.sendSetData(data);
         }
 
@@ -577,14 +577,11 @@ public class UserInterface extends javax.swing.JFrame {
     private void singleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singleBtnActionPerformed
         new ModesBoard().setVisible(true);
         setVisible(false);
-      //  single.ModesBoard.firstPlayerName.setText(LabelName.getText());
-        
     }//GEN-LAST:event_singleBtnActionPerformed
 
     private void multiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiBtnActionPerformed
         new WelcomMultiple().setVisible(true);
         setVisible(false);
-     //multiple.WelcomMultiple.firstPlayerName.setText(LabelName.getText());
     }//GEN-LAST:event_multiBtnActionPerformed
 
     private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
@@ -596,8 +593,15 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_profileLabelMouseClicked
 
     private void onlineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineBtnActionPerformed
-       new GameOnline().setVisible(true);
+        new GameOnline().setVisible(true);
         setVisible(false);
+        
+        String createroom = new String();
+        createroom =Controler.createroom();
+         
+        player.SendGetData(createroom);
+        
+        
     }//GEN-LAST:event_onlineBtnActionPerformed
 
     

@@ -8,24 +8,27 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import video.VideoGame;
+import video.*;
 
 public class EasyClass extends JFrame{
     JLabel[] arrayOfLabals;
      JPanel parentPanal;
-     JLabel firstPlayerScore, secondPlayerScore;
+     JLabel firstPlayerScore, secondPlayerScore,tieScore;
      JLabel pressedLabel;
      int XOCounter ;
+    int firstPlayer;
+     int secondPlayer;
 
      
 
-    public EasyClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter) {
+    public EasyClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter,JLabel tieScore) {
         this.arrayOfLabals = arrayOfLabals;
         this.parentPanal = parentPanal;
         this.firstPlayerScore = firstPlayerScore;
         this.secondPlayerScore = secondPlayerScore;
         this.pressedLabel = pressedLabel;
         this.XOCounter = XOCounter;
+        this.tieScore = tieScore;
     }
 
     boolean isFirstPlayerTurn = true;
@@ -43,7 +46,7 @@ public class EasyClass extends JFrame{
         l2.setOpaque(true);
         l3.setOpaque(true);
         isGameEnds = true;
-        Application.launch(VideoGame.class);
+      //  Application.launch(VideoGame.class);
        
     }
      
@@ -60,14 +63,14 @@ public class EasyClass extends JFrame{
         String c7 = arrayOfLabals[7].getText();
         String c8 = arrayOfLabals[8].getText();
 
-        int firstPlayerScore = Integer.valueOf(this.firstPlayerScore.getText());
-        int secondPlayerScore = Integer.valueOf(this.secondPlayerScore.getText());
+        firstPlayer = Integer.valueOf(this.firstPlayerScore.getText());
+        secondPlayer = Integer.valueOf(this.secondPlayerScore.getText());
 
         if (c0.equals(c1) && c0.equals(c2) && !c0.equals("")) {
             if (c0.equals("X")) {
-                this.firstPlayerScore.setText((firstPlayerScore + 1) + "");
+                this.firstPlayerScore.setText((firstPlayer + 1) + "");
             } else {
-                this.secondPlayerScore.setText((secondPlayerScore + 1) + "");
+                this.secondPlayerScore.setText((secondPlayer + 1) + "");
             }
             
             colorBackgroundWinnerLabels(arrayOfLabals[0], arrayOfLabals[1], arrayOfLabals[2]);
@@ -75,63 +78,63 @@ public class EasyClass extends JFrame{
 
         if (c3.equals(c4) && c3.equals(c5) && !c3.equals("")) {
             if (c3.equals("X")) {
-                this.firstPlayerScore.setText((firstPlayerScore + 1) + "");
+                this.firstPlayerScore.setText((firstPlayer + 1) + "");
             } else {
-                this.secondPlayerScore.setText((secondPlayerScore + 1) + "");
+                this.secondPlayerScore.setText((secondPlayer + 1) + "");
             }
             colorBackgroundWinnerLabels(arrayOfLabals[3], arrayOfLabals[4], arrayOfLabals[5]);
         }
 
         if (c6.equals(c7) && c6.equals(c8) && !c6.equals("")) {
             if (c6.equals("X")) {
-                this.firstPlayerScore.setText((firstPlayerScore + 1) + "");
+                this.firstPlayerScore.setText((firstPlayer + 1) + "");
             } else {
-                this.secondPlayerScore.setText((secondPlayerScore + 1) + "");
+                this.secondPlayerScore.setText((secondPlayer + 1) + "");
             }
             colorBackgroundWinnerLabels(arrayOfLabals[6], arrayOfLabals[7], arrayOfLabals[8]);
         }
 
         if (c0.equals(c3) && c0.equals(c6) && !c0.equals("")) {
             if (c0.equals("X")) {
-                this.firstPlayerScore.setText((firstPlayerScore + 1) + "");
+                this.firstPlayerScore.setText((firstPlayer + 1) + "");
             } else {
-                this.secondPlayerScore.setText((secondPlayerScore + 1) + "");
+                this.secondPlayerScore.setText((secondPlayer + 1) + "");
             }
             colorBackgroundWinnerLabels(arrayOfLabals[0], arrayOfLabals[3], arrayOfLabals[6]);
         }
 
         if (c1.equals(c4) && c1.equals(c7) && !c1.equals("")) {
             if (c1.equals("X")) {
-                this.firstPlayerScore.setText((firstPlayerScore + 1) + "");
+                this.firstPlayerScore.setText((firstPlayer + 1) + "");
             } else {
-                this.secondPlayerScore.setText((secondPlayerScore + 1) + "");
+                this.secondPlayerScore.setText((secondPlayer + 1) + "");
             }
             colorBackgroundWinnerLabels(arrayOfLabals[1], arrayOfLabals[4], arrayOfLabals[7]);
         }
 
         if (c2.equals(c5) && c2.equals(c8) && !c2.equals("")) {
             if (c2.equals("X")) {
-                this.firstPlayerScore.setText((firstPlayerScore + 1) + "");
+                this.firstPlayerScore.setText((firstPlayer + 1) + "");
             } else {
-                this.secondPlayerScore.setText((secondPlayerScore + 1) + "");
+                this.secondPlayerScore.setText((secondPlayer + 1) + "");
             }
             colorBackgroundWinnerLabels(arrayOfLabals[2], arrayOfLabals[5], arrayOfLabals[8]);
         }
 
         if (c0.equals(c4) && c0.equals(c8) && !c0.equals("")) {
             if (c0.equals("X")) {
-                this.firstPlayerScore.setText((firstPlayerScore + 1) + "");
+                this.firstPlayerScore.setText((firstPlayer + 1) + "");
             } else {
-                this.secondPlayerScore.setText((secondPlayerScore + 1) + "");
+                this.secondPlayerScore.setText((secondPlayer + 1) + "");
             }
             colorBackgroundWinnerLabels(arrayOfLabals[0], arrayOfLabals[4], arrayOfLabals[8]);
         }
 
         if (c2.equals(c4) && c2.equals(c6) && !c2.equals("")) {
             if (c2.equals("X")) {
-                this.firstPlayerScore.setText((firstPlayerScore + 1) + "");
+                this.firstPlayerScore.setText((firstPlayer + 1) + "");
             } else {
-                this.secondPlayerScore.setText((secondPlayerScore + 1) + "");
+                this.secondPlayerScore.setText((secondPlayer + 1) + "");
             }
             colorBackgroundWinnerLabels(arrayOfLabals[2], arrayOfLabals[4], arrayOfLabals[6]);
         }
@@ -140,6 +143,7 @@ public class EasyClass extends JFrame{
      
      public boolean isOnePlayerGameEnds() {
 
+            int tieScore = Integer.valueOf(this.tieScore.getText());
         if (XOCounter < 9 && pressedLabel.getText().equals("")) {
 
             pressedLabel.setText("X");
@@ -179,6 +183,12 @@ public class EasyClass extends JFrame{
             pressedLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
         }
 
+      if ( (XOCounter == 9 )&& firstPlayer == Integer.valueOf(firstPlayerScore.getText()) && secondPlayer == Integer.valueOf(secondPlayerScore.getText())) {
+                this.tieScore.setText((tieScore + 1) + "");
+                
+            }
+      
+      
        if (XOCounter >= 9 || isGameEnds == true) {
            
             return true;
@@ -187,5 +197,6 @@ public class EasyClass extends JFrame{
         return false;
 
     }
+     
 
 }
