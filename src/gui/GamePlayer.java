@@ -14,11 +14,6 @@ public class GamePlayer {
      DataInputStream dataIn;
      DataOutputStream dataOut;
      Thread t;
-
-    void Data() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-     
       public static enum requestTypes{
          register,login,getData,setData,setMove,player1,player2,createroom}
    
@@ -78,49 +73,14 @@ public class GamePlayer {
             t.start();
     }
     
-    public void sendSignInData(String dataSignIn){
-         try {
-             dataOut.writeUTF(dataSignIn);
-             }
-         catch (IOException ex) { Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
-    } 
-      public void sendSetData(String data){
+    
+    public void SendMessagetoServer(String data){
          try {
              dataOut.writeUTF(data);
-             }
-         catch (IOException ex) { Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
-    }
-    
-    public void SendGetData(String getData){
-         try {
-             dataOut.writeUTF(getData);
+             dataOut.flush();
              }
          catch (IOException ex) { Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
     } 
     
-    public void sendSignUpData(String dataSignUp){
-         try {
-            // dataIn.readUTF();
-             dataOut.writeUTF(dataSignUp);
-         }
-         catch (IOException ex) {Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
-    }
-    
-     public void createRoom(String room){
-         try {
-            // dataIn.readUTF();
-             dataOut.writeUTF(room);
-         }
-         catch (IOException ex) {Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
-    }
-    
-  /* public static String[] Data(){
-       String[] data = msg.split("\\+");
-       return data;
-   }*/
-    
-   /* public void searchDetailsOfRecievedMsg(String msg){
-     
-    }*/
-      
+   
 }
