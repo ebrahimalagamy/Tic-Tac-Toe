@@ -1,5 +1,4 @@
 package gui;
-
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import multiple.WelcomMultiple;
@@ -464,7 +463,7 @@ public class UserInterface extends javax.swing.JFrame {
         LabelName.setBackground(new java.awt.Color(102, 102, 102));
         LabelName.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         LabelName.setForeground(new java.awt.Color(255, 255, 204));
-        homePage.add(LabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 130, 30));
+        homePage.add(LabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 130, 30));
 
         profileLabel.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         profileLabel.setForeground(new java.awt.Color(255, 255, 255));
