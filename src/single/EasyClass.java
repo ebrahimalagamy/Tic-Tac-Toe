@@ -1,9 +1,7 @@
 package single;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.util.Random;
-import javafx.application.Application;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,14 +10,12 @@ import video.*;
 
 public class EasyClass extends JFrame{
     JLabel[] arrayOfLabals;
-     JPanel parentPanal;
-     JLabel firstPlayerScore, secondPlayerScore,tieScore;
-     JLabel pressedLabel;
-     int XOCounter ;
+    JPanel parentPanal;
+    JLabel firstPlayerScore, secondPlayerScore,tieScore;
+    JLabel pressedLabel;
+    int XOCounter ;
     int firstPlayer;
-     int secondPlayer;
-
-     
+    int secondPlayer;
 
     public EasyClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter,JLabel tieScore) {
         this.arrayOfLabals = arrayOfLabals;
@@ -35,19 +31,12 @@ public class EasyClass extends JFrame{
     boolean isGameEnds = false;
     int randomNumber;
     Random random = new Random();
-   
-    private void createGamePage() {
-
-    
-    }
-    
+ 
      private void colorBackgroundWinnerLabels(JLabel l1, JLabel l2, JLabel l3) {  
         l1.setOpaque(true);
         l2.setOpaque(true);
         l3.setOpaque(true);
-        isGameEnds = true;
-      //  Application.launch(VideoGame.class);
-       
+        isGameEnds = true;       
     }
      
       private void checkIfThereIsAWinner() {
@@ -160,13 +149,11 @@ public class EasyClass extends JFrame{
      
      public boolean isOnePlayerGameEnds() {
 
-            int tieScore = Integer.valueOf(this.tieScore.getText());
+        int tieScore = Integer.valueOf(this.tieScore.getText());
         if (XOCounter < 9 && pressedLabel.getText().equals("")) {
 
             pressedLabel.setText("X");
             pressedLabel.setVisible(true);
-          
-            
             pressedLabel.setForeground(Color.ORANGE);
             
             XOCounter++;
@@ -177,12 +164,10 @@ public class EasyClass extends JFrame{
                 for (;;) {
                     randomNumber = random.nextInt(9);
                     if (arrayOfLabals[randomNumber].getText().equals("")) {
-
                         arrayOfLabals[randomNumber].setText("O");
                         arrayOfLabals[randomNumber].setForeground(Color.blue);
-                         arrayOfLabals[randomNumber].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
+                        arrayOfLabals[randomNumber].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
                         parentPanal.repaint();
-
                         XOCounter++;
                         checkIfThereIsAWinner();
                         break;
@@ -192,8 +177,7 @@ public class EasyClass extends JFrame{
 
         }
         
-        if(pressedLabel.getText() == "X")
-        {
+        if(pressedLabel.getText() == "X"){
         pressedLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
         }
         else{
@@ -201,13 +185,11 @@ public class EasyClass extends JFrame{
         }
 
       if ( (XOCounter == 9 )&& firstPlayer == Integer.valueOf(firstPlayerScore.getText()) && secondPlayer == Integer.valueOf(secondPlayerScore.getText())) {
-                this.tieScore.setText((tieScore + 1) + "");
-                
+                this.tieScore.setText((tieScore + 1) + "");      
             }
       
       
-       if (XOCounter >= 9 || isGameEnds == true) {
-           
+       if (XOCounter >= 9 || isGameEnds == true) { 
             return true;
         }
 

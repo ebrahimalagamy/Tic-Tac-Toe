@@ -300,7 +300,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         cards.add(jPanel2, "card2");
 
-        jPanel3.setBackground(new java.awt.Color(129, 90, 161));
+        jPanel3.setBackground(new java.awt.Color(51, 0, 102));
         jPanel3.setToolTipText("");
         jPanel3.setMinimumSize(new java.awt.Dimension(850, 550));
         jPanel3.setPreferredSize(new java.awt.Dimension(850, 550));
@@ -425,7 +425,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         cards.add(jPanel3, "card3");
 
-        homePage.setBackground(new java.awt.Color(186, 171, 218));
+        homePage.setBackground(new java.awt.Color(51, 0, 102));
         homePage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         singleBtn.setBackground(new java.awt.Color(214, 229, 250));
@@ -439,7 +439,7 @@ public class UserInterface extends javax.swing.JFrame {
                 singleBtnActionPerformed(evt);
             }
         });
-        homePage.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 150, 250, 80));
+        homePage.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 250, 80));
 
         multiBtn.setBackground(new java.awt.Color(214, 229, 250));
         multiBtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
@@ -452,7 +452,7 @@ public class UserInterface extends javax.swing.JFrame {
                 multiBtnActionPerformed(evt);
             }
         });
-        homePage.add(multiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 250, 250, 80));
+        homePage.add(multiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 250, 80));
 
         gamesbtn.setBackground(new java.awt.Color(214, 229, 250));
         gamesbtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
@@ -465,9 +465,8 @@ public class UserInterface extends javax.swing.JFrame {
                 gamesbtnActionPerformed(evt);
             }
         });
-        homePage.add(gamesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 250, 80));
+        homePage.add(gamesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 250, 80));
 
-        LabelName.setBackground(new java.awt.Color(102, 102, 102));
         LabelName.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         LabelName.setForeground(new java.awt.Color(255, 253, 222));
         homePage.add(LabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 130, 30));
@@ -493,7 +492,7 @@ public class UserInterface extends javax.swing.JFrame {
                 onlineBtn1ActionPerformed(evt);
             }
         });
-        homePage.add(onlineBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 350, 250, 80));
+        homePage.add(onlineBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 250, 80));
 
         cards.add(homePage, "card4");
 

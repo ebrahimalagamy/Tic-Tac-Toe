@@ -1,11 +1,5 @@
 package online;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -20,10 +14,6 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-/**
- *
- * @author asus
- */
 public class ClientBaseClass {
     public static final int draw = 0;
     public static final int youWin = 1;
@@ -37,7 +27,7 @@ public class ClientBaseClass {
     public static final String iWantToPlay = "iWantToPlay";
     public static final String  letsPlay= "letsPlay";
     public static final String  yourSymbole= "yourSymbole";
-    public String myName;
+                public String myName;
     
     
    public int getButtonPosition(JLabel button){
@@ -86,16 +76,10 @@ public class ClientBaseClass {
         for (JLabel gamePage_boardLabel : buttons) {
             gamePage_boardLabel.addMouseListener(listener);
         }
-    
-            
-          /*  buttons.forEach(button->{
-                button.addMouseListener(this::onButtonClicked);
-            });*/
-            
             s = new Socket("127.0.0.1",6060);
             dis= new DataInputStream(s.getInputStream());
             dos = new DataOutputStream(s.getOutputStream());
-            dos.writeUTF(iWantToPlay+separator+myName);
+                dos.writeUTF(iWantToPlay+separator+myName);
             new requestRecever().start();
         } catch (IOException ex) {
             Logger.getLogger(ClientBaseClass.class.getName()).log(Level.SEVERE, null, ex);
@@ -148,21 +132,6 @@ public class ClientBaseClass {
         return draw;
     }
     
-    
-   /* private void onButtonClicked(MouseEvent evt){
-            JLabel button = (JLabel)evt.getSource();
-            if(currentTurn.equals(mySymbole) && button.getText().equals("") && gameState==playing && !witingServer){
-                try {
-                    int pos = buttons.indexOf(button);
-                    dos.writeUTF(move+separator+pos+separator+currentTurn);
-                    witingServer = true;
-                } catch (IOException ex) {
-                    Logger.getLogger(ClientBaseClass.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-       
-    }*/
-    
     MouseListener listener = new MouseListener() {
         @Override
         public void mousePressed(MouseEvent e) {
@@ -194,10 +163,7 @@ public class ClientBaseClass {
         public void mouseExited(MouseEvent e) {
         }
     };
-    
-    
-    
-    
+
     class requestRecever extends Thread{
         public void run(){
             while(true){
@@ -207,24 +173,19 @@ public class ClientBaseClass {
                     System.out.println(message);
                     
                     if(request[0].equals(yourSymbole)){
-                        // request[1] == my simbole
-                        // request[2] == player name
                         mySymbole = request[1];
                         otherPlayerNmae = request[2];
+                        
                         System.out.println(mySymbole);
                         System.out.println(otherPlayerNmae);
+                        
                     }else if(request[0].equals(letsPlay)){
-                        // game.setVisible(true);
                         onLetsPlay();
                         currentTurn = X;
-                    }else if(request[0].equals(move)){
-                        // request[1] == position
-                        // request[2] == symbole
-                        // request[3] == nextSymbole
+                    }else if(request[0].equals(move)){         
                         
                         System.out.println(request);
                         Integer pos = Integer.valueOf(request[1]);
-                        //  buttons.get(pos).setText(request[2]);
                         onSelect(buttons.get(pos),currentTurn);
                         gameState = getGameState();
 
