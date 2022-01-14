@@ -27,29 +27,26 @@ public class HardClass extends JFrame{
         this.parentPanal = parentPanal;
         this.firstPlayerScore = firstPlayerScore;
         this.secondPlayerScore = secondPlayerScore;
-       
         this.XOCounter = XOCounter;
         this.tieScore = tieScore;
+        
          char[][] board = {{'_','_','_'}
                             ,{'_','_','_'}
                             ,{'_','_','_'}};
-
         
                  arr2d(board);
                  printArray(board);
                  Move move = findBestMove(board);
                  System.out.println( " X: "
                          +move.row+ " Y: "+move.col);
-                
 
-                        arrayOfLabals[move.row+(move.col*3)].setText("X");
-                        arrayOfLabals[move.row+(move.col*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
+                        arrayOfLabals[move.row+(move.col*3)].setText("O");
+                        arrayOfLabals[move.row+(move.col*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
                         arrayOfLabals[move.row+(move.col*3)].setForeground(Color.blue);
                         moves.put(Integer.parseInt(arrayOfLabals[move.row+(move.col*3)].getName()),arrayOfLabals[move.row+(move.col*3)].getText());
                         parentPanal.repaint();
                         printArray(board);
                         XOCounter++;
-           
            
     }
 
@@ -416,8 +413,8 @@ static Move findBestMove(char board[][])
 
         if (XOCounter < 9 && ModesBoard.pressedLabel.getText().equals("")) {
 
-            ModesBoard.pressedLabel.setText("O");
-            ModesBoard.pressedLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
+            ModesBoard.pressedLabel.setText("X");
+            ModesBoard.pressedLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
             parentPanal.repaint();
           
             
@@ -437,8 +434,8 @@ static Move findBestMove(char board[][])
                  System.out.println( " X: "
                          +move.row+ " Y: "+move.col);
           
-                        arrayOfLabals[move.col+(move.row*3)].setText("X");
-                        arrayOfLabals[move.col+(move.row*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
+                        arrayOfLabals[move.col+(move.row*3)].setText("O");
+                        arrayOfLabals[move.col+(move.row*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
                         arrayOfLabals[move.col+(move.row*3)].setForeground(Color.blue);
                          arrayOfLabals[move.col+(move.row*3)].setVisible(true);
                         board[move.row][move.col] = 'X';
@@ -449,18 +446,17 @@ static Move findBestMove(char board[][])
                         checkIfThereIsAWinner();
                         System.out.println("aftel calc");
                         printArray(board);
-                         System.out.println(XOCounter);
+                        System.out.println(XOCounter);
                
             }
 
         }
 
         if ( (XOCounter == 9 )&& firstPlayer == Integer.valueOf(firstPlayerScore.getText()) && secondPlayer == Integer.valueOf(secondPlayerScore.getText())) {
-                this.tieScore.setText((tieScore + 1) + "");
-                
+                this.tieScore.setText((tieScore + 1) + "");  
             }
+        
          if (XOCounter >= 9 || isGameEnds == true) {
-           
             return true;
         }
 
