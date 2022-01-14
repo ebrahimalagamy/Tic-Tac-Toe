@@ -3,7 +3,6 @@ package single;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
-import javafx.application.Application;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
