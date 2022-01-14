@@ -37,7 +37,7 @@ public class ModesBoard extends JFrame {
     HardClass hard;
     JPanel parentPanal, gamePanal, gameParentPanal, gameInfoPanal;
     JLabel[] arrayOfLabals;
- public  JLabel boardBackground , secondPlayerName, imageRecording,
+    public  JLabel boardBackground , secondPlayerName, imageRecording,
             firstPlayerScore, secondPlayerScore, playerImage, selectMode, computerImage, backImage, choseMode,vsImage,
             hardImage,esayImage,tieScore,recordIcon,textHistory,savedIcon;
     JButton btnRestart, btnEasy, btnHard,btnStart;
@@ -47,21 +47,15 @@ public class ModesBoard extends JFrame {
     static JLabel pressedLabel;
       UserInterface mm;
      public static  JLabel firstPlayerName;
-      ////////////////////////////////////////////
+     
      boolean record = false;
      LinkedHashMap<Integer, String> moves = new LinkedHashMap<>();
      public static File localFile;
-     
-     //record
+
         public static  String dataLocl;
         static Socket socket;
         static DataInputStream dataInputStream;
         static DataOutputStream dataOutputStream;
-        
-    ////////////////////////////////////////////    
-        
-        //// create gui of game 
-    
 
     private void createGamePage() {
 
@@ -104,7 +98,7 @@ public class ModesBoard extends JFrame {
         computerImage = new JLabel();
         vsImage = new JLabel();
         firstPlayerName = new JLabel();
-       // firstPlayerName.setText(gui.UserInterface.LabelName.getText());
+        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel("PC");
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
@@ -173,10 +167,10 @@ public class ModesBoard extends JFrame {
         recordIcon.setBounds(350, 5, 64, 64);
         
         gameInfoPanal.add(savedIcon);
-        savedIcon.setBounds(270, 355, 64, 64);
+        savedIcon.setBounds(270, 325, 64, 64);
         
         gameInfoPanal.add(textHistory);
-        textHistory.setBounds(280, 390, 64, 64);
+        textHistory.setBounds(280, 360, 64, 64);
 
         // panal for informaton 
         parentPanal.add(gameInfoPanal);
@@ -190,9 +184,8 @@ public class ModesBoard extends JFrame {
         gameInfoPanal.add(btnRestart);
         btnRestart.setBounds(80, 450, 250, 30);
         
-         gameInfoPanal.add(btnStart);
-
-        btnStart.setBounds(80, 320, 250, 30);
+        gameInfoPanal.add(btnStart);
+        btnStart.setBounds(80, 410, 250, 30);
         
         gameInfoPanal.add(esayImage);
         esayImage.setBounds(83, 57, 50, 50);
@@ -256,14 +249,12 @@ public class ModesBoard extends JFrame {
             EasyClass e = new EasyClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter,tieScore);
             check = e.isOnePlayerGameEnds();
             moves = EasyClass.moves;
-            //moves.put(Integer.parseInt(pressedLabel.getName()), pressedLabel.getText());
         if(check){
             if(record)
                 {   
                     gameIsRecorded();    
                     LocalDataBase.writeLocalGameSteps(localFile, dataLocl ,firstPlayerName.getText(),
                             Integer.parseInt(firstPlayerScore.getText()), secondPlayerName.getText(), Integer.parseInt(secondPlayerScore.getText()), moves); 
-                    //System.out.println(dataLocl);
                 }
         }
             XOCounter += 2;
@@ -280,14 +271,12 @@ public class ModesBoard extends JFrame {
             boolean check = false;          
             check = hard.isOnePlayerGameEnds();
             moves = HardClass.moves;
-            //moves.put(Integer.parseInt(pressedLabel.getName()), pressedLabel.getText());
         if(check){
             if(record)
                 {   
                     gameIsRecorded();    
                     LocalDataBase.writeLocalGameSteps(localFile, dataLocl ,firstPlayerName.getText(),
                             Integer.parseInt(firstPlayerScore.getText()), secondPlayerName.getText(), Integer.parseInt(secondPlayerScore.getText()), moves); 
-                    //System.out.println(dataLocl);
                 }
         }
             XOCounter += 2;

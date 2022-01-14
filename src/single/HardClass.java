@@ -15,7 +15,6 @@ public class HardClass extends JFrame{
     JLabel[] arrayOfLabals;
      JPanel parentPanal;
      JLabel firstPlayerScore, secondPlayerScore,tieScore;
-  //   JLabel pressedLabel;
      int XOCounter ;
      ImageIcon xIcon;
      int firstPlayer;
@@ -431,8 +430,7 @@ static Move findBestMove(char board[][])
                  System.out.println("chances");
                   printArray(board);
                  Move move = findBestMove(board);
-                 System.out.println( " X: "
-                         +move.row+ " Y: "+move.col);
+                 System.out.println( " X: "+move.row+ " Y: "+move.col);
           
                         arrayOfLabals[move.col+(move.row*3)].setText("O");
                         arrayOfLabals[move.col+(move.row*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
@@ -447,7 +445,6 @@ static Move findBestMove(char board[][])
                         System.out.println("aftel calc");
                         printArray(board);
                         System.out.println(XOCounter);
-               
             }
 
         }

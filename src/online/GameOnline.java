@@ -1,5 +1,6 @@
 package online;
 
+import design.ButtonDesign;
 import gui.UserInterface;
 import static gui.UserInterface.cards;
 import static gui.UserInterface.crd;
@@ -7,11 +8,14 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,6 +30,7 @@ public class GameOnline extends JFrame {
      JLabel boardBackground,secondPlayerName, imageRecording,
             firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage,selectMode,
              savedIcon,textHistory,tieScore,searchIcon,searchText,searchingForPlayers;
+     JButton btnRestart;
     
     private int rowSelected;
     private int columnSelected; 
@@ -46,6 +51,22 @@ public class GameOnline extends JFrame {
         createAndShowGUI();
        
     }
+     
+      private void startNewGame() {
+
+        isGameEnds = false;
+        
+        for (int i =0 ; i<9 ; i++){
+            
+        arrayOfLabals[i].setOpaque(false);
+        arrayOfLabals[i].setText("");
+        arrayOfLabals[i].setIcon(null);
+        
+        }
+
+        repaint();
+
+    }
     
     private void createGamePage() {
 
@@ -59,9 +80,10 @@ public class GameOnline extends JFrame {
         tieScore = new JLabel("0", JLabel.CENTER);
         
         firstPlayerName = new JLabel();
-       
-        
         secondPlayerName = new JLabel();
+        
+        btnRestart = new ButtonDesign();
+        btnRestart.setText("Restart");
 
         boardBackground = new JLabel();
         imageRecording = new JLabel();
@@ -86,6 +108,7 @@ public class GameOnline extends JFrame {
             arrayOfLabals[i] = new JLabel("", JLabel.CENTER);
             arrayOfLabals[i].setFont(new Font("Verdana", Font.BOLD, 0));
             arrayOfLabals[i].setBackground(Color.cyan);
+            arrayOfLabals[i].setName(""+i);
             gamePanal.add(arrayOfLabals[i]);
         }
            
@@ -132,6 +155,9 @@ public class GameOnline extends JFrame {
         selectMode.setBounds(200, 10, 100, 100);
         selectMode.setForeground(new Color(255, 128, 134));
         selectMode.setFont(new Font("Arial", Font.BOLD, 20));
+        
+        gameInfoPanal.add(btnRestart);
+        btnRestart.setBounds(80, 450, 250, 30);
         
         
         gameParentPanal.add(backImage);
@@ -204,6 +230,7 @@ public class GameOnline extends JFrame {
             @Override
             public void onFinsh() {
                 super.onFinsh(); //To change body of generated methods, choose Tools | Templates.
+                
             }
 
             @Override
@@ -255,6 +282,8 @@ public class GameOnline extends JFrame {
                     button.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
                 //     symbole.equals(ClientBaseClass.O);
                 }
+               
+                System.out.println("getName and symbol "+ button.getName()+" // "+symbole);
                 
                
                 
@@ -272,6 +301,7 @@ public class GameOnline extends JFrame {
          backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                  UserInterface mm = new UserInterface();
+                  mm.setLocationRelativeTo(null);
                   mm.setVisible(true);
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");   
@@ -282,6 +312,15 @@ public class GameOnline extends JFrame {
                   mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());
                  
+            }
+        });
+         
+         btnRestart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                XOCounter = 0;
+                startNewGame();
+
             }
         });
         

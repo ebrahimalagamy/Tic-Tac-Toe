@@ -63,10 +63,7 @@ public class ClientBaseClass {
     public void onFinsh(){
         
     }
-    
-//   
-    
-    
+
     public ClientBaseClass(ArrayList<JLabel> buttons,String myName) {
         this.myName= myName;
         try {
@@ -89,6 +86,7 @@ public class ClientBaseClass {
 
     
     public int getGameState(){
+        
         System.out.println("getGameState");
         System.out.println(currentTurn==yourSymbole);
         System.out.println(currentTurn);
@@ -204,11 +202,7 @@ public class ClientBaseClass {
                     System.out.println(currentTurn);
                 } catch (IOException ex) {
                     Logger.getLogger(ClientBaseClass.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                    
-                    
-                    
-                
+                } 
                 
             }
         }

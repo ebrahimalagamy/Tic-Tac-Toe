@@ -1,4 +1,3 @@
-
 package multiple;
 
 import design.ButtonDesign;
@@ -91,9 +90,9 @@ public class MultipleBoard extends JFrame {
         textHistory = new JLabel("History");
         
         firstPlayerName = new JLabel();
-        //firstPlayerName.setText(gui.UserInterface.LabelName.getText());
+        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel();
-        //secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
+        secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
         boardBackground.setIcon(imageIconBoard);
