@@ -1,6 +1,10 @@
 package multiple;
 
 import java.awt.Color;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.net.Socket;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,7 +21,6 @@ public class MultipleClass extends JFrame{
      int firstPlayer;
      int secondPlayer;
      
-
     public MultipleClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter,JLabel tieScore) {
         this.arrayOfLabals = arrayOfLabals;
         this.parentPanal = parentPanal;
@@ -27,6 +30,8 @@ public class MultipleClass extends JFrame{
         this.XOCounter = XOCounter;
          this.tieScore = tieScore;
     }
+    
+    
     boolean isGameEnds = false;
     int randomNumber;
     
@@ -66,6 +71,7 @@ public class MultipleClass extends JFrame{
 
             }
             colorBackgroundWinnerLabels(arrayOfLabals[0], arrayOfLabals[1], arrayOfLabals[2]);
+            
         }
 
         if (c3.equals(c4) && c3.equals(c5) && !c3.equals("")) {

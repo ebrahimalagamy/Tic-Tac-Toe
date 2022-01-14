@@ -14,6 +14,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.net.Socket;
+import java.util.LinkedHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -34,6 +42,21 @@ public class MultipleBoard extends JFrame {
    public static JLabel firstPlayerName;
     boolean isFirstPlayerTurn = true;
     boolean isGameEnds = false;
+    
+    ////////////////////////////////////////////
+     boolean record = false;
+     LinkedHashMap<Integer, String> moves = new LinkedHashMap<>();
+     public static File localFile;
+     
+     //record
+        public static  String dataLocl;
+        static Socket socket;
+        static DataInputStream dataInputStream;
+        static DataOutputStream dataOutputStream;
+        
+    ////////////////////////////////////////////    
+        
+        //// create gui of game 
 
     private void createGamePage() {
 
@@ -67,9 +90,9 @@ public class MultipleBoard extends JFrame {
         textHistory = new JLabel("History");
         
         firstPlayerName = new JLabel();
-        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
+        //firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel();
-        secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
+        //secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
         boardBackground.setIcon(imageIconBoard);
@@ -98,6 +121,7 @@ public class MultipleBoard extends JFrame {
             arrayOfLabals[i] = new JLabel("", JLabel.CENTER);
             arrayOfLabals[i].setFont(new Font("Verdana", Font.BOLD, 0));
             arrayOfLabals[i].setBackground(Color.cyan);
+            arrayOfLabals[i].setName(""+i);
             gamePanal.add(arrayOfLabals[i]);
         }
 
@@ -169,6 +193,8 @@ public class MultipleBoard extends JFrame {
         tieScore.setBounds(175, 140, 50, 50);
 
     }
+    
+    /// end creation of gui of game
 
     private void colorBackgroundWinnerLabels(JLabel l1, JLabel l2, JLabel l3) {
         l1.setOpaque(true);
@@ -180,7 +206,18 @@ public class MultipleBoard extends JFrame {
     private boolean isOnePlayerGameEnds(JLabel pressedLabel) {
         boolean check = false;
         MultipleClass e = new MultipleClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter,tieScore);
+         
         check = e.isOnePlayerGameEnds();
+        moves.put(Integer.parseInt(pressedLabel.getName()), pressedLabel.getText());
+        if(check){
+            if(record)
+                {   
+                    gameIsRecorded();
+                    LocalDataBase.writeLocalGameSteps(localFile, dataLocl ,firstPlayerName.getText(),
+                            Integer.parseInt(firstPlayerScore.getText()), secondPlayerName.getText(), Integer.parseInt(secondPlayerScore.getText()), moves); 
+                    //System.out.println(dataLocl);
+                }
+        }
         XOCounter += 1;
         System.out.println(XOCounter);
         if (check) {
@@ -195,6 +232,8 @@ public class MultipleBoard extends JFrame {
         }
 
     }
+    
+    
 
     private void removeXOListener() {
         for (JLabel gamePage_boardLabel : arrayOfLabals) {
@@ -209,8 +248,8 @@ public class MultipleBoard extends JFrame {
             
             if (isGameEnds == false) {
                 if (!pressedLabel.getText().toString().equals("O") && !pressedLabel.getText().toString().equals("X")) {
-                  System.out.println("done");
-                    isOnePlayerGameEnds(pressedLabel);
+                  //System.out.println("done");
+                    isOnePlayerGameEnds(pressedLabel);                                           
                 }
             }
         }
@@ -240,8 +279,7 @@ public class MultipleBoard extends JFrame {
         arrayOfLabals[i].setOpaque(false);
         arrayOfLabals[i].setText("");
         arrayOfLabals[i].addMouseListener(XOListener);
-        arrayOfLabals[i].setIcon(null);
-        
+        arrayOfLabals[i].setIcon(null);  
         }
         repaint();
 
@@ -250,7 +288,25 @@ public class MultipleBoard extends JFrame {
     }
 
     public MultipleBoard() {
-        createAndShowGUI();
+        
+            createAndShowGUI();
+            
+            /////////////////// open file for record
+            try {
+            localFile = new File("local.txt");
+            if(localFile.createNewFile())
+            {
+                System.out.println("file created "+ localFile.getName()+ localFile.getPath());
+            }
+            else
+            {
+                System.out.println("the file is already existed");
+            }
+            dataLocl = LocalDataBase.readLocalFile(localFile);
+           // System.out.println("length: "+ localFile.length());
+        } catch (IOException ex) {
+            Logger.getLogger(MultipleBoard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void createAndShowGUI() {
@@ -271,6 +327,28 @@ public class MultipleBoard extends JFrame {
 
             }
         });
+        
+        
+        imageRecording.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+               record = true;
+                System.out.println("Record is true  ");
+            }
+        });
+        
+        savedIcon.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+               HistoryTabel table = new HistoryTabel();
+               dataLocl = LocalDataBase.readLocalFile(localFile);
+               table.method(localFile, dataLocl);
+               table.setLocationRelativeTo(null);
+               table.setVisible(true);
+               table.setDefaultCloseOperation(2);
+               
+               
+            }
+        });
+        
         backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                    dispose();
@@ -294,6 +372,23 @@ public class MultipleBoard extends JFrame {
         setResizable(false);
         setVisible(true);
 
+    }
+    
+    
+    
+    ///// for fill recent labels if game ends and there are empty labels 
+    
+    public void gameIsRecorded()
+    {
+           // System.out.println("inside");
+            LocalDataBase.fillMap(moves, arrayOfLabals);
+           //jButton9.setText("record game");
+           //jButton9.setBackground(Color.LIGHT_GRAY);
+            record = false;
+            dataLocl = LocalDataBase.readLocalFile(localFile);
+           // System.out.println(dataLocl+"the line inside recordGame");
+        
+        
     }
     
     public static void main(String[] args) {
