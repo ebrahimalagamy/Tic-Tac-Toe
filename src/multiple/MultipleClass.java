@@ -1,7 +1,6 @@
 package multiple;
 
 import java.awt.Color;
-import javafx.application.Application;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;

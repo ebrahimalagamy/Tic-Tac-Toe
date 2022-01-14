@@ -67,9 +67,9 @@ public class MultipleBoard extends JFrame {
         textHistory = new JLabel("History");
         
         firstPlayerName = new JLabel();
-//        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
+        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel();
-  //      secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
+        secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
         boardBackground.setIcon(imageIconBoard);
@@ -98,10 +98,7 @@ public class MultipleBoard extends JFrame {
             arrayOfLabals[i] = new JLabel("", JLabel.CENTER);
             arrayOfLabals[i].setFont(new Font("Verdana", Font.BOLD, 0));
             arrayOfLabals[i].setBackground(Color.cyan);
-            arrayOfLabals[i].setName(""+i);
-            
             gamePanal.add(arrayOfLabals[i]);
-            
         }
 
         // panal for game
@@ -184,10 +181,8 @@ public class MultipleBoard extends JFrame {
         boolean check = false;
         MultipleClass e = new MultipleClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter,tieScore);
         check = e.isOnePlayerGameEnds();
-        System.out.println("check"+check);
-        
         XOCounter += 1;
-        System.out.println("counter"+XOCounter);
+        System.out.println(XOCounter);
         if (check) {
             removeXOListener();
             
@@ -207,17 +202,15 @@ public class MultipleBoard extends JFrame {
         }
     }
 
- 
-   MouseListener XOListener = new MouseListener() {
+    MouseListener XOListener = new MouseListener() {
         @Override
         public void mousePressed(MouseEvent e) {
             JLabel pressedLabel = (JLabel) e.getSource();
-
+            
             if (isGameEnds == false) {
                 if (!pressedLabel.getText().toString().equals("O") && !pressedLabel.getText().toString().equals("X")) {
+                  System.out.println("done");
                     isOnePlayerGameEnds(pressedLabel);
-                    System.out.println("Symbol "+pressedLabel.getText().toString());
-                    System.out.println("Index "+pressedLabel.getName());
                 }
             }
         }
@@ -238,6 +231,7 @@ public class MultipleBoard extends JFrame {
         public void mouseExited(MouseEvent e) {
         }
     };
+
     private void startNewGame() {
 
         isGameEnds = false;
@@ -277,8 +271,6 @@ public class MultipleBoard extends JFrame {
 
             }
         });
-       
-        
         backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                    dispose();
@@ -287,6 +279,9 @@ public class MultipleBoard extends JFrame {
                   mm.setVisible(true);
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");
+                   if(firstPlayerName.getText().equals("Guest")){
+                     mm.onlineBtn1.setText("LOG IN");
+                 }
                   mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());
             }

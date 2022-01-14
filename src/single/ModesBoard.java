@@ -18,8 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import static multiple.MultipleBoard.firstPlayerName;
-import tic.tac.toe.TicTacToe;
+
 
 
 public class ModesBoard extends JFrame {
@@ -30,12 +29,12 @@ public class ModesBoard extends JFrame {
             firstPlayerScore, secondPlayerScore, playerImage, selectMode, computerImage, backImage, choseMode,vsImage,
             hardImage,esayImage,tieScore;
     JButton btnRestart, btnEasy, btnHard,btnStart;
-    public static  JLabel firstPlayerName;
-    int XOCounter = 0;
+      int XOCounter = 0;
     boolean isFirstPlayerTurn = true;
     boolean isGameEnds = false;
     static JLabel pressedLabel;
       UserInterface mm;
+     public static  JLabel firstPlayerName;
     
 
     private void createGamePage() {
@@ -76,7 +75,7 @@ public class ModesBoard extends JFrame {
         computerImage = new JLabel();
         vsImage = new JLabel();
         firstPlayerName = new JLabel();
-//       firstPlayerName.setText(gui.UserInterface.LabelName.getText());
+       firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel("PC");
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
@@ -287,12 +286,9 @@ public class ModesBoard extends JFrame {
     }
 
     private void createAndShowGUI() {
-        
         createGamePage();
         add(parentPanal);
-      
-
-        for (JLabel gamePage_boardLabel : arrayOfLabals) {
+             for (JLabel gamePage_boardLabel : arrayOfLabals) {
             gamePage_boardLabel.addMouseListener(XOListener);
         }
        
@@ -302,8 +298,6 @@ public class ModesBoard extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 XOCounter = 0;
                 startNewGame();
-                
-         
 
             }
         });
@@ -317,12 +311,13 @@ public class ModesBoard extends JFrame {
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");
                   mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
-                  
+                 if(firstPlayerName.getText().equals("Guest")){
+                     mm.onlineBtn1.setText("LOG IN");
+                 }
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());
             }
         });
-        
-
+     
         btnHard.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 startNewGame();
@@ -356,7 +351,7 @@ public class ModesBoard extends JFrame {
         setVisible(true);
 
     }
-
+/*
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -364,6 +359,6 @@ public class ModesBoard extends JFrame {
                 new ModesBoard();
             }
         });
-    }
+    }*/
 
 }

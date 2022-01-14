@@ -105,7 +105,11 @@ public class WelcomMultiple  extends JFrame {
                   mm.setVisible(true);
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");
+                   if(firstPlayerName.getText().equals("Guest")){
+                     mm.onlineBtn1.setText("LOG IN");
+                 }
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());
+                  dispose();
             }
         });
 
