@@ -2,6 +2,7 @@ package single;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.LinkedHashMap;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -12,12 +13,14 @@ import video.winVideo;
 
 public class HardClass extends JFrame{
     JLabel[] arrayOfLabals;
-    JPanel parentPanal;
-    JLabel firstPlayerScore, secondPlayerScore,tieScore;
-    int XOCounter ;
-    ImageIcon xIcon;
-    int firstPlayer;
-    int secondPlayer;
+     JPanel parentPanal;
+     JLabel firstPlayerScore, secondPlayerScore,tieScore;
+  //   JLabel pressedLabel;
+     int XOCounter ;
+     ImageIcon xIcon;
+     int firstPlayer;
+     int secondPlayer;
+     public static LinkedHashMap<Integer, String> moves = new LinkedHashMap<>();
 
     public HardClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, int XOCounter,JLabel tieScore) {
         this.arrayOfLabals = arrayOfLabals;
@@ -40,6 +43,7 @@ public class HardClass extends JFrame{
                         arrayOfLabals[move.row+(move.col*3)].setText("O");
                         arrayOfLabals[move.row+(move.col*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
                         arrayOfLabals[move.row+(move.col*3)].setForeground(Color.blue);
+                        moves.put(Integer.parseInt(arrayOfLabals[move.row+(move.col*3)].getName()),arrayOfLabals[move.row+(move.col*3)].getText());
                         parentPanal.repaint();
                         printArray(board);
                         XOCounter++;
@@ -50,6 +54,14 @@ public class HardClass extends JFrame{
     boolean isGameEnds = false;
     int randomNumber;
     Random random = new Random();
+   
+    private void createGamePage() {
+        for (int i = 0; i < arrayOfLabals.length; i++) {
+            arrayOfLabals[i].setName(""+i);
+        }
+  
+    
+    }
 
      private void colorBackgroundWinnerLabels(JLabel l1, JLabel l2, JLabel l3) {
         l1.setOpaque(true);
@@ -409,6 +421,7 @@ static Move findBestMove(char board[][])
             ModesBoard.pressedLabel.setForeground(Color.ORANGE);
             
             XOCounter++;
+            moves.put(Integer.parseInt(ModesBoard.pressedLabel.getName()), ModesBoard.pressedLabel.getText());
            
             checkIfThereIsAWinner();
             
@@ -427,6 +440,7 @@ static Move findBestMove(char board[][])
                          arrayOfLabals[move.col+(move.row*3)].setVisible(true);
                         board[move.row][move.col] = 'X';
                         parentPanal.repaint();
+                        moves.put(Integer.parseInt(arrayOfLabals[move.col+(move.row*3)].getName()), arrayOfLabals[move.col+(move.row*3)].getText());
 
                         XOCounter++;
                         checkIfThereIsAWinner();

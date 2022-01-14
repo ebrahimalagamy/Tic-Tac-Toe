@@ -36,7 +36,7 @@ public class MultipleBoard extends JFrame {
     JPanel parentPanal, gamePanal, gameParentPanal, gameInfoPanal;
     JLabel[] arrayOfLabals;
     JLabel boardBackground, secondPlayerName, imageRecording,
-            firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage,selectMode,savedIcon,textHistory,tieScore;
+            firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage,selectMode,savedIcon,recordIcon,textHistory,tieScore;
     JButton btnRestart;
     int XOCounter = 0;
    public static JLabel firstPlayerName;
@@ -83,10 +83,11 @@ public class MultipleBoard extends JFrame {
         
         vsImage = new JLabel();
         
+        
+        
+        recordIcon = new JLabel();
+               
         savedIcon = new JLabel();
-        
-        
-        
         textHistory = new JLabel("History");
         
         firstPlayerName = new JLabel();
@@ -100,7 +101,7 @@ public class MultipleBoard extends JFrame {
         ImageIcon imageIconPlayer = new ImageIcon(getClass().getClassLoader().getResource("images/player_image.png"));
         playerImage.setIcon(imageIconPlayer);
 
-        ImageIcon imageIconComputer = new ImageIcon(getClass().getClassLoader().getResource("images/computer_image.png"));
+        ImageIcon imageIconComputer = new ImageIcon(getClass().getClassLoader().getResource("images/player_image.png"));
         computerImage.setIcon(imageIconComputer);
 
         ImageIcon imageIconBack = new ImageIcon(getClass().getClassLoader().getResource("images/back_2.png"));
@@ -115,6 +116,9 @@ public class MultipleBoard extends JFrame {
         ImageIcon imageIconSaved = new ImageIcon(getClass().getClassLoader().getResource("images/save.png"));
         savedIcon.setIcon(imageIconSaved);
         
+        ImageIcon imageIconRecord = new ImageIcon(getClass().getClassLoader().getResource("images/recorded.png"));
+        recordIcon.setIcon(imageIconRecord);
+        recordIcon.setVisible(false);
      
 
         for (int i = 0; i < arrayOfLabals.length; i++) {
@@ -147,6 +151,10 @@ public class MultipleBoard extends JFrame {
 
         gameParentPanal.add(imageRecording);
         imageRecording.setBounds(380, 20, 64, 64);
+        
+        //recorded icon
+        gameParentPanal.add(recordIcon);
+        recordIcon.setBounds(350, 5, 64, 64);
 
         // panal for informaton 
         parentPanal.add(gameInfoPanal);
@@ -293,7 +301,7 @@ public class MultipleBoard extends JFrame {
             
             /////////////////// open file for record
             try {
-            localFile = new File("local.txt");
+            localFile = new File("Multilocal.txt");
             if(localFile.createNewFile())
             {
                 System.out.println("file created "+ localFile.getName()+ localFile.getPath());
@@ -332,14 +340,15 @@ public class MultipleBoard extends JFrame {
         imageRecording.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                record = true;
+               recordIcon.setVisible(true);
                 System.out.println("Record is true  ");
             }
         });
         
         savedIcon.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-               HistoryTabel table = new HistoryTabel();
                dataLocl = LocalDataBase.readLocalFile(localFile);
+               HistoryTabel table = new HistoryTabel(dataLocl);
                table.method(localFile, dataLocl);
                table.setLocationRelativeTo(null);
                table.setVisible(true);
@@ -382,13 +391,10 @@ public class MultipleBoard extends JFrame {
     {
            // System.out.println("inside");
             LocalDataBase.fillMap(moves, arrayOfLabals);
-           //jButton9.setText("record game");
-           //jButton9.setBackground(Color.LIGHT_GRAY);
             record = false;
+            recordIcon.setVisible(false);
             dataLocl = LocalDataBase.readLocalFile(localFile);
-           // System.out.println(dataLocl+"the line inside recordGame");
-        
-        
+           // System.out.println(dataLocl+"the line inside recordGame");  
     }
     
     public static void main(String[] args) {
