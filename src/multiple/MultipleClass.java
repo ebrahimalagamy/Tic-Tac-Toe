@@ -17,6 +17,7 @@ public class MultipleClass extends JFrame{
      int XOCounter ;
      int firstPlayer;
      int secondPlayer;
+     
 
     public MultipleClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, JLabel pressedLabel, int XOCounter,JLabel tieScore) {
         this.arrayOfLabals = arrayOfLabals;
@@ -61,7 +62,9 @@ public class MultipleClass extends JFrame{
               
             } else {
                 this.secondPlayerScore.setText((secondPlayer + 1) + "");
+
                   new loseVideo().setVisible(true);
+
             }
             colorBackgroundWinnerLabels(arrayOfLabals[0], arrayOfLabals[1], arrayOfLabals[2]);
         }
@@ -94,6 +97,7 @@ public class MultipleClass extends JFrame{
                  new winVideo().setVisible(true);
             } else {
                 this.secondPlayerScore.setText((secondPlayer + 1) + "");
+
                   new loseVideo().setVisible(true);
             }
             colorBackgroundWinnerLabels(arrayOfLabals[0], arrayOfLabals[3], arrayOfLabals[6]);
@@ -105,6 +109,7 @@ public class MultipleClass extends JFrame{
                  new winVideo().setVisible(true);
             } else {
                 this.secondPlayerScore.setText((secondPlayer + 1) + "");
+
                    new loseVideo().setVisible(true);
             }
             colorBackgroundWinnerLabels(arrayOfLabals[1], arrayOfLabals[4], arrayOfLabals[7]);
@@ -116,6 +121,7 @@ public class MultipleClass extends JFrame{
                  new winVideo().setVisible(true);
             } else {
                 this.secondPlayerScore.setText((secondPlayer + 1) + "");
+
                   new loseVideo().setVisible(true);
             }
             colorBackgroundWinnerLabels(arrayOfLabals[2], arrayOfLabals[5], arrayOfLabals[8]);
@@ -127,8 +133,7 @@ public class MultipleClass extends JFrame{
                  new winVideo().setVisible(true);
             } else {
                 this.secondPlayerScore.setText((secondPlayer + 1) + "");
-                      new loseVideo().setVisible(true);
-                   
+                      new loseVideo().setVisible(true); 
             }
             colorBackgroundWinnerLabels(arrayOfLabals[0], arrayOfLabals[4], arrayOfLabals[8]);
         }

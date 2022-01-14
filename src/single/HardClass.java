@@ -1,4 +1,3 @@
-
 package single;
 
 import java.awt.Color;

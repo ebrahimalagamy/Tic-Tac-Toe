@@ -15,7 +15,8 @@ public class GamePlayer {
      DataOutputStream dataOut;
      Thread t;
       public static enum requestTypes{
-         register,login,getData,setData,setMove,player1,player2,createroom}
+         register,login,getData,setData,setMove,player1,player2,createroom,iWantToPlay
+      }
    
     public GamePlayer(UserInterface gui){
        this.mygui=gui;

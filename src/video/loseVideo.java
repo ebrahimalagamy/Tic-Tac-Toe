@@ -110,12 +110,11 @@ public  class loseVideo extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         mediaPlayer.stop();
         setVisible(false);
-      
-       
-  
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -129,6 +128,7 @@ public  class loseVideo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
