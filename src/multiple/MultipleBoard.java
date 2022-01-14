@@ -28,7 +28,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import video.winVideo;
+
 
 
 public class MultipleBoard extends JFrame {
@@ -351,13 +351,16 @@ public class MultipleBoard extends JFrame {
         
         backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-               dispose();
-                  UserInterface mm = new UserInterface();
+                   dispose();
+                UserInterface mm = new UserInterface();
                   mm.setLocationRelativeTo(null);
                   mm.setVisible(true);
-                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");
+                   if(firstPlayerName.getText().equals("Guest")){
+                     mm.onlineBtn1.setText("LOG IN");
+                 }
+                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());
             }
         });

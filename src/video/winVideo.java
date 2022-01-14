@@ -3,7 +3,6 @@ package video;
 import java.awt.BorderLayout;
 import java.io.File;
 import javafx.application.Platform;
-import static javafx.application.Platform.exit;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -11,12 +10,14 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
-public final class winVideo extends javax.swing.JFrame {
+public  class winVideo extends javax.swing.JFrame {
+  MediaPlayer mediaPlayer;
 
-
-    
+  
     private final JFXPanel jfxpanel=new JFXPanel();
+    
     public winVideo() {
+        setVisible(true);
         initComponents();
         createScene();
         setTitle("Winner Winner Chicken Dinner");
@@ -25,25 +26,22 @@ public final class winVideo extends javax.swing.JFrame {
         jPanel1.setLayout(new BorderLayout());
         jPanel1.add(jfxpanel,BorderLayout.CENTER);   
     }
-    
-    
-    public void createScene(){
-    Platform.runLater(new Runnable() {
-        @Override
-        public void run() {
-            File file= new File("winner.mp4");
-            MediaPlayer mediaPlayer=new MediaPlayer(new Media(file.toURI().toString()));
-            jfxpanel.setScene(new Scene(new Group(new MediaView(mediaPlayer))));
-            mediaPlayer.setVolume(0.7);
-         //   mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-            mediaPlayer.play();
-mediaPlayer.setOnEndOfMedia(()->{
    
-          exit();
-          dispose();
+    
+    public  void createScene(){
+    Platform.runLater(() -> {
+        File file= new File("winner.mp4");
+       mediaPlayer=new MediaPlayer(new Media(file.toURI().toString()));
+        jfxpanel.setScene(new Scene(new Group(new MediaView(mediaPlayer))));
+        mediaPlayer.setVolume(0.7);
+        mediaPlayer.setAutoPlay(true);
        
+   mediaPlayer.setOnEndOfMedia(()->{
+     setVisible(false);
+        
+        
+        });
     });
-            }} );
     
     }
 
@@ -57,6 +55,7 @@ mediaPlayer.setOnEndOfMedia(()->{
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -69,15 +68,27 @@ mediaPlayer.setOnEndOfMedia(()->{
         jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
 
+        jButton1.setText("Back To Game");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(464, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 357, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addGap(0, 334, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,21 +112,30 @@ mediaPlayer.setOnEndOfMedia(()->{
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        mediaPlayer.stop();
+        setVisible(false);
+      
+       
+  
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
-   /*  *//*
+   */
     public static void main(String args[]) {
-       
-
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new winVideo().setVisible(true);
-            }
+    
+        java.awt.EventQueue.invokeLater(() -> {
+            new winVideo().setVisible(true);
         });
-    }*/
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
+
+
+   
+
