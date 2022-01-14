@@ -35,6 +35,7 @@ public class ModesBoard extends JFrame {
     boolean isFirstPlayerTurn = true;
     boolean isGameEnds = false;
     static JLabel pressedLabel;
+      UserInterface mm;
     
 
     private void createGamePage() {
@@ -308,13 +309,15 @@ public class ModesBoard extends JFrame {
         });
         backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                  dispose();
-                  UserInterface mm = new UserInterface();
+                dispose();
+                    dispose();
+                UserInterface mm = new UserInterface();
                   mm.setLocationRelativeTo(null);
                   mm.setVisible(true);
-                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");
+                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
+                  
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());
             }
         });

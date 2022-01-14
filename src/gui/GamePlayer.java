@@ -81,7 +81,10 @@ public class GamePlayer {
              dataOut.flush();
              }
          catch (IOException ex) { Logger.getLogger(GamePlayer.class.getName()).log(Level.SEVERE, null, ex);}
-    } 
+  
+    }
     
-   
+    
+    
 }
+  

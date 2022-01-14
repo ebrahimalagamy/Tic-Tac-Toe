@@ -18,7 +18,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import static multiple.MultipleBoard.firstPlayerName;
 
 
 public class WelcomMultiple  extends JFrame {
@@ -26,8 +25,9 @@ public class WelcomMultiple  extends JFrame {
     JPanel parentPanal;
     JButton btnStart;
     JLabel backImage;
+    public static JLabel firstPlayerName;
     public static TextField textFiledName;
-    
+     UserInterface mm;
     private void createGamePage() {
         
         parentPanal = new JPanel(null);
@@ -37,12 +37,17 @@ public class WelcomMultiple  extends JFrame {
         parentPanal.add(btnStart);
         btnStart.setBounds(325, 300, 200,35);
       
+        firstPlayerName = new JLabel();
+        firstPlayerName.setText(gui.UserInterface.LabelName.getText()); 
+        
         backImage = new JLabel();      
         ImageIcon imageIconBack = new ImageIcon(getClass().getResource("/images/back_2.png"));
      
         backImage.setIcon(imageIconBack);
         parentPanal.add(backImage);
         backImage.setBounds(20, 20, 32, 32);
+        
+        
        
         textFiledName = new TextField();
         parentPanal.add(textFiledName);
@@ -50,6 +55,9 @@ public class WelcomMultiple  extends JFrame {
         textFiledName.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         textFiledName.setForeground(new java.awt.Color(153, 153, 153));
         textFiledName.setText("Player Name");
+        
+        parentPanal.add(firstPlayerName);
+        firstPlayerName.setBounds(70, 5, 64, 64);
         
     }
     
@@ -82,14 +90,17 @@ public class WelcomMultiple  extends JFrame {
             }
         });
         textFiledName.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {
                 textFiledName.setText("");
             }
         });
         
          backImage.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {
-                UserInterface mm = new UserInterface();
+                  dispose();
+                  mm = new UserInterface();
                   mm.setLocationRelativeTo(null);
                   mm.setVisible(true);
                   crd = (CardLayout) cards.getLayout();
