@@ -29,7 +29,7 @@ public class ModesBoard extends JFrame {
  public  JLabel boardBackground , secondPlayerName, imageRecording,
             firstPlayerScore, secondPlayerScore, playerImage, selectMode, computerImage, backImage, choseMode,vsImage,
             hardImage,esayImage,tieScore;
-    JButton btnRestart, btnEasy, btnHard;
+    JButton btnRestart, btnEasy, btnHard,btnStart;
     public static  JLabel firstPlayerName;
     int XOCounter = 0;
     boolean isFirstPlayerTurn = true;
@@ -50,8 +50,14 @@ public class ModesBoard extends JFrame {
         tieScore = new JLabel("0", JLabel.CENTER);
         gamePanal = new JPanel(new GridLayout(3, 3, 8, 8));
         arrayOfLabals = new JLabel[9];
+        
         btnRestart = new ButtonDesign();
         btnRestart.setText("Restart");
+        
+        btnStart = new ButtonDesign();
+        btnStart.setText("Start");
+        btnStart.setVisible(false);
+        
         btnEasy = new ButtonDesign();
         btnEasy.setText("Easy");
         
@@ -69,7 +75,7 @@ public class ModesBoard extends JFrame {
         computerImage = new JLabel();
         vsImage = new JLabel();
         firstPlayerName = new JLabel();
-       firstPlayerName.setText(gui.UserInterface.LabelName.getText());
+//       firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel("PC");
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
@@ -135,6 +141,9 @@ public class ModesBoard extends JFrame {
 
         gameInfoPanal.add(btnRestart);
         btnRestart.setBounds(80, 450, 250, 30);
+        
+         gameInfoPanal.add(btnStart);
+        btnStart.setBounds(80, 350, 250, 30);
         
         gameInfoPanal.add(esayImage);
         esayImage.setBounds(83, 57, 50, 50);
@@ -277,6 +286,7 @@ public class ModesBoard extends JFrame {
     }
 
     private void createAndShowGUI() {
+        
         createGamePage();
         add(parentPanal);
       
@@ -284,6 +294,7 @@ public class ModesBoard extends JFrame {
         for (JLabel gamePage_boardLabel : arrayOfLabals) {
             gamePage_boardLabel.addMouseListener(XOListener);
         }
+       
         
         btnRestart.addActionListener(new ActionListener() {
             @Override
@@ -311,19 +322,26 @@ public class ModesBoard extends JFrame {
 
         btnHard.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-               selectMode.setText("Hard");
+                startNewGame();
+                selectMode.setText("Hard");
+                btnStart.setVisible(true);
+               
+            }
+        });
+        
+          btnStart.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
               hard = new HardClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, XOCounter,tieScore);
             }
         });
         
         btnEasy.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-               selectMode.setText("Easy");
-               if (isGameEnds == false) {
-                if (!pressedLabel.getText().toString().equals("O") && !pressedLabel.getText().toString().equals("X")) {
-                    System.out.println("done");
-                    isOnePlayerGameEnds(pressedLabel);
-            }}}
+                startNewGame();
+                btnStart.setVisible(false);
+                selectMode.setText("Easy");
+             
+            }
         });
 
 

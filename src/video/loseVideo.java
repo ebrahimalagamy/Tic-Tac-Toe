@@ -53,8 +53,8 @@ mediaPlayer.setOnEndOfMedia(()->{
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnClose = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setFocusable(false);
         setResizable(false);
 
@@ -63,15 +63,28 @@ mediaPlayer.setOnEndOfMedia(()->{
         jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
 
+        btnClose.setText("jButton1");
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(482, Short.MAX_VALUE)
+                .addComponent(btnClose)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 357, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnClose)
+                .addContainerGap(319, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -95,6 +108,10 @@ mediaPlayer.setOnEndOfMedia(()->{
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+       exit();
+    }//GEN-LAST:event_btnCloseActionPerformed
+
     
     public static void main(String args[]) {
        
@@ -106,6 +123,7 @@ mediaPlayer.setOnEndOfMedia(()->{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClose;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

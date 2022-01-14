@@ -18,9 +18,12 @@ import javafx.scene.paint.Color;
 
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javax.swing.JButton;
 
 
 public class win extends Application {
+    
+    JButton button;
     public static void main(String[] args) {
         Application.launch(args);
     }
@@ -30,7 +33,7 @@ public class win extends Application {
     public void start(Stage stage) {
         // Locate the media content in the CLASSPATH
 
-        
+        button = new JButton("close");
         URL mediaUrl = getClass().getClassLoader().getResource("images/winner.mp4");
         String mediaStringUrl = mediaUrl.toExternalForm();
 
