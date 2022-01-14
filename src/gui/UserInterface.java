@@ -92,7 +92,7 @@ public class UserInterface extends javax.swing.JFrame {
         onlineBtn1 = new javax.swing.JButton();
         panelGames = new javax.swing.JPanel();
         connect4 = new javax.swing.JButton();
-        LabelName1 = new javax.swing.JLabel();
+        LabelNamM = new javax.swing.JLabel();
         profileLabel1 = new javax.swing.JLabel();
         Snake = new javax.swing.JButton();
 
@@ -513,10 +513,10 @@ public class UserInterface extends javax.swing.JFrame {
         });
         panelGames.add(connect4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 250, 80));
 
-        LabelName1.setBackground(new java.awt.Color(102, 102, 102));
-        LabelName1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        LabelName1.setForeground(new java.awt.Color(255, 253, 222));
-        panelGames.add(LabelName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 130, 30));
+        LabelNamM.setBackground(new java.awt.Color(102, 102, 102));
+        LabelNamM.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        LabelNamM.setForeground(new java.awt.Color(255, 253, 222));
+        panelGames.add(LabelNamM, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 130, 30));
 
         profileLabel1.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         profileLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -621,7 +621,8 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFieldMouseClicked
 
     private void btnGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestActionPerformed
-        LabelName.setText("Guest");    
+        LabelName.setText("Guest");   
+        onlineBtn1.setText("LOG IN");
         crd = (CardLayout) cards.getLayout();
         crd.show(cards,"card4");
       
@@ -659,37 +660,34 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_profileLabelMouseClicked
 
     private void gamesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesbtnActionPerformed
-/*        new GameOnline().setVisible(true);
-        setVisible(false);*/
-        String createroom = new String();
-        createroom =Controler.createroom();
-        player.SendMessagetoServer(createroom);
-       // JOptionPane.showMessageDialog(this,"Wait for other player to join","");
+
    
         
         
     }//GEN-LAST:event_gamesbtnActionPerformed
 
     private void onlineBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineBtn1ActionPerformed
+      if(onlineBtn1.getText().equals("LOG IN")){
+        crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card1");
+      }else{
         new GameOnline().setVisible(true);
         setVisible(false);
-        
-        String createroom = new String();
+         String createroom = new String();
         createroom =Controler.createroom();
-         
-        player.SendMessagetoServer(createroom);
+       player.SendMessagetoServer(createroom);}
     }//GEN-LAST:event_onlineBtn1ActionPerformed
 
     private void SnakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnakeActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_SnakeActionPerformed
 
     private void profileLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabel1MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_profileLabel1MouseClicked
 
+    
     private void connect4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connect4ActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_connect4ActionPerformed
 
     
@@ -731,8 +729,8 @@ public class UserInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel LabelNamM;
     public static javax.swing.JLabel LabelName;
-    private javax.swing.JLabel LabelName1;
     private javax.swing.JButton Snake;
     private javax.swing.JButton btnGuest;
     private javax.swing.JButton cancelBtn;
@@ -781,7 +779,7 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JButton multiBtn;
-    private javax.swing.JButton onlineBtn1;
+    public javax.swing.JButton onlineBtn1;
     public javax.swing.JPanel panelGames;
     private javax.swing.JPasswordField passwordField;
     protected javax.swing.JLabel playerEmail;
@@ -802,9 +800,10 @@ public class UserInterface extends javax.swing.JFrame {
 
     
   public void validSignIn(){
-     crd = (CardLayout) cards.getLayout();
+        crd = (CardLayout) cards.getLayout();
         crd.show(cards,"card4");
         LabelName.setText(usernameField.getText());
+        LabelNamM.setText(usernameField.getText());
         
   }
     

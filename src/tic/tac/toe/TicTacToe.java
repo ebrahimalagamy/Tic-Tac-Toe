@@ -1,4 +1,4 @@
-package tic.tac.toe;
+/*package tic.tac.toe;
 
 import design.ButtonDesign;
 import gui.UserInterface;
@@ -19,7 +19,7 @@ import single.ModesBoard;
 /**
  *
  * @author Ebrah
- */
+ *//*
 public class TicTacToe extends JFrame {
 
     JPanel parentPanal,buttonPanal,gifPanal;
@@ -140,4 +140,4 @@ public class TicTacToe extends JFrame {
     }  
     
     
-}
+}*/

@@ -16,6 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import video.loseVideo;
+import video.winVideo;
 
 public class GameOnline extends JFrame {   
 
@@ -57,6 +59,8 @@ public class GameOnline extends JFrame {
         tieScore = new JLabel("0", JLabel.CENTER);
         
         firstPlayerName = new JLabel();
+       
+        
         secondPlayerName = new JLabel();
 
         boardBackground = new JLabel();
@@ -224,13 +228,14 @@ public class GameOnline extends JFrame {
             @Override
             public void onLose() {
                 super.onLose(); 
-                
+                new loseVideo().setVisible(true);
                secondPlayerScore.setText((secondPlayer + 1) + "");
             }
 
             @Override
             public void onWin() {
                 super.onWin();
+                 new winVideo().setVisible(true);
                 firstPlayerScore.setText((firstPlayer + 1) + "");
                 
             }
@@ -265,6 +270,12 @@ public class GameOnline extends JFrame {
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");   
                   setVisible(false);
+                   if(firstPlayerName.getText().equals("Guest")){
+                     mm.onlineBtn1.setText("LOG IN");
+                 }
+                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
+                 gui.UserInterface.LabelName.setText(firstPlayerName.getText());
+                 
             }
         });
         
