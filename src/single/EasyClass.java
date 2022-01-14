@@ -2,6 +2,7 @@ package single;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.LinkedHashMap;
 import java.util.Random;
 import javafx.application.Application;
 import javax.swing.ImageIcon;
@@ -18,6 +19,7 @@ public class EasyClass extends JFrame{
      int XOCounter ;
     int firstPlayer;
      int secondPlayer;
+    public static LinkedHashMap<Integer, String> moves = new LinkedHashMap<>();
 
      
 
@@ -171,6 +173,7 @@ public class EasyClass extends JFrame{
             
             XOCounter++;
             System.out.println(XOCounter);
+            moves.put(Integer.parseInt(pressedLabel.getName()), pressedLabel.getText());
             checkIfThereIsAWinner();
 
             if (XOCounter < 9 && isGameEnds == false) {
@@ -180,10 +183,11 @@ public class EasyClass extends JFrame{
 
                         arrayOfLabals[randomNumber].setText("O");
                         arrayOfLabals[randomNumber].setForeground(Color.blue);
-                         arrayOfLabals[randomNumber].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
+                        arrayOfLabals[randomNumber].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
                         parentPanal.repaint();
 
                         XOCounter++;
+                        moves.put(Integer.parseInt(arrayOfLabals[randomNumber].getName()), arrayOfLabals[randomNumber].getText());
                         checkIfThereIsAWinner();
                         break;
                     }

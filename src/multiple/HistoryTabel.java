@@ -19,8 +19,10 @@ public class HistoryTabel extends javax.swing.JFrame {
     /**
      * Creates new form HistoryTabel
      */
+   String dataLocl;
     
-    public HistoryTabel() {
+    public HistoryTabel(String dataLocl) {
+        this.dataLocl=dataLocl;
         initComponents();
           
     }
@@ -108,7 +110,7 @@ public class HistoryTabel extends javax.swing.JFrame {
         g.setVisible(true);
         g.setLocationRelativeTo(null);
         System.out.println(date+"inside on click");
-        g.showdata(date, MultipleBoard.dataLocl);
+        g.showdata(date,dataLocl);
         //System.out.println(MultipleBoard.dataLocl);
         g.setDefaultCloseOperation(2);
         
@@ -118,12 +120,14 @@ public class HistoryTabel extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    /*
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+    /*
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -140,16 +144,18 @@ public class HistoryTabel extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(HistoryTabel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        */
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
+        /*
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new HistoryTabel().setVisible(true);
             }
         });
-    }
+    }  */ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane2;

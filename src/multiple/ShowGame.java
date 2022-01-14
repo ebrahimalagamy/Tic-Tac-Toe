@@ -38,6 +38,8 @@ public class ShowGame extends javax.swing.JFrame {
         
     }
     
+    
+    
      public void showdata(String date, String local)
     {
         
@@ -142,8 +144,6 @@ public class ShowGame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setFocusable(false);
-        setMinimumSize(new java.awt.Dimension(0, 0));
-        setPreferredSize(new java.awt.Dimension(500, 500));
         setSize(new java.awt.Dimension(500, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -156,7 +156,7 @@ public class ShowGame extends javax.swing.JFrame {
         label0.setForeground(new java.awt.Color(214, 229, 250));
         label0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label0.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label0, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 80, 80));
+        jPanel1.add(label0, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 80, 80));
 
         label1.setFont(new java.awt.Font("Agency FB", 0, 3)); // NOI18N
         label1.setForeground(new java.awt.Color(214, 229, 250));
@@ -168,7 +168,7 @@ public class ShowGame extends javax.swing.JFrame {
         label2.setForeground(new java.awt.Color(214, 229, 250));
         label2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 80, 80));
+        jPanel1.add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 80, 80));
 
         label3.setFont(new java.awt.Font("Agency FB", 0, 3)); // NOI18N
         label3.setForeground(new java.awt.Color(214, 229, 250));
@@ -192,7 +192,7 @@ public class ShowGame extends javax.swing.JFrame {
         label6.setForeground(new java.awt.Color(214, 229, 250));
         label6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 80, 80));
+        jPanel1.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 80, 80));
 
         label7.setFont(new java.awt.Font("Agency FB", 0, 3)); // NOI18N
         label7.setForeground(new java.awt.Color(214, 229, 250));
@@ -204,7 +204,7 @@ public class ShowGame extends javax.swing.JFrame {
         label8.setForeground(new java.awt.Color(214, 229, 250));
         label8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 80, 80));
+        jPanel1.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 80, 80));
 
         imagelabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/board_1.png"))); // NOI18N
         jPanel1.add(imagelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
