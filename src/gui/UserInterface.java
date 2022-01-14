@@ -1,5 +1,4 @@
 package gui;
-
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import multiple.WelcomMultiple;
@@ -466,7 +465,6 @@ public class UserInterface extends javax.swing.JFrame {
             }
         });
         homePage.add(gamesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 250, 80));
-
         LabelName.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         LabelName.setForeground(new java.awt.Color(255, 253, 222));
         homePage.add(LabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 130, 30));
