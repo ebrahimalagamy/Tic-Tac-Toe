@@ -3,6 +3,7 @@ package gui;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import multiple.WelcomMultiple;
+import online.GameOnline;
 import single.ModesBoard;
 
 
@@ -670,7 +671,13 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_gamesbtnActionPerformed
 
     private void onlineBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineBtn1ActionPerformed
-        // TODO add your handling code here:
+        new GameOnline().setVisible(true);
+        setVisible(false);
+        
+        String createroom = new String();
+        createroom =Controler.createroom();
+         
+        player.SendMessagetoServer(createroom);
     }//GEN-LAST:event_onlineBtn1ActionPerformed
 
     private void SnakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnakeActionPerformed
