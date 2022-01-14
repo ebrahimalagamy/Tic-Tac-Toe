@@ -7,6 +7,7 @@ import static gui.UserInterface.crd;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,7 +32,7 @@ public class WelcomMultiple  extends JFrame {
     private void createGamePage() {
         
         parentPanal = new JPanel(null);
-        parentPanal.setBackground(new Color(214, 229, 250));
+        parentPanal.setBackground(new Color(51,0,102));
         btnStart = new ButtonDesign();
         btnStart.setText("Start");
         parentPanal.add(btnStart);
@@ -58,6 +59,8 @@ public class WelcomMultiple  extends JFrame {
         
         parentPanal.add(firstPlayerName);
         firstPlayerName.setBounds(70, 5, 64, 64);
+        firstPlayerName.setForeground(Color.WHITE);
+        firstPlayerName.setFont(new Font("Arial", Font.PLAIN, 15));
         
     }
     

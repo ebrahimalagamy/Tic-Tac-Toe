@@ -143,7 +143,7 @@ public class ModesBoard extends JFrame {
         btnRestart.setBounds(80, 450, 250, 30);
         
          gameInfoPanal.add(btnStart);
-        btnStart.setBounds(80, 350, 250, 30);
+        btnStart.setBounds(80, 400, 250, 30);
         
         gameInfoPanal.add(esayImage);
         esayImage.setBounds(83, 57, 50, 50);
@@ -181,6 +181,7 @@ public class ModesBoard extends JFrame {
         secondPlayerScore.setForeground(Color.ORANGE);
         secondPlayerScore.setFont(new Font("Arial", Font.BOLD, 20));
         secondPlayerScore.setBounds(274, 260, 50, 50);
+        
         gameInfoPanal.add(tieScore);
         tieScore.setForeground(Color.ORANGE);
         tieScore.setFont(new Font("Arial", Font.BOLD, 20));
@@ -213,11 +214,11 @@ public class ModesBoard extends JFrame {
             } else {
                 return false;
             }
+            
         }else{
            
             System.out.println("from hard");
             boolean check = false;
-           
             check = hard.isOnePlayerGameEnds();
             XOCounter += 2;
             if (check) {
@@ -329,7 +330,8 @@ public class ModesBoard extends JFrame {
         
           btnStart.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-              hard = new HardClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, XOCounter,tieScore);
+                     hard = new HardClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, XOCounter,tieScore);
+
             }
         });
         
@@ -351,14 +353,6 @@ public class ModesBoard extends JFrame {
         setVisible(true);
 
     }
-/*
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new ModesBoard();
-            }
-        });
-    }*/
+
 
 }
