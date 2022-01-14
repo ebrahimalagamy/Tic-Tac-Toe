@@ -91,9 +91,9 @@ public class MultipleBoard extends JFrame {
         textHistory = new JLabel("History");
         
         firstPlayerName = new JLabel();
-        //firstPlayerName.setText(gui.UserInterface.LabelName.getText());
+        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel();
-        //secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
+        secondPlayerName.setText(WelcomMultiple.textFiledName.getText());
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
         boardBackground.setIcon(imageIconBoard);
@@ -360,7 +360,7 @@ public class MultipleBoard extends JFrame {
         
         backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                   dispose();
+                   
                 UserInterface mm = new UserInterface();
                   mm.setLocationRelativeTo(null);
                   mm.setVisible(true);
@@ -371,6 +371,7 @@ public class MultipleBoard extends JFrame {
                  }
                   mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());
+                 dispose();
             }
         });
 
