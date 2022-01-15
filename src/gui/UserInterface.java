@@ -1,4 +1,5 @@
 package gui;
+import SnakeGame.GameFrame;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import multiple.WelcomMultiple;
@@ -631,11 +632,7 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuestActionPerformed
 
     private void btnPlayerProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerProfileActionPerformed
-        crd = (CardLayout) cards.getLayout();
-        crd.show(cards,"card3");
-        String getData = new String();
-        getData=Controler.getData(LabelName.getText());
-        player.SendMessagetoServer(getData);
+       
     }//GEN-LAST:event_btnPlayerProfileActionPerformed
 
     private void profileBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileBackMouseClicked
@@ -661,6 +658,10 @@ public class UserInterface extends javax.swing.JFrame {
         player.SendMessagetoServer(getData);
     }//GEN-LAST:event_profileLabelMouseClicked
 
+    private void gamesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesbtnActionPerformed
+  new GameFrame().setVisible(true);
+    }//GEN-LAST:event_gamesbtnActionPerformed
+
     private void onlineBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineBtn1ActionPerformed
       if(onlineBtn1.getText().equals("LOG IN")){
         crd = (CardLayout) cards.getLayout();
@@ -674,7 +675,7 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_onlineBtn1ActionPerformed
 
     private void SnakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnakeActionPerformed
-      
+       new GameFrame().setVisible(true);
     }//GEN-LAST:event_SnakeActionPerformed
 
     private void profileLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabel1MouseClicked
@@ -804,7 +805,7 @@ public class UserInterface extends javax.swing.JFrame {
         crd.show(cards,"card4");
         LabelName.setText(usernameField.getText());
         LabelNamM.setText(usernameField.getText());
-        
+         onlineBtn1.setText("    ONLINE");
   }
     
    public void inValidSignIn(){
@@ -820,6 +821,7 @@ public class UserInterface extends javax.swing.JFrame {
                 crd = (CardLayout) cards.getLayout();
                 crd.show(cards,"card4");
                 LabelName.setText(jTextField1.getText());
+                     onlineBtn1.setText("    ONLINE");
                
 }
   

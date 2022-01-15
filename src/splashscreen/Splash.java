@@ -12,11 +12,12 @@ import gui.UserInterface;
  * @author PC
  */
 public class Splash {
+   
     public static void main (String args[]) throws InterruptedException{
         
         SplashScreengui splash = new SplashScreengui();
         for(int i =0;i<=100;i++){
-            Thread.sleep(40);
+            Thread.sleep(20);
             splash.setLocationRelativeTo(null);
             splash.setVisible(true);
             splash.load.setValue(i);
@@ -27,6 +28,7 @@ public class Splash {
                 user.setLocationRelativeTo(null);
                 user.setVisible(true);
                 splash.setVisible(false);
+                
             }
             
         }
