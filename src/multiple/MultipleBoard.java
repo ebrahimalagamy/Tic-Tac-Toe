@@ -329,6 +329,10 @@ public class MultipleBoard extends JFrame {
         btnRestart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(record == true){
+                    record = false;
+                recordIcon.setVisible(false);
+                }
                 XOCounter = 0;
                  startNewGame();
                
@@ -339,9 +343,15 @@ public class MultipleBoard extends JFrame {
         
         imageRecording.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
+                if (record == false){
                record = true;
-               recordIcon.setVisible(true);
-                System.out.println("Record is true  ");
+                recordIcon.setVisible(true);
+                }
+                else{
+                record = false;
+                recordIcon.setVisible(false);
+                }
+
             }
         });
         

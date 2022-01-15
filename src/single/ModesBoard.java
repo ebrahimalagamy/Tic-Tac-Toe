@@ -383,6 +383,10 @@ public class ModesBoard extends JFrame {
         btnRestart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(record == true){
+                    record = false;
+                recordIcon.setVisible(false);
+                }
                 XOCounter = 0;
                 startNewGame();
 
@@ -447,8 +451,14 @@ public class ModesBoard extends JFrame {
         
         imageRecording.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
+               if (record == false){
                record = true;
-               recordIcon.setVisible(true);
+                recordIcon.setVisible(true);
+                }
+                else{
+                record = false;
+                recordIcon.setVisible(false);
+                }
                 System.out.println("Record is true  ");
             }
         });
