@@ -328,6 +328,10 @@ public class MultipleBoard extends JFrame {
         btnRestart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(record == true){
+                    record = false;
+                recordIcon.setVisible(false);
+                }
                 XOCounter = 0;
                  startNewGame();
                
@@ -338,9 +342,15 @@ public class MultipleBoard extends JFrame {
         
         imageRecording.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
+                if (record == false){
                record = true;
-               recordIcon.setVisible(true);
-                System.out.println("Record is true  ");
+                recordIcon.setVisible(true);
+                }
+                else{
+                record = false;
+                recordIcon.setVisible(false);
+                }
+
             }
         });
         
@@ -359,7 +369,7 @@ public class MultipleBoard extends JFrame {
         
         backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                   dispose();
+                   
                 UserInterface mm = new UserInterface();
                   mm.setLocationRelativeTo(null);
                   mm.setVisible(true);
@@ -370,6 +380,7 @@ public class MultipleBoard extends JFrame {
                  }
                   mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());
+                 dispose();
             }
         });
 

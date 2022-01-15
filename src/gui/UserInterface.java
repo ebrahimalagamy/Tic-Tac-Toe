@@ -1,5 +1,5 @@
 package gui;
-import connect.Connect;
+import SnakeGame.GameFrame;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import multiple.WelcomMultiple;
@@ -89,6 +89,7 @@ public class UserInterface extends javax.swing.JFrame {
         gamesbtn = new javax.swing.JButton();
         LabelName = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         onlineBtn1 = new javax.swing.JButton();
         panelGames = new javax.swing.JPanel();
         connect4 = new javax.swing.JButton();
@@ -439,7 +440,7 @@ public class UserInterface extends javax.swing.JFrame {
                 singleBtnActionPerformed(evt);
             }
         });
-        homePage.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 250, 80));
+        homePage.add(singleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 250, 80));
 
         multiBtn.setBackground(new java.awt.Color(214, 229, 250));
         multiBtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
@@ -452,23 +453,24 @@ public class UserInterface extends javax.swing.JFrame {
                 multiBtnActionPerformed(evt);
             }
         });
-        homePage.add(multiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 250, 80));
+        homePage.add(multiBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 250, 80));
 
         gamesbtn.setBackground(new java.awt.Color(214, 229, 250));
         gamesbtn.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         gamesbtn.setForeground(new java.awt.Color(126, 21, 168));
-        gamesbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/online-game.png"))); // NOI18N
-        gamesbtn.setText("     More Games");
+        gamesbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/board-game.png"))); // NOI18N
+        gamesbtn.setText("  More Games");
         gamesbtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
         gamesbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gamesbtnActionPerformed(evt);
             }
         });
-        homePage.add(gamesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 250, 80));
-        LabelName.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        LabelName.setForeground(new java.awt.Color(255, 253, 222));
-        homePage.add(LabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 130, 30));
+        homePage.add(gamesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 250, 80));
+
+        LabelName.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
+        LabelName.setForeground(new java.awt.Color(255, 255, 204));
+        homePage.add(LabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 130, 30));
 
         profileLabel.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         profileLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -480,18 +482,21 @@ public class UserInterface extends javax.swing.JFrame {
         });
         homePage.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 90));
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/image-modified.png"))); // NOI18N
+        homePage.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 60, 60));
+
         onlineBtn1.setBackground(new java.awt.Color(214, 229, 250));
         onlineBtn1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         onlineBtn1.setForeground(new java.awt.Color(126, 21, 168));
         onlineBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/online-game.png"))); // NOI18N
-        onlineBtn1.setText("     ONLINE");
+        onlineBtn1.setText("      ONLINE");
         onlineBtn1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
         onlineBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 onlineBtn1ActionPerformed(evt);
             }
         });
-        homePage.add(onlineBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 250, 80));
+        homePage.add(onlineBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 250, 80));
 
         cards.add(homePage, "card4");
 
@@ -627,11 +632,7 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuestActionPerformed
 
     private void btnPlayerProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayerProfileActionPerformed
-        crd = (CardLayout) cards.getLayout();
-        crd.show(cards,"card3");
-        String getData = new String();
-        getData=Controler.getData(LabelName.getText());
-        player.SendMessagetoServer(getData);
+       
     }//GEN-LAST:event_btnPlayerProfileActionPerformed
 
     private void profileBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileBackMouseClicked
@@ -657,14 +658,6 @@ public class UserInterface extends javax.swing.JFrame {
         player.SendMessagetoServer(getData);
     }//GEN-LAST:event_profileLabelMouseClicked
 
-    private void gamesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesbtnActionPerformed
-    
-         crd = (CardLayout) cards.getLayout();
-        crd.show(cards,"card5");
- 
-        
-    }//GEN-LAST:event_gamesbtnActionPerformed
-
     private void onlineBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineBtn1ActionPerformed
       if(onlineBtn1.getText().equals("LOG IN")){
         crd = (CardLayout) cards.getLayout();
@@ -678,7 +671,7 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_onlineBtn1ActionPerformed
 
     private void SnakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnakeActionPerformed
-      
+       new GameFrame().setVisible(true);
     }//GEN-LAST:event_SnakeActionPerformed
 
     private void profileLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabel1MouseClicked
@@ -686,11 +679,14 @@ public class UserInterface extends javax.swing.JFrame {
 
     
     private void connect4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connect4ActionPerformed
-     Connect c = new Connect();
-       
-     
+        
        
     }//GEN-LAST:event_connect4ActionPerformed
+
+    private void gamesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesbtnActionPerformed
+        crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card5");
+    }//GEN-LAST:event_gamesbtnActionPerformed
 
     
     public static void main(String args[]) {
@@ -767,6 +763,7 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
@@ -806,7 +803,7 @@ public class UserInterface extends javax.swing.JFrame {
         crd.show(cards,"card4");
         LabelName.setText(usernameField.getText());
         LabelNamM.setText(usernameField.getText());
-        
+         onlineBtn1.setText("    ONLINE");
   }
     
    public void inValidSignIn(){
@@ -822,6 +819,7 @@ public class UserInterface extends javax.swing.JFrame {
                 crd = (CardLayout) cards.getLayout();
                 crd.show(cards,"card4");
                 LabelName.setText(jTextField1.getText());
+                     onlineBtn1.setText("    ONLINE");
                
 }
   

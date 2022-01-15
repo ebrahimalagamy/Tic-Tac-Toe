@@ -12,14 +12,27 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import multiple.HistoryTabel;
+import multiple.LocalDataBase;
+import multiple.MultipleBoard;
+import static multiple.MultipleBoard.dataLocl;
+import static multiple.MultipleBoard.localFile;
 import video.loseVideo;
 import video.winVideo;
 
@@ -29,7 +42,7 @@ public class GameOnline extends JFrame {
      JLabel[] arrayOfLabals;
      JLabel boardBackground,secondPlayerName, imageRecording,
             firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage,selectMode,
-             savedIcon,textHistory,tieScore,searchIcon,searchText,searchingForPlayers;
+             savedIcon,textHistory,tieScore,searchIcon,searchText,searchingForPlayers,recordIcon;
      JButton btnRestart;
     
     private int rowSelected;
@@ -47,8 +60,39 @@ public class GameOnline extends JFrame {
     int secondPlayer;
     int tie;
     
+    ////////////////////////////////////////////
+     boolean record = false;
+     LinkedHashMap<Integer, String> moves = new LinkedHashMap<>();
+     public static File localFile;
+     
+     //record
+        public static  String dataLocl;
+        static Socket socket;
+        static DataInputStream dataInputStream;
+        static DataOutputStream dataOutputStream;
+        
+    ////////////////////////////////////////////
+    
+    
      public GameOnline() {
         createAndShowGUI();
+        
+        /////////////////// open file for record
+            try {
+            localFile = new File("OnlineLocl.txt");
+            if(localFile.createNewFile())
+            {
+                System.out.println("file created "+ localFile.getName()+ localFile.getPath());
+            }
+            else
+            {
+                System.out.println("the file is already existed");
+            }
+            dataLocl = LocalDataBase.readLocalFile(localFile);
+           // System.out.println("length: "+ localFile.length());
+        } catch (IOException ex) {
+            Logger.getLogger(MultipleBoard.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
     }
      
@@ -87,10 +131,12 @@ public class GameOnline extends JFrame {
 
         boardBackground = new JLabel();
         imageRecording = new JLabel();
+        recordIcon = new JLabel();
         backImage = new JLabel();
         playerImage = new JLabel();
         computerImage = new JLabel();
         vsImage = new JLabel();
+        
         searchIcon = new JLabel();
         searchText = new JLabel("Searching");
         savedIcon = new JLabel();
@@ -135,6 +181,10 @@ public class GameOnline extends JFrame {
         
         ImageIcon searchIconIamge = new ImageIcon(getClass().getClassLoader().getResource("images/search.png"));
         searchIcon.setIcon(searchIconIamge);
+        
+        ImageIcon imageIconRecord = new ImageIcon(getClass().getClassLoader().getResource("images/recorded.png"));
+        recordIcon.setIcon(imageIconRecord);
+        recordIcon.setVisible(false);
 
         // panal for game
         parentPanal.add(gameParentPanal);
@@ -165,6 +215,9 @@ public class GameOnline extends JFrame {
 
         gameParentPanal.add(imageRecording);
         imageRecording.setBounds(380, 20, 64, 64);
+        
+        gameParentPanal.add(recordIcon);
+        recordIcon.setBounds(350, 5, 64, 64);
         
         //info panal 
         parentPanal.add(gameInfoPanal);
@@ -229,6 +282,7 @@ public class GameOnline extends JFrame {
         online = new ClientBaseClass(new ArrayList<JLabel>(Arrays.asList(arrayOfLabals)),gui.UserInterface.LabelName.getText()){
             @Override
             public void onFinsh() {
+                
                 super.onFinsh(); //To change body of generated methods, choose Tools | Templates.
                 
             }
@@ -263,6 +317,9 @@ public class GameOnline extends JFrame {
                 super.onLose(); 
                 new loseVideo().setVisible(true);
                secondPlayerScore.setText((secondPlayer + 1) + "");
+               gameIsRecorded();
+                    LocalDataBase.writeLocalGameSteps(localFile, dataLocl ,firstPlayerName.getText(),
+                            Integer.parseInt(firstPlayerScore.getText()), secondPlayerName.getText(), Integer.parseInt(secondPlayerScore.getText()), moves); 
             }
 
             @Override
@@ -270,12 +327,13 @@ public class GameOnline extends JFrame {
                 super.onWin();
                  new winVideo().setVisible(true);
                 firstPlayerScore.setText((firstPlayer + 1) + "");
-                
+                              
             }
 
             @Override
             public void onSelect(JLabel button, String symbole) {
                 super.onSelect(button, symbole); 
+                moves.put(Integer.parseInt(button.getName()), symbole );
                 if(symbole.equals(ClientBaseClass.X)){
                  button.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
                 }else{
@@ -320,7 +378,32 @@ public class GameOnline extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 XOCounter = 0;
                 startNewGame();
+            }
+            });
 
+          imageRecording.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+               if (record == false){
+               record = true;
+                recordIcon.setVisible(true);
+                }
+                else{
+                record = false;
+                recordIcon.setVisible(false);
+                }
+            }
+        });
+        
+        savedIcon.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+               dataLocl = LocalDataBase.readLocalFile(localFile);
+               HistoryTabel table = new HistoryTabel(dataLocl);
+               table.method(localFile, dataLocl);
+               table.setLocationRelativeTo(null);
+               table.setVisible(true);
+               table.setDefaultCloseOperation(2);
+               
+               
             }
         });
         
@@ -341,6 +424,16 @@ public class GameOnline extends JFrame {
 
     }
     
+    public void gameIsRecorded()
+    {
+           // System.out.println("inside");
+            LocalDataBase.fillMap(moves, arrayOfLabals);
+            record = false;
+            recordIcon.setVisible(false);
+            dataLocl = LocalDataBase.readLocalFile(localFile);
+           // System.out.println(dataLocl+"the line inside recordGame");  
+    }
+    
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -351,3 +444,4 @@ public class GameOnline extends JFrame {
     }
 
 }
+                 
