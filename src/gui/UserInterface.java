@@ -1,4 +1,6 @@
 package gui;
+
+import Snake.*;
 import SnakeGame.GameFrame;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -659,7 +661,15 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_profileLabelMouseClicked
 
     private void gamesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesbtnActionPerformed
+<<<<<<< Updated upstream
   new GameFrame().setVisible(true);
+=======
+        crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card5");
+  
+        
+        
+>>>>>>> Stashed changes
     }//GEN-LAST:event_gamesbtnActionPerformed
 
     private void onlineBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineBtn1ActionPerformed
@@ -675,7 +685,7 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_onlineBtn1ActionPerformed
 
     private void SnakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SnakeActionPerformed
-       new GameFrame().setVisible(true);
+     new Snake_Game();
     }//GEN-LAST:event_SnakeActionPerformed
 
     private void profileLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabel1MouseClicked
