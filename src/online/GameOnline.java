@@ -206,8 +206,8 @@ public class GameOnline extends JFrame {
         selectMode.setForeground(new Color(255, 128, 134));
         selectMode.setFont(new Font("Arial", Font.BOLD, 20));
         
-        gameInfoPanal.add(btnRestart);
-        btnRestart.setBounds(80, 450, 250, 30);
+        //gameInfoPanal.add(btnRestart);
+        //btnRestart.setBounds(80, 450, 250, 30);
         
         
         gameParentPanal.add(backImage);
