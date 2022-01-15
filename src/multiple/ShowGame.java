@@ -156,73 +156,78 @@ public class ShowGame extends javax.swing.JFrame {
         label0.setForeground(new java.awt.Color(214, 229, 250));
         label0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label0.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label0, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 80, 80));
+        jPanel1.add(label0, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 80, 80));
 
         label1.setFont(new java.awt.Font("Agency FB", 0, 3)); // NOI18N
         label1.setForeground(new java.awt.Color(214, 229, 250));
         label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 80, 80));
+        jPanel1.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 80, 80));
 
         label2.setFont(new java.awt.Font("Agency FB", 0, 3)); // NOI18N
         label2.setForeground(new java.awt.Color(214, 229, 250));
         label2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 80, 80));
+        jPanel1.add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 80, 80));
 
         label3.setFont(new java.awt.Font("Agency FB", 0, 3)); // NOI18N
         label3.setForeground(new java.awt.Color(214, 229, 250));
         label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 80, 80));
+        jPanel1.add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 80, 80));
 
         label4.setFont(new java.awt.Font("Agency FB", 0, 3)); // NOI18N
         label4.setForeground(new java.awt.Color(214, 229, 250));
         label4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 80, 80));
+        jPanel1.add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 80, 80));
 
         label5.setFont(new java.awt.Font("Agency FB", 0, 3)); // NOI18N
         label5.setForeground(new java.awt.Color(214, 229, 250));
         label5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 80, 80));
+        jPanel1.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 80, 80));
 
         label6.setFont(new java.awt.Font("Agency FB", 0, 3)); // NOI18N
         label6.setForeground(new java.awt.Color(214, 229, 250));
         label6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 80, 80));
+        jPanel1.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 80, 80));
 
         label7.setFont(new java.awt.Font("Agency FB", 0, 3)); // NOI18N
         label7.setForeground(new java.awt.Color(214, 229, 250));
         label7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 80, 80));
+        jPanel1.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 80, 80));
 
         label8.setFont(new java.awt.Font("Agency FB", 0, 3)); // NOI18N
         label8.setForeground(new java.awt.Color(214, 229, 250));
         label8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 80, 80));
+        jPanel1.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 80, 80));
 
         imagelabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/board_1.png"))); // NOI18N
-        jPanel1.add(imagelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        jPanel1.add(imagelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
 
         labelFirstPlayerName.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
-        jPanel1.add(labelFirstPlayerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+        labelFirstPlayerName.setForeground(new java.awt.Color(0, 0, 102));
+        labelFirstPlayerName.setToolTipText("");
+        jPanel1.add(labelFirstPlayerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
 
         labelSecondPlayerName.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
-        jPanel1.add(labelSecondPlayerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+        labelSecondPlayerName.setForeground(new java.awt.Color(0, 0, 102));
+        jPanel1.add(labelSecondPlayerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
 
         labelFirstScore.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
-        jPanel1.add(labelFirstScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+        labelFirstScore.setForeground(new java.awt.Color(0, 0, 102));
+        jPanel1.add(labelFirstScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
         labelSecondScore.setFont(new java.awt.Font("Yu Gothic", 1, 18)); // NOI18N
-        jPanel1.add(labelSecondScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, -1));
+        labelSecondScore.setForeground(new java.awt.Color(0, 0, 102));
+        jPanel1.add(labelSecondScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/vs.png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 

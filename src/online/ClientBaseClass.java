@@ -19,8 +19,8 @@ public class ClientBaseClass {
     public static final int youWin = 1;
     public static final int youLose = 2;
     public static final int playing = 3;
-    public static final String X= "x";
-    public static final String O = "o";
+    public static final String X= "X";
+    public static final String O = "O";
     public static final String TIE= "tie";
     public static final String  move = "move";
     public static final String separator = ",";
