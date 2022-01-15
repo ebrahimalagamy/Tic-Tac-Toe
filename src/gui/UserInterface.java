@@ -658,10 +658,6 @@ public class UserInterface extends javax.swing.JFrame {
         player.SendMessagetoServer(getData);
     }//GEN-LAST:event_profileLabelMouseClicked
 
-    private void gamesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesbtnActionPerformed
-  new GameFrame().setVisible(true);
-    }//GEN-LAST:event_gamesbtnActionPerformed
-
     private void onlineBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineBtn1ActionPerformed
       if(onlineBtn1.getText().equals("LOG IN")){
         crd = (CardLayout) cards.getLayout();
@@ -683,11 +679,13 @@ public class UserInterface extends javax.swing.JFrame {
 
     
     private void connect4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connect4ActionPerformed
-   
+        
+       
     }//GEN-LAST:event_connect4ActionPerformed
 
     private void gamesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesbtnActionPerformed
-
+        crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card5");
     }//GEN-LAST:event_gamesbtnActionPerformed
 
     
