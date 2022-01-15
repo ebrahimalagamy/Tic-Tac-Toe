@@ -461,11 +461,6 @@ public class UserInterface extends javax.swing.JFrame {
         gamesbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/board-game.png"))); // NOI18N
         gamesbtn.setText("  More Games");
         gamesbtn.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
-        gamesbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gamesbtnActionPerformed(evt);
-            }
-        });
         homePage.add(gamesbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 250, 80));
 
         LabelName.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
@@ -658,9 +653,9 @@ public class UserInterface extends javax.swing.JFrame {
         player.SendMessagetoServer(getData);
     }//GEN-LAST:event_profileLabelMouseClicked
 
-    private void gamesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesbtnActionPerformed
+    private void gamesbtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
   new GameFrame().setVisible(true);
-    }//GEN-LAST:event_gamesbtnActionPerformed
+    }                                        
 
     private void onlineBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onlineBtn1ActionPerformed
       if(onlineBtn1.getText().equals("LOG IN")){
@@ -685,10 +680,6 @@ public class UserInterface extends javax.swing.JFrame {
     private void connect4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connect4ActionPerformed
    
     }//GEN-LAST:event_connect4ActionPerformed
-
-    private void gamesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesbtnActionPerformed
-
-    }//GEN-LAST:event_gamesbtnActionPerformed
 
     
     public static void main(String args[]) {
