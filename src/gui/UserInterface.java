@@ -1,4 +1,5 @@
 package gui;
+import connect.Connect;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import multiple.WelcomMultiple;
@@ -657,9 +658,10 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_profileLabelMouseClicked
 
     private void gamesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesbtnActionPerformed
-
-   
-        
+    
+         crd = (CardLayout) cards.getLayout();
+        crd.show(cards,"card5");
+ 
         
     }//GEN-LAST:event_gamesbtnActionPerformed
 
@@ -684,7 +686,9 @@ public class UserInterface extends javax.swing.JFrame {
 
     
     private void connect4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connect4ActionPerformed
-   
+     new Connect();
+     
+       
     }//GEN-LAST:event_connect4ActionPerformed
 
     

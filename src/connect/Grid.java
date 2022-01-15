@@ -1,4 +1,4 @@
-package connect4;
+package connect;
 //Grid and check moves
 public class Grid {
 

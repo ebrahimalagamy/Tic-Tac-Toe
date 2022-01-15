@@ -1,9 +1,9 @@
-package connect4;
+package connect;
 
-public class Connect4 {
-
-    public static void main(String[] args) {
-        int state = 0;
+public class Connect {
+    public Connect(){
+    
+     int state = 0;
         boolean useGui = true;//sets if we want the cli or gui.
 
         if (useGui) {
@@ -75,4 +75,10 @@ public class Connect4 {
             }
         }
     }
+    
+    
+
+    public static void main(String[] args) {
+        Connect c = new Connect();
+}
 }

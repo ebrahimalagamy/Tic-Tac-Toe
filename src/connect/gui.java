@@ -1,4 +1,4 @@
-package connect4;
+package connect;
 
 import javax.swing.*;
 import javax.swing.border.*;
