@@ -444,4 +444,3 @@ public class GameOnline extends JFrame {
     }
 
 }
-                 
