@@ -16,6 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import video.loseVideo;
+import video.winVideo;
 
 public class GameOnline extends JFrame {   
 
@@ -23,7 +25,7 @@ public class GameOnline extends JFrame {
      JLabel[] arrayOfLabals;
      JLabel boardBackground,secondPlayerName, imageRecording,
             firstPlayerScore, secondPlayerScore, playerImage, computerImage, backImage,vsImage,selectMode,
-             savedIcon,textHistory,tieScore,searchIcon,searchText;
+             savedIcon,textHistory,tieScore,searchIcon,searchText,searchingForPlayers;
     
     private int rowSelected;
     private int columnSelected; 
@@ -57,6 +59,8 @@ public class GameOnline extends JFrame {
         tieScore = new JLabel("0", JLabel.CENTER);
         
         firstPlayerName = new JLabel();
+       
+        
         secondPlayerName = new JLabel();
 
         boardBackground = new JLabel();
@@ -70,6 +74,7 @@ public class GameOnline extends JFrame {
         savedIcon = new JLabel();
         textHistory = new JLabel("History");
         selectMode = new JLabel("Online");
+        searchingForPlayers = new JLabel("Wating another player to join");
         firstPlayer = Integer.valueOf(this.firstPlayerScore.getText());
         secondPlayer = Integer.valueOf(this.secondPlayerScore.getText());
          tie = Integer.valueOf(this.tieScore.getText());
@@ -113,6 +118,9 @@ public class GameOnline extends JFrame {
         gameParentPanal.setBackground(new Color(214, 229, 250));
         gameParentPanal.add(boardBackground);
         boardBackground.setBounds(75, 120, 300, 300);
+        
+        gameParentPanal.add(searchingForPlayers);
+        searchingForPlayers.setBounds(150, 130, 200, 200);
 
         gameParentPanal.setBounds(0, 0, 450, 550);
         gameParentPanal.add(gamePanal);
@@ -124,6 +132,7 @@ public class GameOnline extends JFrame {
         selectMode.setBounds(200, 10, 100, 100);
         selectMode.setForeground(new Color(255, 128, 134));
         selectMode.setFont(new Font("Arial", Font.BOLD, 20));
+        
         
         gameParentPanal.add(backImage);
         backImage.setBounds(20, 20, 32, 32);
@@ -202,6 +211,7 @@ public class GameOnline extends JFrame {
                 super.onLetsPlay(); //To change body of generated methods, choose Tools | Templates.
                 searchIcon.setVisible(false);
                 searchText.setVisible(false);
+                searchingForPlayers.setVisible(false);
                 
                  gamePanal.setVisible(true);
                  boardBackground.setVisible(true);
@@ -224,13 +234,14 @@ public class GameOnline extends JFrame {
             @Override
             public void onLose() {
                 super.onLose(); 
-                
+                new loseVideo().setVisible(true);
                secondPlayerScore.setText((secondPlayer + 1) + "");
             }
 
             @Override
             public void onWin() {
                 super.onWin();
+                 new winVideo().setVisible(true);
                 firstPlayerScore.setText((firstPlayer + 1) + "");
                 
             }
@@ -265,6 +276,12 @@ public class GameOnline extends JFrame {
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");   
                   setVisible(false);
+                   if(firstPlayerName.getText().equals("Guest")){
+                     mm.onlineBtn1.setText("LOG IN");
+                 }
+                  mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
+                 gui.UserInterface.LabelName.setText(firstPlayerName.getText());
+                 
             }
         });
         

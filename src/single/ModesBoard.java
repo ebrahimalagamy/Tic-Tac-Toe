@@ -12,14 +12,25 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.net.Socket;
+import java.util.LinkedHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import static multiple.MultipleBoard.firstPlayerName;
-import tic.tac.toe.TicTacToe;
+import multiple.HistoryTabel;
+import multiple.LocalDataBase;
+import multiple.MultipleBoard;
+import static multiple.MultipleBoard.dataLocl;
+import static multiple.MultipleBoard.localFile;
 
 
 public class ModesBoard extends JFrame {
@@ -28,14 +39,28 @@ public class ModesBoard extends JFrame {
     JLabel[] arrayOfLabals;
  public  JLabel boardBackground , secondPlayerName, imageRecording,
             firstPlayerScore, secondPlayerScore, playerImage, selectMode, computerImage, backImage, choseMode,vsImage,
-            hardImage,esayImage,tieScore;
+            hardImage,esayImage,tieScore,recordIcon,textHistory,savedIcon;
     JButton btnRestart, btnEasy, btnHard,btnStart;
-    public static  JLabel firstPlayerName;
-    int XOCounter = 0;
+      int XOCounter = 0;
     boolean isFirstPlayerTurn = true;
     boolean isGameEnds = false;
     static JLabel pressedLabel;
       UserInterface mm;
+     public static  JLabel firstPlayerName;
+      ////////////////////////////////////////////
+     boolean record = false;
+     LinkedHashMap<Integer, String> moves = new LinkedHashMap<>();
+     public static File localFile;
+     
+     //record
+        public static  String dataLocl;
+        static Socket socket;
+        static DataInputStream dataInputStream;
+        static DataOutputStream dataOutputStream;
+        
+    ////////////////////////////////////////////    
+        
+        //// create gui of game 
     
 
     private void createGamePage() {
@@ -71,12 +96,15 @@ public class ModesBoard extends JFrame {
         
         hardImage = new JLabel();
         esayImage = new JLabel();
+        recordIcon = new JLabel();
+        savedIcon = new JLabel();
+        textHistory = new JLabel("History");
         
         playerImage = new JLabel();
         computerImage = new JLabel();
         vsImage = new JLabel();
         firstPlayerName = new JLabel();
-//       firstPlayerName.setText(gui.UserInterface.LabelName.getText());
+        firstPlayerName.setText(gui.UserInterface.LabelName.getText());
         secondPlayerName = new JLabel("PC");
 
         ImageIcon imageIconBoard = new ImageIcon(getClass().getClassLoader().getResource("images/board_1.png"));
@@ -90,6 +118,7 @@ public class ModesBoard extends JFrame {
 
         ImageIcon imageIconBack = new ImageIcon(getClass().getClassLoader().getResource("images/back_2.png"));
         backImage.setIcon(imageIconBack);
+        
         ImageIcon imageIconRecording = new ImageIcon(getClass().getClassLoader().getResource("images/record.png"));
         imageRecording.setIcon(imageIconRecording);
         
@@ -101,11 +130,19 @@ public class ModesBoard extends JFrame {
         
         ImageIcon imageIconHard = new ImageIcon(getClass().getClassLoader().getResource("images/hard.png"));
         hardImage.setIcon(imageIconHard);
+        
+        ImageIcon imageIconRecord = new ImageIcon(getClass().getClassLoader().getResource("images/recorded.png"));
+        recordIcon.setIcon(imageIconRecord);
+        recordIcon.setVisible(false);
+        
+        ImageIcon imageIconSaved = new ImageIcon(getClass().getClassLoader().getResource("images/save.png"));
+        savedIcon.setIcon(imageIconSaved);
 
         for (int i = 0; i < arrayOfLabals.length; i++) {
             arrayOfLabals[i] = new JLabel("", JLabel.CENTER);
             arrayOfLabals[i].setFont(new Font("Verdana", Font.BOLD, 0));
             arrayOfLabals[i].setBackground(Color.cyan);
+            arrayOfLabals[i].setName(""+i);
             gamePanal.add(arrayOfLabals[i]);
         }
 
@@ -130,6 +167,16 @@ public class ModesBoard extends JFrame {
 
         gameParentPanal.add(imageRecording);
         imageRecording.setBounds(380, 20, 64, 64);
+        
+        //recorded icon
+        gameParentPanal.add(recordIcon);
+        recordIcon.setBounds(350, 5, 64, 64);
+        
+        gameInfoPanal.add(savedIcon);
+        savedIcon.setBounds(270, 355, 64, 64);
+        
+        gameInfoPanal.add(textHistory);
+        textHistory.setBounds(280, 390, 64, 64);
 
         // panal for informaton 
         parentPanal.add(gameInfoPanal);
@@ -144,7 +191,8 @@ public class ModesBoard extends JFrame {
         btnRestart.setBounds(80, 450, 250, 30);
         
          gameInfoPanal.add(btnStart);
-        btnStart.setBounds(80, 350, 250, 30);
+
+        btnStart.setBounds(80, 320, 250, 30);
         
         gameInfoPanal.add(esayImage);
         esayImage.setBounds(83, 57, 50, 50);
@@ -182,6 +230,7 @@ public class ModesBoard extends JFrame {
         secondPlayerScore.setForeground(Color.ORANGE);
         secondPlayerScore.setFont(new Font("Arial", Font.BOLD, 20));
         secondPlayerScore.setBounds(274, 260, 50, 50);
+        
         gameInfoPanal.add(tieScore);
         tieScore.setForeground(Color.ORANGE);
         tieScore.setFont(new Font("Arial", Font.BOLD, 20));
@@ -206,6 +255,17 @@ public class ModesBoard extends JFrame {
             boolean check = false;
             EasyClass e = new EasyClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, pressedLabel, XOCounter,tieScore);
             check = e.isOnePlayerGameEnds();
+            moves = EasyClass.moves;
+            //moves.put(Integer.parseInt(pressedLabel.getName()), pressedLabel.getText());
+        if(check){
+            if(record)
+                {   
+                    gameIsRecorded();    
+                    LocalDataBase.writeLocalGameSteps(localFile, dataLocl ,firstPlayerName.getText(),
+                            Integer.parseInt(firstPlayerScore.getText()), secondPlayerName.getText(), Integer.parseInt(secondPlayerScore.getText()), moves); 
+                    //System.out.println(dataLocl);
+                }
+        }
             XOCounter += 2;
             if (check) {
                 removeXOListener();
@@ -214,12 +274,22 @@ public class ModesBoard extends JFrame {
             } else {
                 return false;
             }
+            
         }else{
-           
             System.out.println("from hard");
-            boolean check = false;
-           
+            boolean check = false;          
             check = hard.isOnePlayerGameEnds();
+            moves = HardClass.moves;
+            //moves.put(Integer.parseInt(pressedLabel.getName()), pressedLabel.getText());
+        if(check){
+            if(record)
+                {   
+                    gameIsRecorded();    
+                    LocalDataBase.writeLocalGameSteps(localFile, dataLocl ,firstPlayerName.getText(),
+                            Integer.parseInt(firstPlayerScore.getText()), secondPlayerName.getText(), Integer.parseInt(secondPlayerScore.getText()), moves); 
+                    //System.out.println(dataLocl);
+                }
+        }
             XOCounter += 2;
             if (check) {
                 removeXOListener();
@@ -284,15 +354,28 @@ public class ModesBoard extends JFrame {
 
     public ModesBoard() {
         createAndShowGUI();
+        /////////////////// open file for record
+            try {
+            localFile = new File("singlelocal.txt");
+            if(localFile.createNewFile())
+            {
+                System.out.println("file created "+ localFile.getName()+ localFile.getPath());
+            }
+            else
+            {
+                System.out.println("the file is already existed");
+            }
+            dataLocl = LocalDataBase.readLocalFile(localFile);
+           // System.out.println("length: "+ localFile.length());
+        } catch (IOException ex) {
+            Logger.getLogger(ModesBoard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void createAndShowGUI() {
-        
         createGamePage();
         add(parentPanal);
-      
-
-        for (JLabel gamePage_boardLabel : arrayOfLabals) {
+             for (JLabel gamePage_boardLabel : arrayOfLabals) {
             gamePage_boardLabel.addMouseListener(XOListener);
         }
        
@@ -302,14 +385,11 @@ public class ModesBoard extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 XOCounter = 0;
                 startNewGame();
-                
-         
 
             }
         });
         backImage.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                dispose();
                     dispose();
                 UserInterface mm = new UserInterface();
                   mm.setLocationRelativeTo(null);
@@ -317,12 +397,13 @@ public class ModesBoard extends JFrame {
                   crd = (CardLayout) cards.getLayout();
                   crd.show(cards,"card4");
                   mm.score(firstPlayerName.getText(),firstPlayerScore.getText(),secondPlayerScore.getText(),tieScore.getText());
-                  
+                 if(firstPlayerName.getText().equals("Guest")){
+                     mm.onlineBtn1.setText("LOG IN");
+                 }
                  gui.UserInterface.LabelName.setText(firstPlayerName.getText());
             }
         });
-        
-
+     
         btnHard.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 startNewGame();
@@ -334,7 +415,8 @@ public class ModesBoard extends JFrame {
         
           btnStart.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-              hard = new HardClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, XOCounter,tieScore);
+                     hard = new HardClass(arrayOfLabals, parentPanal, firstPlayerScore, secondPlayerScore, XOCounter,tieScore);
+
             }
         });
         
@@ -346,7 +428,29 @@ public class ModesBoard extends JFrame {
              
             }
         });
+        
+        
+        savedIcon.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+               dataLocl = LocalDataBase.readLocalFile(localFile);
+               HistoryTabel table = new HistoryTabel(dataLocl);
+               table.method(localFile, dataLocl);
+               table.setLocationRelativeTo(null);
+               table.setVisible(true);
+               table.setDefaultCloseOperation(2);
+               
+               
+            }
+        });
 
+        
+        imageRecording.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+               record = true;
+               recordIcon.setVisible(true);
+                System.out.println("Record is true  ");
+            }
+        });
 
         setTitle("Tic Tac Toe");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -356,6 +460,17 @@ public class ModesBoard extends JFrame {
         setVisible(true);
 
     }
+    
+    public void gameIsRecorded()
+    {
+           // System.out.println("inside");
+            LocalDataBase.fillMap(moves, arrayOfLabals);
+            record = false;
+            recordIcon.setVisible(false);
+            dataLocl = LocalDataBase.readLocalFile(localFile);
+           // System.out.println(dataLocl+"the line inside recordGame");  
+    }
+    
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -365,5 +480,6 @@ public class ModesBoard extends JFrame {
             }
         });
     }
+
 
 }

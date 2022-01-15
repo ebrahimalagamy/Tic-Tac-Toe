@@ -48,7 +48,7 @@ public class SplashScreengui extends javax.swing.JFrame {
         loading.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         loading.setForeground(new java.awt.Color(255, 255, 255));
         loading.setText("Loading...");
-        jPanel2.add(loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, -1));
+        jPanel2.add(loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, -1, -1));
 
         load.setBackground(new java.awt.Color(255, 255, 255));
         load.setForeground(new java.awt.Color(51, 0, 102));
@@ -58,7 +58,7 @@ public class SplashScreengui extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 560, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/splashscreen/68747470733a2f2f696d6167652e666c617469636f6e2e636f6d2f69636f6e732f706e672f3531322f3536362f3536363239342e706e67-modified.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 240, 260));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 240, 260));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -2,6 +2,7 @@ package single;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.LinkedHashMap;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -19,34 +20,33 @@ public class HardClass extends JFrame{
      ImageIcon xIcon;
      int firstPlayer;
      int secondPlayer;
+     public static LinkedHashMap<Integer, String> moves = new LinkedHashMap<>();
 
     public HardClass(JLabel[] arrayOfLabals, JPanel parentPanal, JLabel firstPlayerScore, JLabel secondPlayerScore, int XOCounter,JLabel tieScore) {
         this.arrayOfLabals = arrayOfLabals;
         this.parentPanal = parentPanal;
         this.firstPlayerScore = firstPlayerScore;
         this.secondPlayerScore = secondPlayerScore;
-       
         this.XOCounter = XOCounter;
         this.tieScore = tieScore;
+        
          char[][] board = {{'_','_','_'}
                             ,{'_','_','_'}
                             ,{'_','_','_'}};
-
         
                  arr2d(board);
                  printArray(board);
                  Move move = findBestMove(board);
                  System.out.println( " X: "
                          +move.row+ " Y: "+move.col);
-                
 
-                        arrayOfLabals[move.row+(move.col*3)].setText("X");
-                        arrayOfLabals[move.row+(move.col*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
+                        arrayOfLabals[move.row+(move.col*3)].setText("O");
+                        arrayOfLabals[move.row+(move.col*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
                         arrayOfLabals[move.row+(move.col*3)].setForeground(Color.blue);
+                        moves.put(Integer.parseInt(arrayOfLabals[move.row+(move.col*3)].getName()),arrayOfLabals[move.row+(move.col*3)].getText());
                         parentPanal.repaint();
                         printArray(board);
                         XOCounter++;
-           
            
     }
 
@@ -56,6 +56,9 @@ public class HardClass extends JFrame{
     Random random = new Random();
    
     private void createGamePage() {
+        for (int i = 0; i < arrayOfLabals.length; i++) {
+            arrayOfLabals[i].setName(""+i);
+        }
   
     
     }
@@ -410,14 +413,15 @@ static Move findBestMove(char board[][])
 
         if (XOCounter < 9 && ModesBoard.pressedLabel.getText().equals("")) {
 
-            ModesBoard.pressedLabel.setText("O");
-            ModesBoard.pressedLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
+            ModesBoard.pressedLabel.setText("X");
+            ModesBoard.pressedLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
             parentPanal.repaint();
           
             
             ModesBoard.pressedLabel.setForeground(Color.ORANGE);
             
             XOCounter++;
+            moves.put(Integer.parseInt(ModesBoard.pressedLabel.getName()), ModesBoard.pressedLabel.getText());
            
             checkIfThereIsAWinner();
             
@@ -430,29 +434,29 @@ static Move findBestMove(char board[][])
                  System.out.println( " X: "
                          +move.row+ " Y: "+move.col);
           
-                        arrayOfLabals[move.col+(move.row*3)].setText("X");
-                        arrayOfLabals[move.col+(move.row*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/x.png")));
+                        arrayOfLabals[move.col+(move.row*3)].setText("O");
+                        arrayOfLabals[move.col+(move.row*3)].setIcon(new ImageIcon(getClass().getClassLoader().getResource("images/o.png")));
                         arrayOfLabals[move.col+(move.row*3)].setForeground(Color.blue);
                          arrayOfLabals[move.col+(move.row*3)].setVisible(true);
                         board[move.row][move.col] = 'X';
                         parentPanal.repaint();
+                        moves.put(Integer.parseInt(arrayOfLabals[move.col+(move.row*3)].getName()), arrayOfLabals[move.col+(move.row*3)].getText());
 
                         XOCounter++;
                         checkIfThereIsAWinner();
                         System.out.println("aftel calc");
                         printArray(board);
-                         System.out.println(XOCounter);
+                        System.out.println(XOCounter);
                
             }
 
         }
 
         if ( (XOCounter == 9 )&& firstPlayer == Integer.valueOf(firstPlayerScore.getText()) && secondPlayer == Integer.valueOf(secondPlayerScore.getText())) {
-                this.tieScore.setText((tieScore + 1) + "");
-                
+                this.tieScore.setText((tieScore + 1) + "");  
             }
+        
          if (XOCounter >= 9 || isGameEnds == true) {
-           
             return true;
         }
 
