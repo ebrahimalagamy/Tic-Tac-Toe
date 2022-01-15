@@ -347,9 +347,14 @@ public class GameOnline extends JFrame {
          
           imageRecording.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
+               if (record == false){
                record = true;
-               recordIcon.setVisible(true);
-                System.out.println("Record is true  ");
+                recordIcon.setVisible(true);
+                }
+                else{
+                record = false;
+                recordIcon.setVisible(false);
+                }
             }
         });
         

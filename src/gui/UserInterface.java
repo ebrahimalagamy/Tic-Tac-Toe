@@ -489,7 +489,7 @@ public class UserInterface extends javax.swing.JFrame {
         onlineBtn1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         onlineBtn1.setForeground(new java.awt.Color(126, 21, 168));
         onlineBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/online-game.png"))); // NOI18N
-        onlineBtn1.setText("     ONLINE");
+        onlineBtn1.setText("      ONLINE");
         onlineBtn1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
         onlineBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
