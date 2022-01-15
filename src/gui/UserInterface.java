@@ -686,7 +686,8 @@ public class UserInterface extends javax.swing.JFrame {
 
     
     private void connect4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connect4ActionPerformed
-     new Connect();
+     Connect c = new Connect();
+       
      
        
     }//GEN-LAST:event_connect4ActionPerformed

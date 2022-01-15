@@ -1,6 +1,7 @@
 package connect;
 
 public class Connect {
+    
     public Connect(){
     
      int state = 0;
@@ -80,5 +81,6 @@ public class Connect {
 
     public static void main(String[] args) {
         Connect c = new Connect();
+            
 }
 }
